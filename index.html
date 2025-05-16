@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Teste</title>
+    <style>
+    body{
+    font-family: Arial;
+      background: #f2f2f2;  
+      padding: 20px;
+    }
+    #loginForm{
+        background:white;
+        padding: 20px;
+        max-width: 300px;
+        margin: auto;
+        border-radius: 10px;
+        box-shadow: 0 0 10px #aaa;
+    }
+    input{
+        width: 100%;
+  margin: 10px 0;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+
+    }
+    .login-teste {
+      width: 100%;
+      padding: 10px;
+      background:black;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+    #message {
+      color: red;   
+      margin-top: 10px;
+     }
+     .dashboard-teste{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 20px;
+     }
+     .dashboard-teste2{
+        padding: 10px 20px;
+       margin: 20px ;
+       background-color: black;
+       color: white;
+       border: none;
+       border-radius: 10px;
+       font-size: 20px;
+       cursor: pointer;
+       display: inline-block;
+       width:auto;
+
+     }
+     #tabContent{
+        margin-top: 10px;
+     }
+     .titulo{
+        text-align: left;
+     }
+
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <form id="loginForm">
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Usuario" required>
+    <input type="password" id="password" placeholder="Senha" required>
+    <button type="submit" class="login-teste">Entra</button>
+    <div id="message"></div>
+
+</form>
+
+    <div  id="dashboard" style="display: none;" >
+    <h1 class="titulo">House Match</h1>
+    <div class="dashboard-teste">
+      <button class="dashboard-teste2" onclick="showTab('home')">Pagina Inicial</button>
+      <button class="dashboard-teste2" onclick="showTab('profile')">Perfil</button>
+      <button class="dashboard-teste2" onclick="showTab('settings')">Configurações</button>
+      <button class="dashboard-teste2" onclick="showTab('livros')">Livros</button>
+
+    </div>
+    <div id="tabContent" style="margin-top: 20px;"></div>
+  </div>
+    
+    
+    
+    <script src="script.js"></script>
+
+
+    
+</body>
+
+</html>
