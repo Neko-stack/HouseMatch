@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
+
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(41, 41, 41);
+    font-family: "Poppins"
+}
+
+li, a, button {
+    font-size: 19px;
+    color: white;
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 15px;
+    background-color: rgb(22, 22, 22);
+}
+
+.logotipo {
+    transition: font-size 0.3s ease;
+    color: white;
+    font-size: 35px;
+    font-weight: bold;;
+}
+
+.nav-links {
+    list-style: none;
+}
+
+.nav-links li{
+    transition: ease-in 0.4s;
+    display: inline-block;
+    padding: 0px 50px;
+}
+
+.nav-links li a{
+    transition: ease 0.4s;
+}
+
+.nav-links li a:hover {
+    transition: ease 0.4s;
+    color: antiquewhite;
+    font-size: 22px;
+}
+
+button {
+    transition: ease-in 0.3s;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 25px;
+    background-color: rgb(214, 175, 103);
+    color: black;
+    cursor: pointer;
+}
+
+button:hover {
+    color: whitesmoke;
+    transition: ease 0.6s;
+    background-color: rgb(92, 150, 150);
+
+}
+
+@media (max-width: 1105px) {
+    .nav-links li{
+        padding: 0px 20px;
+    }
+    li, a, button{ 
+        font-size: 15px;
+    }
+    .logotipo {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 894px) {
+    .logotipo {
+        font-size: 24px;
+    }
+    li, a, button{ 
+        font-size: 13.5px;
+    }
+    .nav-links li a:hover {
+    transition: ease 0.4s;
+    color: antiquewhite;
+    font-size: 16px;
+    }
+    .nav-links li{
+        padding: 0px 15px;
+    }
+    button {
+        padding: 20px 30px;
+    }
+}
+
+@media (max-width: 700px) {
+    .logotipo {
+        font-size: 20px;
+    }
+    li, a, button{ 
+    font-size: 12px;
+    }
+    .nav-links li{
+    padding: 0px 5px;
+    }
+    .nav-links li a:hover {
+    transition: ease 0.4s;
+    color: antiquewhite;
+    font-size: 15px;
+    }
+    button {
+    padding: 20px 30px;
+    }
+}
