@@ -1,3 +1,4 @@
+/* fonte de texto, nao mexa */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
 
 body {
@@ -28,7 +29,7 @@ header {
     font-size: 35px;
     font-weight: bold;;
 }
-
+/* todos os links da navbar*/
 .nav-links {
     list-style: none;
 }
@@ -51,6 +52,7 @@ header {
     scale: 1.1;
 }
 
+/* botoes, talvez depois adicionar uma classe apenas para o login */
 button {
     transition: color ease-in 0.6s, background-color ease 1.2s, scale ease-in 0.25s, padding ease-in 0.25s;
     padding: 15px 40px;
@@ -61,13 +63,16 @@ button {
     cursor: pointer;
 }
 
+/* animação de passada de mouse no botao e login */
 button:hover {
     color: whitesmoke;
-    transition: color ease 0.6s, background-color ease 0.6s, scale ease-in 0.3s;
+    transition: color ease 0.6s, background-color ease 0.6s, scale ease-in-out 0.2s;
     background-color: rgb(92, 150, 150);
-    scale: 1.1;
+    scale: 1.15;
 
 }
+
+/*  */
 
 @media (max-width: 1200px) {
     .nav-links li{
@@ -96,17 +101,19 @@ button:hover {
     }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 650px) {
     .logotipo {
-        font-size: 20px;
+        font-size: 18px;
     }
     li, a, button{ 
-    font-size: 12px;
+    font-size: 8px;
     }
     .nav-links li{
-    padding: 0px 5px;
+    padding: 0px 10px;
     }
     button {
-    padding: 20px 30px;
+    padding: 15px 20px;
     }
 }
+
+/* Responsividade em diferentes resoluções */
