@@ -10,7 +10,7 @@ body {
 }
 
 li, a, button {
-    font-size: 19px;
+    font-size: 20px;
     color: white;
     text-decoration: none;
 }
@@ -26,7 +26,7 @@ header {
 .logotipo {
     transition: font-size 0.3s ease;
     color: white;
-    font-size: 35px;
+    font-size: 40px;
     font-weight: bold;;
 }
 /* todos os links da navbar*/
@@ -48,7 +48,7 @@ header {
 .nav-links li a:hover {
     transition: ease 0.3s;
     color: rgb(255, 231, 200);
-    letter-spacing: 2.0px;
+    letter-spacing: 1.5px;
     scale: 1.1;
 }
 
@@ -82,16 +82,16 @@ button:hover {
         font-size: 16px;
     }
     .logotipo {
-        font-size: 30px;
+        font-size: 28px;
     }
 }
 
 @media (max-width: 940px) {
     .logotipo {
-        font-size: 24px;
+        font-size: 22px;
     }
     li, a, button{ 
-        font-size: 13.5px;
+        font-size: 11px;
     }
     .nav-links li{
         padding: 0px 15px;
