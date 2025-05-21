@@ -44,13 +44,4 @@ function showTab(tab) {
 
 
 
-    /*padding: 10px 20px;
-       margin: 20px ;
-       background-color: black;
-       color: white;
-       border: none;
-       border-radius: 10px;
-       font-size: 20px;
-       cursor: pointer;
-       display: inline-block;
-       width:auto; */
+   
