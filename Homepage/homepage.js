@@ -2,16 +2,17 @@
 //LOGIN MODAL
 const modal = document.getElementById("login-modal");
 const btn = document.getElementById("open-login");
-const span = document.getElementsByClassName("close")[0];
+const closeBtn = document.getElementsByClassName("close")[0];
 
 btn.onclick = function() {
     modal.style.display = "flex";
   }
   
-  // Fechar o modal ao clicar no X
-  span.onclick = function(event) {
-    if(event.target == modal)
-    modal.style.display = "none";
+  closeBtn.onclick = function(event) {
+    if(event.target != modal) {
+        
+        modal.style.display = "none";
+    }
   }
   
   // Fechar o modal ao clicar fora do conteúdo
@@ -20,7 +21,6 @@ btn.onclick = function() {
       modal.style.display = "none";
     }
   }
-  
 
 
 
