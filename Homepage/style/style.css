@@ -30,6 +30,11 @@ header {
     font-weight: bold;;
     text-shadow: 0 0 20px rgba(245, 245, 245, 0.799);
 }
+
+.fa-home{ /* Icone Casa*/
+    font-size: 55px;
+
+}
 /* todos os links da navbar*/
 .nav-links {
     list-style: none;
@@ -266,3 +271,23 @@ header {
 }
 
 /* PS: Gustavo aqui, eu organizei o css de novo, mudei algumas coisas que estavam fazendo com que quebrasse o visual do site e o X não aparecer :) */
+
+
+.pagina-centro{
+    width: 600px;
+    height: 700px;
+    background-color: rgb(214, 175, 103);
+    align-items: center;
+    
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #aaa;
+}
+
+.primeira-casa{
+    width: 100px;
+    height: 100px;
+    align-items: center;
+    margin: 30px;
+    border-radius: 5px;
+}
