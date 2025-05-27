@@ -199,13 +199,16 @@ header {
     width: 80%;
     height: fit-content;
     background-color: rgb(214, 175, 103);
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     margin: 0 auto;
     border-radius: 10px;
     box-shadow: 0 0 10px #aaa;
+    padding: 15px;
+    gap: 40px;
 }
 
 .pagina-filtro{
@@ -224,11 +227,11 @@ header {
     transition: transform 0.3s cubic-bezier(0.215, 0.610, 0.355, 1), box-shadow 0.3s cubic-bezier(0.215, 0.610, 0.355, 1) ;
     display: flex;
     justify-content: center;
+    align-items: center;
     text-align: center;
     border: none;
     border-radius: 15px;
     background-color: rgb(41, 41, 41);
-    margin: 25px 60.2px;
     height: fit-content;
     width: 240px;
     color: white;
@@ -236,6 +239,7 @@ header {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.87);
     font-family: "Poppins";
     padding: 10px 10px;
+    margin: 10px;
 }
 
 .card:hover{
