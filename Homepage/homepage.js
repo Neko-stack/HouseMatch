@@ -15,7 +15,7 @@ btn.onclick = function() {
     }
   }
   
-  // Fechar o modal ao clicar fora do conteúdo
+
   window.onclick = function(event) {
     if (event.target == modal) {
       modal.style.display = "none";
@@ -40,16 +40,16 @@ const password1 = "1"
 
 
 if(user === user1 && password === password1){
-    message.style.color = "green"
-    message.textContent = "Login Efetuado"
+   message.style.color = "green"
+   message.textContent = "Login efetuado"
 
     //login efetuado
 
 
     document.getElementById("loginForm").style.display = "none"
     
-
-    showTab("home");
+  showTab("home")
+  
    
 }else{
     message.style.color = "red"

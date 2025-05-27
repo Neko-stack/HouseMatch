@@ -274,20 +274,27 @@ header {
 
 
 .pagina-centro{
-    width: 600px;
+    width: 650px;
     height: 700px;
     background-color: rgb(214, 175, 103);
     align-items: center;
-    
+    display: flex;
     margin: 20px auto;
+    margin-top: 50px;
+    
     border-radius: 10px;
     box-shadow: 0 0 10px #aaa;
 }
 
-.primeira-casa{
-    width: 100px;
-    height: 100px;
+.pagina-filtro{
+    width: 1225px;
+    height: 70px;
+    background-color: rgb(214, 175, 103);
     align-items: center;
-    margin: 30px;
-    border-radius: 5px;
+    display: flex;
+    margin: 20px auto;
+    margin-left: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #aaa;
 }
+
