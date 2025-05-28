@@ -1,0 +1,365 @@
+/* fonte de texto, nao mexa */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
+
+body{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(41, 41, 41);
+    font-family: "Poppins"
+}
+
+li, a, button {
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 15px;
+    background-color: rgb(22, 22, 22);
+}
+
+.logotipo {
+    transition: font-size 0.3s ease;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;;
+    text-shadow: 0 0 20px rgba(245, 245, 245, 0.799);
+}
+
+.fa-home{ /* Icone Casa*/
+    font-size: 42px;
+
+}
+/* todos os links da navbar*/
+.nav-links {
+    list-style: none;
+}
+
+.nav-links li{
+    transition: ease-in 0.4s;
+    display: inline-block;
+    padding: 0px 50px;
+}
+
+.nav-links li a{
+    display: inline-block;
+    transition: letter-spacing 0.3s ease, color 0.6s ease, scale 0.3s ease;
+}
+
+.nav-links li a:hover {
+    transition: ease 0.3s;
+    color: rgb(255, 231, 200);
+    letter-spacing: 1.5px;
+    scale: 1.1;
+}
+
+/* botoes, talvez depois adicionar uma classe apenas para o login */
+.loginButton {
+    transition: color ease-in 0.6s, background-color ease 1.2s, scale ease-in 0.25s, padding ease-in 0.25s, text-shadow ease-in 0.2s, box-shadow ease-in 0.3s;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 25px;
+    background-color: rgb(214, 175, 103);
+    color: black;
+    cursor: pointer;
+    font-family: "Poppins";
+    box-shadow: 0px 0px 5px rgb(255, 255, 255);
+}
+
+/* animação de passada de mouse no botao e login */
+.loginButton:hover {
+    transition: color ease 0.6s, background-color ease 0.6s, scale ease-in-out 0.2s, text-shadow ease-in 0.3s, box-shadow ease-in 0.3s;
+    color: whitesmoke;
+    text-shadow: 0px 0px 10px whitesmoke;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.301);
+    background-color: rgb(84, 153, 199);
+    scale: 1.1;
+}
+
+
+
+/* GABRIEL MEXEU AQUI */
+
+#message {
+    color: red;
+    margin-top: 10px;
+ }
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px);
+    background-color: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+    }
+
+    .modal-content {
+    background-color:white;
+    position: relative;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    text-align: center;
+    min-width: 300px;
+    will-change: opacity, transform;
+    animation: fadeIn 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+/* .modal-content.closing {
+  animation: popupOut 0.4s ease-in forwards;
+} */
+
+    .modal-content h2 {
+    font-size: 32px;
+    margin-top: 0;
+    }
+
+    .modal-content input {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-size: 18px;
+    box-shadow: 0px 0 10px rgba(0, 0, 0, 0.377);
+    }
+
+    .entrarButton button{
+    transition: transform 0.3s ease-out;
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 22px;
+    }
+
+    .entrarButton button:hover {
+    transition: transform 0.3s ease-out;
+    background-color: rgb(54, 54, 54);
+    transform: scale(1.1);
+    }
+
+/* Agora essa bosta vai ficar no lugar certo, perdi 30 minutos arrumando - Gustavo */
+.close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    color: #aaa;
+    font-size: 32px;
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+    text-align: center;
+    line-height: 28px;
+}
+
+.close:hover {
+    color: black;
+}
+
+/* Gustavo aqui, o nome do cadastro estava errado no css e não tava aplicando o estilo, link ficava invisivel */
+.cadastro {
+    font-size: 17px;
+}
+.cadastro a{ 
+    transition: color 0.3s ease;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 16px;
+    color: rgb(214, 175, 103);
+}
+.cadastro a:hover{
+    transition: color 0.3s ease;
+    color: rgb(84, 151, 199);
+}
+
+
+/* sistema de home e cards */
+
+.container-home{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.pagina-centro{
+    width: 80%;
+    height: fit-content;
+    background-color: rgb(214, 175, 103);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #aaa;
+    padding: 15px;
+    gap: 40px;
+}
+
+.pagina-filtro{
+    width: 90%;
+    height: 70px;
+    background-color: rgb(214, 175, 103);
+    align-items: center;
+    display: flex;
+    margin: 30px auto;
+    margin-top: 0px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #aaa;
+}
+
+.card{
+    transition: transform 0.3s cubic-bezier(0.215, 0.610, 0.355, 1), box-shadow 0.3s cubic-bezier(0.215, 0.610, 0.355, 1) ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: none;
+    border-radius: 15px;
+    background-color: rgb(41, 41, 41);
+    height: fit-content;
+    width: 240px;
+    color: white;
+    flex-wrap: wrap;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.87);
+    font-family: "Poppins";
+    padding: 10px 10px;
+    margin: 10px;
+}
+
+.card:hover{
+    transition: transform 0.3s cubic-bezier(0.215, 0.610, 0.355, 1), box-shadow 0.3s cubic-bezier(0.215, 0.610, 0.355, 1);
+    transform: scale(1.08);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.712);
+}
+
+.conteudo-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;   
+}
+.conteudo-card button{
+    transition: box-shadow 0.7s cubic-bezier(0.215, 0.610, 0.355, 1), background-color 0.7s cubic-bezier(0.215, 0.610, 0.355, 1), color 0.7s cubic-bezier(0.215, 0.610, 0.355, 1);
+    border: none; 
+    border-radius: 15px;
+    margin: 20px;
+    padding: 10px 20px;
+    background-color: rgb(214, 175, 103);
+    color: black;
+    box-shadow: 0 0 10px rgba(245, 222, 179, 0.384);
+    cursor: pointer;
+    font-family: "Poppins";
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.conteudo-card button:hover {
+    transition: box-shadow 0.3s cubic-bezier(0.215, 0.610, 0.355, 1), background-color 0.3s cubic-bezier(0.215, 0.610, 0.355, 1), color 0.3s cubic-bezier(0.215, 0.610, 0.355, 1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.664);
+    background-color: rgb(231, 191, 105);
+    color: white;
+}
+
+.conteudo-card img{
+    width: 200px;
+    height: 140px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.644);
+}
+/* sistema de home e cards */
+
+/* Animação (Gustavo - Mudei a animação e tentei deixar ela mais leve) */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0px);
+  }
+}
+/* Responsividade em diferentes resoluções */
+
+@media (max-width: 1200px) {
+    .nav-links li{
+        padding: 0px 30px;
+    }
+    li, a, button, .entrarButton button{ 
+        font-size: 16px;
+    }
+    .logotipo {
+        font-size: 28px;
+    }
+    .modal-content input {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 940px) {
+    .logotipo {
+        font-size: 22px;
+    }
+    li, a, button{ 
+        font-size: 11px;
+    }
+    .cadastro { 
+        font-size: 15px;
+    }
+    .cadastro a{ 
+        font-size: 14px;
+    }
+    .nav-links li{
+        padding: 0px 15px;
+    }
+    .loginButton {
+        padding: 20px 30px;
+    }
+    .modal-content input {
+        font-size: 12px;
+    }
+    .fa-home{ /* Icone Casa*/
+    font-size: 30px;
+}
+}
+
+@media (max-width: 768px) {
+    .logotipo {
+        font-size: 18px;
+    }
+    li, a, button{ 
+    font-size: 8px;
+    }
+    .cadastro { 
+        font-size: 13px;
+    }
+    .cadastro a{ 
+        font-size: 12px;
+    }
+    .nav-links li{
+    padding: 0px 10px;
+    }
+    .loginButton {
+    padding: 20px 25px;
+    }
+    .card {
+        width: 100%;
+    }
+}
+
+/* PS: Gustavo aqui, eu organizei o css de novo, mudei algumas coisas que estavam fazendo com que quebrasse o visual do site e o X não aparecer :) */
