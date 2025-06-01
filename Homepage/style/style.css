@@ -233,7 +233,7 @@ header {
     border-radius: 15px;
     background-color: rgb(41, 41, 41);
     height: fit-content;
-    width: 240px;
+    width: 250px;
     color: white;
     flex-wrap: wrap;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.87);
@@ -252,7 +252,8 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;   
+    align-items: center;    
+
 }
 .conteudo-card button{
     transition: box-shadow 0.7s cubic-bezier(0.215, 0.610, 0.355, 1), background-color 0.7s cubic-bezier(0.215, 0.610, 0.355, 1), color 0.7s cubic-bezier(0.215, 0.610, 0.355, 1);
