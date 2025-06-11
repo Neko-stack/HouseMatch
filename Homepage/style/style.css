@@ -85,11 +85,11 @@ header {
 
 /* GABRIEL MEXEU AQUI */
 
-#message {
+#message-login, #messa-cadastro {
     color: red;
     margin-top: 10px;
  }
-.modal {
+.modal-login, .modal-cadastro {
     display: none;
     position: fixed;
     z-index: 100;
@@ -103,7 +103,7 @@ header {
     align-items: center;
     }
 
-    .modal-content {
+    .modal-content-login {
     background-color:white;
     position: relative;
     padding: 30px;
@@ -115,6 +115,19 @@ header {
     animation: fadeIn 0.8s cubic-bezier(0.23, 1, 0.32, 1);
     }
 
+
+    .modal-content-cadastro {
+        background-color:white;
+        position: relative;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        text-align: center;
+        min-width: 300px;
+        will-change: opacity, transform;
+        animation: fadeIn 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
 /* .modal-content.closing {
   animation: popupOut 0.4s ease-in forwards;
 } */
@@ -124,7 +137,7 @@ header {
     margin-top: 0;
     }
 
-    .modal-content input {
+    .modal-content-login input{
     width: 80%;
     padding: 10px;
     margin: 10px 0;
@@ -133,6 +146,20 @@ header {
     font-size: 18px;
     box-shadow: 0px 0 10px rgba(0, 0, 0, 0.377);
     }
+
+    .modal-content-cadastro input  {
+        width: 80%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 2px solid #ccc;
+        border-radius: 10px;
+        font-size: 18px;
+        box-shadow: 0px 0 10px rgba(0, 0, 0, 0.377);
+        }
+
+        #cadastro-link {
+            cursor: pointer;
+        }
 
     .entrarButton button{
     transition: transform 0.3s ease-out;
@@ -153,7 +180,7 @@ header {
     }
 
 /* Agora essa bosta vai ficar no lugar certo, perdi 30 minutos arrumando - Gustavo */
-.close {
+.close, .closeCadastro{
     position: absolute;
     top: 12px;
     right: 12px;
@@ -166,7 +193,7 @@ header {
     line-height: 28px;
 }
 
-.close:hover {
+.close:hover, .closeCadastro:hover {
     color: black;
 }
 

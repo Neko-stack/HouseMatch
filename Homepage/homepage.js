@@ -1,5 +1,7 @@
 
 //LOGIN MODAL
+
+
 const modal = document.getElementById("login-modal");
 const btn = document.getElementById("open-login");
 const closeBtn = document.getElementsByClassName("close")[0];
@@ -14,7 +16,7 @@ btn.onclick = function() {
         modal.style.display = "none";
     }
   }
-  
+
 
   window.onclick = function(event) {
     if (event.target == modal) {
@@ -23,8 +25,28 @@ btn.onclick = function() {
   }
 
 
+//Modal Cadastro
+const modalCadastro = document.getElementById("cadastro-modal");
+const closeBtnCadastro = document.getElementsByClassName("closeCadastro")[0];
 
-//LOGIN FORMS
+  
+  closeBtnCadastro.onclick = function(event) {
+    if(event.target != modalCadastro) {
+        
+        modalCadastro.style.display = "none";
+    }
+  }
+
+
+  window.onclick = function(event) {
+    if (event.target == modalCadastro) {
+      modalCadastro.style.display = "none";
+    }
+  }
+
+
+
+//LOGIN FORMS --- TROCAR PARA STORAGE
 document.getElementById("logiForm").addEventListener("submit", function(event){
 event.preventDefault()
 
@@ -58,3 +80,26 @@ if(user === user1 && password === password1){
 }
 
 });
+
+
+
+function esconderButtonLogin(){
+  //esconder o botao depois
+  document.getElementById("login-modal").style.display = "none"
+  document.getElementById("open-login").style.display = "none"
+
+
+}
+
+function mostrarCadastro(){
+  document.getElementById("login-modal").style.display = "none"
+
+  document.getElementById("cadastro-modal").style.display = "flex"
+
+}
+
+function mostrarLogin(){
+  document.getElementById("cadastro-modal").style.display = "none"
+  document.getElementById("login-modal").style.display = "flex"
+
+}
