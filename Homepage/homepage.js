@@ -1,4 +1,76 @@
 
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("cadastro-form");
+
+  form.addEventListener("submit", cadastro); 
+});
+
+function cadastro(e){ 
+e.preventDefault();
+
+const nomeCadastro = document.getElementById("nomeCadastro").value;
+const senhaCadastro = document.getElementById("senhaCadastro").value;
+const cpfCadastro = document.getElementById("cpfCadastro").value;
+const emailCadastro = document.getElementById("emailCadastro").value;
+
+
+let cadastrados = [];
+
+if(localStorage.hasOwnProperty("cadastrados")){
+  cadastrados = JSON.parse(localStorage.getItem("cadastrados"))
+}
+cadastrados.push({nomeCadastro, senhaCadastro, cpfCadastro, emailCadastro});
+
+localStorage.setItem("cadastrados", JSON.stringify(cadastrados));
+
+console.log({nomeCadastro, senhaCadastro, emailCadastro, cpfCadastro})
+
+mostrarLogin()
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("login-form");
+
+  form.addEventListener("submit", login); 
+});
+
+function login(e){
+e.preventDefault();
+  
+  
+   document.getElementById("nomeCadastro")
+  
+  const nomeLogin = document.getElementById("nomeLogin").value;
+  const senhaLogin = document.getElementById("senhaLogin").value;
+  
+  
+  cadastrados = JSON.parse(localStorage.getItem("cadastrados")) || [];
+  
+  const usuarioCadastrado = cadastrados.find(
+    (usuario) => usuario.nomeCadastro === nomeLogin && usuario.senhaCadastro === senhaLogin
+  )
+
+  if(usuarioCadastrado){
+    esconderButtonLogin()
+  }else{
+    console.log("erro")
+  }
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
 //LOGIN MODAL
 
 
@@ -46,45 +118,27 @@ const closeBtnCadastro = document.getElementsByClassName("closeCadastro")[0];
 
 
 
-//LOGIN FORMS --- TROCAR PARA STORAGE
-document.getElementById("logiForm").addEventListener("submit", function(event){
-event.preventDefault()
 
 
 
 
-const user = document.getElementById("username").value
-const password = document.getElementById("password").value
 const message = document.getElementById("message")
 
-const user1 = "1"
-const password1 = "1"
 
 
-if(user === user1 && password === password1){
-   message.style.color = "green"
-   message.textContent = "Login efetuado"
-
-    //login efetuado
 
 
-    document.getElementById("loginForm").style.display = "none"
-    
-  showTab("home")
-  
-   
-}else{
-    message.style.color = "red"
-    message.textContent = "Usuário ou senha incorreto"
-    //  erro
-}
-
-});
 
 
+
+
+
+//esconder
 
 function esconderButtonLogin(){
   //esconder o botao depois
+
+
   document.getElementById("login-modal").style.display = "none"
   document.getElementById("open-login").style.display = "none"
 
@@ -103,3 +157,6 @@ function mostrarLogin(){
   document.getElementById("login-modal").style.display = "flex"
 
 }
+ 
+
+

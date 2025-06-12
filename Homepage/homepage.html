@@ -22,20 +22,21 @@
             </nav>
                
             <!-- Gabriel mexeu daqui -->
-        <a href="#"><button id="open-login" class="loginButton">Login</button></a>
+        <button id="open-login" class="loginButton">Login</button></a>
         </div>
         </section>
 
+         <!-- Login -->
     <section class="modal-login" id="login-modal">
         <div class="modal-content-login">
             <span class="close">&times;</span> <!-- tentei consertar com o id -->
-            <h2 id="titleForm">Login</h2>
+            <h2 id="titleForm">LOGIN</h2>
             <form id="login-form">
-                <input type="text" id="username" placeholder="Usuario" required>
-               <input type="password" id="password" placeholder="Senha" required>
+                <input type="text" id="nomeLogin" placeholder="Usuario" required>
+               <input type="password" id="senhaLogin" placeholder="Senha" required>
                 <!-- mexi aqui e criei uma div - Gustavo -->
                 <div class="entrarButton">
-                    <button type="submit" class="login-teste" onclick="esconderButtonLogin()">Entrar</button> 
+                    <button type="submit" class="login-teste">Entrar</button> 
                 </div>
                 <div id="message-login"></div>
 
@@ -44,19 +45,21 @@
         </div>
     </section>
 
-
+    <!-- Cadastro -->
     <section class="modal-cadastro" id="cadastro-modal">
         <div class="modal-content-cadastro">
             <span class="closeCadastro">&times;</span> <!-- tentei consertar com o id -->
-            <h2 id="titleForm">Cadastro</h2>
+            <h2 id="titleForm">CADASTRO</h2>
             <form id="cadastro-form">
-                <input type="text" id="usernameCadastro" placeholder="Usuario" required>
-                <input type="password" id="passwordCadastro" placeholder="Senha" required>
+                <input type="text" id="nomeCadastro" placeholder="Usuario" required>
+                <input type="password" id="senhaCadastro" placeholder="Senha" required>
+                <input type="number" id="cpfCadastro" placeholder="CPF" required>
                 <input type="email" id="emailCadastro" placeholder="Email" required>
                 <div class="entrarButton">
-                    <button type="submit" class="cadastro-teste" onclick="mostrarLogin()">cadastrar</button> 
+                    <button type="submit" class="cadastro-teste">Cadastrar</button> 
                 </div>
                 <div id="message-cadastro"></div>
+                <p class="cadastro">Já possui Login? <a onclick="mostrarLogin()" id="cadastro-link">Clique aqui!</a></p>
 
             </form>    
         </div>

@@ -113,12 +113,13 @@ header {
     min-width: 300px;
     will-change: opacity, transform;
     animation: fadeIn 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    
     }
 
 
     .modal-content-cadastro {
         background-color:white;
-        position: relative;
+        position: center;
         padding: 30px;
         border-radius: 12px;
         box-shadow: 0 5px 15px rgba(0,0,0,0.3);
@@ -126,13 +127,14 @@ header {
         min-width: 300px;
         will-change: opacity, transform;
         animation: fadeIn 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        width: 500px;
         }
 
 /* .modal-content.closing {
   animation: popupOut 0.4s ease-in forwards;
 } */
 
-    .modal-content h2 {
+    .modal-content-cadastro h2, .modal-content-login h2 {
     font-size: 32px;
     margin-top: 0;
     }
@@ -148,7 +150,7 @@ header {
     }
 
     .modal-content-cadastro input  {
-        width: 80%;
+        width:80%;
         padding: 10px;
         margin: 10px 0;
         border: 2px solid #ccc;
