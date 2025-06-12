@@ -8,133 +8,142 @@
     <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
-    <section>
-        <!-- Header com o navbar e logotipo -->
-        <header>
-            <span class="logotipo">House<i class="fa fa-home" aria-hidden="true"></i></i>Match</i></span>
-            <nav>
-                <ul class="nav-links">
-                    <!-- colocar links de cada pagina quando feito -->
-                    <li><a href="homepage.html">Página Inicial</a></li>
-                    <li><a href="#">Dashboard</a></li>
-                    <li><a href="config.html">Configurações</a></li>
-                </ul>
-            </nav>
-               
-            <!-- Gabriel mexeu daqui -->
-        <button id="open-login" class="loginButton">Login</button></a>
-        </div>
+    <main>
+        <section>
+            <!-- Header com o navbar e logotipo -->
+            <header>
+                <span class="logotipo">House<i class="fa fa-home" aria-hidden="true"></i></i>Match</i></span>
+                <nav>
+                    <ul class="nav-links">
+                        <!-- colocar links de cada pagina quando feito -->
+                        <li><a href="homepage.html">Página Inicial</a></li>
+                        <li><a href="">Dashboard</a></li>
+                        <li><a href="">Configurações</a></li>
+                    </ul>
+                </nav>
+    
+                <!-- Gabriel mexeu daqui -->
+                <button id="open-login" class="loginButton">Login</button></a>
+                </div>
         </section>
-
-         <!-- Login -->
-    <section class="modal-login" id="login-modal">
-        <div class="modal-content-login">
-            <span class="close">&times;</span> <!-- tentei consertar com o id -->
-            <h2 id="titleForm">LOGIN</h2>
-            <form id="login-form">
-                <input type="text" id="nomeLogin" placeholder="Usuario" required>
-               <input type="password" id="senhaLogin" placeholder="Senha" required>
-                <!-- mexi aqui e criei uma div - Gustavo -->
-                <div class="entrarButton">
-                    <button type="submit" class="login-teste">Entrar</button> 
+    
+        <!-- Login -->
+        <section class="modal-login" id="login-modal">
+            <div class="modal-content-login">
+                <span class="close">&times;</span> <!-- tentei consertar com o id -->
+                <h2 id="titleForm">LOGIN</h2>
+                <form id="login-form">
+                    <input type="text" id="nomeLogin" placeholder="Usuario" required>
+                    <input type="password" id="senhaLogin" placeholder="Senha" required>
+                    <!-- mexi aqui e criei uma div - Gustavo -->
+                    <div class="entrarButton">
+                        <button type="submit" class="login-teste">Entrar</button>
+                    </div>
+                    <div id="message-login"></div>
+    
+                    <p class="cadastro">Não possui conta? <a onclick="mostrarCadastro()" id="cadastro-link">Cadastre-se
+                            aqui!</a></p>
+                </form>
+            </div>
+        </section>
+    
+        <!-- Cadastro -->
+        <section class="modal-cadastro" id="cadastro-modal">
+            <div class="modal-content-cadastro">
+                <span class="closeCadastro">&times;</span> <!-- tentei consertar com o id -->
+                <h2 id="titleForm">CADASTRO</h2>
+                <form id="cadastro-form">
+                    <input type="text" id="nomeCadastro" placeholder="Usuario" required>
+                    <input type="password" id="senhaCadastro" placeholder="Senha" required>
+                    <input type="number" id="cpfCadastro" placeholder="CPF" required>
+                    <input type="email" id="emailCadastro" placeholder="Email" required>
+                    <div class="entrarButton">
+                        <button type="submit" class="cadastro-teste">Cadastrar</button>
+                    </div>
+                    <div id="message-cadastro"></div>
+                    <p class="cadastro">Já possui Login? <a onclick="mostrarLogin()" id="cadastro-link">Clique aqui!</a></p>
+    
+                </form>
+            </div>
+        </section>
+    
+    
+    
+    
+        </header>
+    
+    
+        <section class="container-home">
+            <div class="pagina-filtro"></div>
+            <section class="pagina-centro">
+                <!-- Gustavo mexeu aqui -->
+                <div class="card">
+                    <div class="conteudo-card">
+                        <img src="https://i0.wp.com/espaferro.com.br/wp-content/uploads/2024/06/placeholder.png?ssl=1"
+                            alt="PLACEHOLDER">
+                        <p>Casa 01</p>
+                        <p>Descrição da casa com máx de linhas </p>
+                        <button>Ver detalhes</button>
+                    </div>
                 </div>
-                <div id="message-login"></div>
-
-                <p class="cadastro">Não possui conta? <a onclick="mostrarCadastro()" id="cadastro-link">Cadastre-se aqui!</a></p>
-            </form>    
-        </div>
-    </section>
-
-    <!-- Cadastro -->
-    <section class="modal-cadastro" id="cadastro-modal">
-        <div class="modal-content-cadastro">
-            <span class="closeCadastro">&times;</span> <!-- tentei consertar com o id -->
-            <h2 id="titleForm">CADASTRO</h2>
-            <form id="cadastro-form">
-                <input type="text" id="nomeCadastro" placeholder="Usuario" required>
-                <input type="password" id="senhaCadastro" placeholder="Senha" required>
-                <input type="number" id="cpfCadastro" placeholder="CPF" required>
-                <input type="email" id="emailCadastro" placeholder="Email" required>
-                <div class="entrarButton">
-                    <button type="submit" class="cadastro-teste">Cadastrar</button> 
+                <div class="card">
+                    <div class="conteudo-card">
+                        <img src="https://i0.wp.com/espaferro.com.br/wp-content/uploads/2024/06/placeholder.png?ssl=1"
+                            alt="PLACEHOLDER">
+                        <p>Casa 02</p>
+                        <p>Descrição da casa com máx de linhas </p>
+                        <button>Ver detalhes</button>
+                    </div>
                 </div>
-                <div id="message-cadastro"></div>
-                <p class="cadastro">Já possui Login? <a onclick="mostrarLogin()" id="cadastro-link">Clique aqui!</a></p>
-
-            </form>    
-        </div>
-    </section>
-
-
-
-
-    </header> 
-  
-   
-<section class="container-home">
-    <div class="pagina-filtro"></div> 
-    <section class="pagina-centro">
-        <!-- Gustavo mexeu aqui -->
-        <div class="card">
-            <div class="conteudo-card">
-                <img src="https://i0.wp.com/espaferro.com.br/wp-content/uploads/2024/06/placeholder.png?ssl=1" alt="PLACEHOLDER">
-                <p>Casa 01</p>
-                <p>Descrição da casa com máx de linhas </p>
-                <button>Ver detalhes</button>
-            </div>
-        </div>
-        <div class="card">
-            <div class="conteudo-card">
-                <img src="https://i0.wp.com/espaferro.com.br/wp-content/uploads/2024/06/placeholder.png?ssl=1" alt="PLACEHOLDER">
-                <p>Casa 02</p>
-                <p>Descrição da casa com máx de linhas </p>
-                <button>Ver detalhes</button>
-            </div>
-        </div>
-        <div class="card">
-            <div class="conteudo-card">
-                <img src="https://i0.wp.com/espaferro.com.br/wp-content/uploads/2024/06/placeholder.png?ssl=1" alt="PLACEHOLDER">
-                <p>Casa 03</p>
-                <p>Descrição da casa com máx de linhas </p>
-                <button>Ver detalhes</button>
-            </div>
-        </div>
-        <div class="card">
-            <div class="conteudo-card">
-                <img src="https://i0.wp.com/espaferro.com.br/wp-content/uploads/2024/06/placeholder.png?ssl=1" alt="PLACEHOLDER">
-                <p>Casa 04</p>
-                <p>Descrição da casa com máx de linhas </p>
-                <button>Ver detalhes</button>
-            </div>
-        </div>
-        <div class="card">
-            <div class="conteudo-card">
-                <img src="https://i0.wp.com/espaferro.com.br/wp-content/uploads/2024/06/placeholder.png?ssl=1" alt="PLACEHOLDER">
-                <p>Casa 05</p>
-                <p>Descrição da casa com máx de linhas </p>
-                <button>Ver detalhes</button>
-            </div>
-        </div>
-        <div class="card">
-            <div class="conteudo-card">
-                <img src="https://i0.wp.com/espaferro.com.br/wp-content/uploads/2024/06/placeholder.png?ssl=1" alt="PLACEHOLDER">
-                <p>Casa 06</p>
-                <p>Descrição da casa com máx de linhas </p>
-                <button>Ver detalhes</button>
-            </div>
-        </div>
-        <div class="card">
-            <div class="conteudo-card">
-                <img src="https://i0.wp.com/espaferro.com.br/wp-content/uploads/2024/06/placeholder.png?ssl=1" alt="PLACEHOLDER">
-                <p>Casa 07</p>
-                <p>Descrição da casa com máx de linhas </p>
-                <button>Ver detalhes</button>
-            </div>
-        </div>
-    </section>
-    <!-- até aqui  -->
-    </section>
-
+                <div class="card">
+                    <div class="conteudo-card">
+                        <img src="https://i0.wp.com/espaferro.com.br/wp-content/uploads/2024/06/placeholder.png?ssl=1"
+                            alt="PLACEHOLDER">
+                        <p>Casa 03</p>
+                        <p>Descrição da casa com máx de linhas </p>
+                        <button>Ver detalhes</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="conteudo-card">
+                        <img src="https://i0.wp.com/espaferro.com.br/wp-content/uploads/2024/06/placeholder.png?ssl=1"
+                            alt="PLACEHOLDER">
+                        <p>Casa 04</p>
+                        <p>Descrição da casa com máx de linhas </p>
+                        <button>Ver detalhes</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="conteudo-card">
+                        <img src="https://i0.wp.com/espaferro.com.br/wp-content/uploads/2024/06/placeholder.png?ssl=1"
+                            alt="PLACEHOLDER">
+                        <p>Casa 05</p>
+                        <p>Descrição da casa com máx de linhas </p>
+                        <button>Ver detalhes</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="conteudo-card">
+                        <img src="https://i0.wp.com/espaferro.com.br/wp-content/uploads/2024/06/placeholder.png?ssl=1"
+                            alt="PLACEHOLDER">
+                        <p>Casa 06</p>
+                        <p>Descrição da casa com máx de linhas </p>
+                        <button>Ver detalhes</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="conteudo-card">
+                        <img src="https://i0.wp.com/espaferro.com.br/wp-content/uploads/2024/06/placeholder.png?ssl=1"
+                            alt="PLACEHOLDER">
+                        <p>Casa 07</p>
+                        <p>Descrição da casa com máx de linhas </p>
+                        <button>Ver detalhes</button>
+                    </div>
+                </div>
+            </section>
+            <!-- até aqui  -->
+        </section>
+    </main>
 
     <script src="homepage.js"></script> 
 </body>

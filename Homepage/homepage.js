@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("cadastro-form");
 
   form.addEventListener("submit", cadastro); 
+  document.getElementById("nomeCadastro").focus()
 });
 
 function cadastro(e){ 
@@ -80,22 +81,15 @@ const closeBtn = document.getElementsByClassName("close")[0];
 
 btn.onclick = function() {
     modal.style.display = "flex";
+    document.getElementById("nomeLogin").focus()
   }
   
   closeBtn.onclick = function(event) {
     if(event.target != modal) {
         
-        modal.style.display = "none";
-    }
-  }
-
-
-  window.onclick = function(event) {
-    if (event.target == modal) {
       modal.style.display = "none";
     }
   }
-
 
 //Modal Cadastro
 const modalCadastro = document.getElementById("cadastro-modal");
@@ -104,23 +98,10 @@ const closeBtnCadastro = document.getElementsByClassName("closeCadastro")[0];
   
   closeBtnCadastro.onclick = function(event) {
     if(event.target != modalCadastro) {
-        
-        modalCadastro.style.display = "none";
-    }
-  }
-
-
-  window.onclick = function(event) {
-    if (event.target == modalCadastro) {
+      
       modalCadastro.style.display = "none";
     }
   }
-
-
-
-
-
-
 
 const message = document.getElementById("message")
 
@@ -147,16 +128,14 @@ function esconderButtonLogin(){
 
 function mostrarCadastro(){
   document.getElementById("login-modal").style.display = "none"
-
   document.getElementById("cadastro-modal").style.display = "flex"
-
+  document.getElementById("nomeCadastro").focus()
 }
 
 function mostrarLogin(){
   document.getElementById("cadastro-modal").style.display = "none"
   document.getElementById("login-modal").style.display = "flex"
-
+  document.getElementById("nomeLogin").focus()
 }
  
-
 
