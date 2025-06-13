@@ -16,9 +16,9 @@
                 <nav>
                     <ul class="nav-links">
                         <!-- colocar links de cada pagina quando feito -->
-                        <li><a href="homepage.html">Página Inicial</a></li>
+                        <li><a href="#Página Inicial" onclick="mostrarHome()">Página Inicial</a></li>
                         <li><a href="">Dashboard</a></li>
-                        <li><a href="">Configurações</a></li>
+                        <li><a href="#Configurações" onclick="mostrarPerfil()">Configurações</a></li>
                     </ul>
                 </nav>
     
@@ -39,10 +39,9 @@
                     <div class="entrarButton">
                         <button type="submit" class="login-teste">Entrar</button>
                     </div>
-                    <div id="message-login"></div>
+                    <div id="messageLogin"></div>
     
-                    <p class="cadastro">Não possui conta? <a onclick="mostrarCadastro()" id="cadastro-link">Cadastre-se
-                            aqui!</a></p>
+                    <p class="cadastro">Não possui conta? <a onclick="mostrarCadastro()" id="cadastro-link">Cadastre-se aqui!</a></p>
                 </form>
             </div>
         </section>
@@ -60,7 +59,7 @@
                     <div class="entrarButton">
                         <button type="submit" class="cadastro-teste">Cadastrar</button>
                     </div>
-                    <div id="message-cadastro"></div>
+                    <div id="messageCadastro"></div>
                     <p class="cadastro">Já possui Login? <a onclick="mostrarLogin()" id="cadastro-link">Clique aqui!</a></p>
     
                 </form>
@@ -73,7 +72,7 @@
         </header>
     
     
-        <section class="container-home">
+        <section class="container-home" id="container-home">
             <div class="pagina-filtro"></div>
             <section class="pagina-centro">
                 <!-- Gustavo mexeu aqui -->
@@ -143,8 +142,36 @@
             </section>
             <!-- até aqui  -->
         </section>
+
+        <section id="container-perfil"> 
+            <div id="perfil">   
+                    <h2 class="titlePerfil">PERFIL</h2>
+                    <div id="perfil-box">
+                        <img src="https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg" width="200px" height="200px" style="border: none; border-radius: 50px; align-self: center; margin-left: 50px;" alt="">
+                        <div id="perfil-dados">
+                            <ul>
+                                <li id="nomePerfil"></li>
+                                <li id="emailPerfil"></li>
+                                <li id="cpfPerfil"></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                <ul class="button-perfil">
+                    <hr>
+                    <span><a href="" onclick="mostrarPerfil()">add/edita casas</a></sp>
+                    <hr>
+                    <span><a href="" onclick="deslogar()">deslogar</a></spna>
+                    <hr>    
+                    <span><a href="" onclick="mostrarPerfil()">excluir conta</a></span>
+                    <hr>
+                </ul>
+
+            </div>
+        </section>
     </main>
 
+    <script src="perfil.js"></script>
     <script src="homepage.js"></script> 
 </body>
 </html>

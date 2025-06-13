@@ -85,9 +85,11 @@ header {
 
 /* GABRIEL MEXEU AQUI */
 
-#message-login, #messa-cadastro {
+#messageLogin, #messageCadastro {
     color: red;
     margin-top: 10px;
+    font-size: 18px;
+    margin-top: 20px;
  }
 .modal-login, .modal-cadastro {
     display: none;
@@ -219,6 +221,7 @@ header {
 /* sistema de home e cards */
 
 .container-home{
+    animation: normal fadeIn 0.7s ease;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -227,7 +230,7 @@ header {
 .pagina-centro{
     width: 80%;
     height: fit-content;
-    background-color: rgb(214, 175, 103);
+    background-color: rgb(196, 148, 60);
     justify-content: center;
     align-items: center;
     display: flex;
@@ -274,7 +277,7 @@ header {
 
 .card:hover{
     transition: transform 0.3s cubic-bezier(0.215, 0.610, 0.355, 1), box-shadow 0.3s cubic-bezier(0.215, 0.610, 0.355, 1);
-    transform: scale(1.08);
+    transform: scale(1.02);
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.712);
 }
 
@@ -314,17 +317,82 @@ header {
 }
 /* sistema de home e cards */
 
+/* sistema do perfil */
+
+#container-perfil{
+    animation: normal trocarAba 1.0s cubic-bezier(0.215, 0.610, 0.355, 1);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#perfil {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 20px;
+    width: 80%;
+    height: 100vb;
+    background-color: rgb(63, 63, 63);
+    border: none;
+    border-radius: 20px;
+}
+
+#perfil-box {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    width: 80%;
+    background-color: rgb(59, 59, 59);
+    height: 400px;  
+    border: none;
+    border-radius: 20px;
+}
+
+#perfil-dados{
+    align-self: center;
+    justify-content: space-between;
+    font-size: 22px;
+    margin-left: 20px;
+    line-height: 55px;
+}
+
+.titlePerfil{
+    width: 100%;
+    font-size: 35px;
+    text-align: center;
+    color: white;
+}
+
+
+
 /* Animação (Gustavo - Mudei a animação e tentei deixar ela mais leve) */
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: scale(0.9) translateY(-60px);
+    transform: scale(0.90) translateY(-60px);
   }
   to {
     opacity: 1;
     transform: scale(1) translateY(0px);
   }
 }
+
+@keyframes trocarAba {
+    from {
+        opacity: 0;
+        transform: scaleX(0.8) translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: scaleX(1) translateY(0px);
+    }
+
+}
+
 /* Responsividade em diferentes resoluções */
 
 @media (max-width: 1200px) {
@@ -373,14 +441,11 @@ header {
     .logotipo {
         font-size: 18px;
     }
+    *{
+        font-size: 12px;
+    }
     li, a, button{ 
     font-size: 8px;
-    }
-    .cadastro { 
-        font-size: 13px;
-    }
-    .cadastro a{ 
-        font-size: 12px;
     }
     .nav-links li{
     padding: 0px 10px;

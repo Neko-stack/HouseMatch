@@ -1,3 +1,4 @@
+let cadastrados = [];
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("cadastro-form");
@@ -5,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", cadastro); 
   document.getElementById("nomeCadastro").focus()
 });
+
 
 function cadastro(e){ 
 e.preventDefault();
@@ -14,9 +16,6 @@ const senhaCadastro = document.getElementById("senhaCadastro").value;
 const cpfCadastro = document.getElementById("cpfCadastro").value;
 const emailCadastro = document.getElementById("emailCadastro").value;
 
-
-let cadastrados = [];
-
 if(localStorage.hasOwnProperty("cadastrados")){
   cadastrados = JSON.parse(localStorage.getItem("cadastrados"))
 }
@@ -24,9 +23,13 @@ cadastrados.push({nomeCadastro, senhaCadastro, cpfCadastro, emailCadastro});
 
 localStorage.setItem("cadastrados", JSON.stringify(cadastrados));
 
-console.log({nomeCadastro, senhaCadastro, emailCadastro, cpfCadastro})
+console.log(cadastrados)
 
 mostrarLogin()
+
+
+
+
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -38,24 +41,26 @@ document.addEventListener("DOMContentLoaded", () => {
 function login(e){
 e.preventDefault();
   
-  
-   document.getElementById("nomeCadastro")
-  
   const nomeLogin = document.getElementById("nomeLogin").value;
   const senhaLogin = document.getElementById("senhaLogin").value;
   
   
   cadastrados = JSON.parse(localStorage.getItem("cadastrados")) || [];
   
-  const usuarioCadastrado = cadastrados.find(
+  const usuarioLogado = cadastrados.find(
     (usuario) => usuario.nomeCadastro === nomeLogin && usuario.senhaCadastro === senhaLogin
   )
-
-  if(usuarioCadastrado){
-    esconderButtonLogin()
+  
+  if(usuarioLogado){
+    localStorage.setItem("usuarioLogado", JSON.stringify(usuarioLogado))
+    esconderButtonLogin() 
+    mostrarHome()
   }else{
-    console.log("erro")
+    message.style.color = "red"
+    message.textContent = "Usuário ou senha incorreto"
   }
+
+
 
 
 
@@ -103,16 +108,9 @@ const closeBtnCadastro = document.getElementsByClassName("closeCadastro")[0];
     }
   }
 
-const message = document.getElementById("message")
+const message = document.getElementById("messageLogin", "messageCadastro")
 
-
-
-
-
-
-
-
-
+//Dados do perfil
 
 //esconder
 
@@ -137,5 +135,26 @@ function mostrarLogin(){
   document.getElementById("login-modal").style.display = "flex"
   document.getElementById("nomeLogin").focus()
 }
+
+function mostrarHome(){
+  esconderTudo()
+  document.getElementById("container-home").style.display = "flex"
+}
+
+function mostrarPerfil(){
+  esconderTudo()
+  document.getElementById("container-perfil").style.display = "flex"
+  const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"))
+  
+  document.getElementById("nomePerfil").innerHTML = "Nome: " + usuarioLogado.nomeCadastro
+  document.getElementById("emailPerfil").innerHTML =  "Email: " + usuarioLogado.emailCadastro
+  document.getElementById("cpfPerfil").innerHTML = "CPF: " + usuarioLogado.cpfCadastro
  
+}
+
+function esconderTudo(){
+  document.getElementById("container-home").style.display = "none"
+  document.getElementById("container-perfil").style.display = "none"
+}
+
 
