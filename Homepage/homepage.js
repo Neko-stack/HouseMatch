@@ -57,7 +57,7 @@ e.preventDefault();
     mostrarHome()
   }else{
     message.style.color = "red"
-    message.textContent = "Usuário ou senha incorreto"
+    message.textContent = "Usuário/Senha incorreto(s)"
   }
 
 

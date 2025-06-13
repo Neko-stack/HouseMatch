@@ -186,8 +186,8 @@ header {
 /* Agora essa bosta vai ficar no lugar certo, perdi 30 minutos arrumando - Gustavo */
 .close, .closeCadastro{
     position: absolute;
-    top: 12px;
-    right: 12px;
+    top: 22px;
+    right: 22px;
     color: #aaa;
     font-size: 32px;
     cursor: pointer;
@@ -230,7 +230,7 @@ header {
 .pagina-centro{
     width: 80%;
     height: fit-content;
-    background-color: rgb(196, 148, 60);
+    background-color: rgb(214, 175, 103);
     justify-content: center;
     align-items: center;
     display: flex;
@@ -334,8 +334,8 @@ header {
     align-items: flex-start;
     padding: 20px;
     width: 80%;
-    height: 100vb;
-    background-color: rgb(63, 63, 63);
+    height: 82vb;
+    background-color: rgb(70, 70, 70);
     border: none;
     border-radius: 20px;
 }
@@ -355,9 +355,36 @@ header {
 #perfil-dados{
     align-self: center;
     justify-content: space-between;
+    width: 100%;
     font-size: 22px;
     margin-left: 20px;
     line-height: 55px;
+}
+
+#perfil-botoes {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-self: flex-end;
+    text-align: center;
+    margin: 30px;
+}
+#perfil-botoes button{
+    transition: filter 0.3s ease;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    padding: 15px 30px;
+    font-size: 25px;
+}
+#perfil-botoes button:hover{
+    transition: filter 0.3s ease;
+    filter: brightness(140%);
+
+}
+.botaoSair {
+    background: rgb(255, 71, 71);
 }
 
 .titlePerfil{
@@ -384,11 +411,11 @@ header {
 @keyframes trocarAba {
     from {
         opacity: 0;
-        transform: scaleX(0.8) translateY(-10px);
+        transform: scaleX(0.8);
     }
     to {
         opacity: 1;
-        transform: scaleX(1) translateY(0px);
+        transform: scaleX(1);
     }
 
 }
