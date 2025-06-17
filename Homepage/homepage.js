@@ -55,6 +55,9 @@ e.preventDefault();
     localStorage.setItem("usuarioLogado", JSON.stringify(usuarioLogado))
     esconderButtonLogin() 
     mostrarHome()
+    document.getElementById("dashboard").style.display = "inline-block"
+    document.getElementById("configuracoes").style.display = "inline-block"
+
   }else{
     message.style.color = "red"
     message.textContent = "Usuário/Senha incorreto(s)"
