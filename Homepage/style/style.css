@@ -336,10 +336,10 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: center;
     padding: 20px;
     width: 80%;
-    height: 82vb;
+    height: 100vb;
     background-color: rgb(70, 70, 70);
     border: none;
     border-radius: 20px;
@@ -352,9 +352,9 @@ header {
     flex-direction: row;
     width: 80%;
     background-color: rgb(59, 59, 59);
-    height: 400px;  
+    min-height: 300px;  
     border: none;
-    border-radius: 20px;
+    border-radius: 30px;
 }
 
 #perfil-dados{
@@ -375,8 +375,17 @@ header {
     text-align: center;
     margin: 30px;
 }
+#perfil-botoes2 {
+    position: relative;
+    margin-top: 20px;
+    left: 100px;
+    align-self: flex-start;
+}
+
 #perfil-botoes button{
     transition: filter 0.3s ease;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
     border: none;
     border-radius: 10px;
