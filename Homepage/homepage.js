@@ -62,12 +62,6 @@ e.preventDefault();
     message.style.color = "red"
     message.textContent = "Usuário/Senha incorreto(s)"
   }
-
-
-
-
-
-
 }
 
 
@@ -119,12 +113,8 @@ const message = document.getElementById("messageLogin", "messageCadastro")
 
 function esconderButtonLogin(){
   //esconder o botao depois
-
-
   document.getElementById("login-modal").style.display = "none"
   document.getElementById("open-login").style.display = "none"
-
-
 }
 
 function mostrarCadastro(){

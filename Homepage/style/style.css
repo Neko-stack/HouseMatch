@@ -1,12 +1,15 @@
 /* fonte de texto, nao mexa */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
 
+* {
+    font-family: "Poppins";
+}
+
 body, main{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     background-color: rgb(41, 41, 41);
-    font-family: "Poppins"
 }
 
 li, a, button {
@@ -376,10 +379,24 @@ header {
     margin: 30px;
 }
 #perfil-botoes2 {
-    position: relative;
-    margin-top: 20px;
-    left: 100px;
-    align-self: flex-start;
+    display: flex;
+    align-items: center;
+    align-items: center;
+    margin-top: 35px;
+}
+#perfil-botoes2 button{
+    transition: background-color 0.3s ease, scale 0.3s ease;
+    background-color: rgb(214, 175, 103);
+    padding: 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+#perfil-botoes2 button:hover{
+    transition: background-color 0.3s ease, scale 0.3s ease;
+    background-color: rgb(231, 191, 105);
+    scale: 1.03;
 }
 
 #perfil-botoes button{
