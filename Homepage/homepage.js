@@ -1,4 +1,14 @@
-let cadastrados = [];
+
+function getUsers(){
+  let data = localStorage.getItem("users")
+  return data ? JSON.parse(data) : []
+}
+
+function saveUsers(users){
+  localStorage.setItem("users", JSON.stringify(users)); 
+}
+
+
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("cadastro-form");
@@ -11,19 +21,32 @@ document.addEventListener("DOMContentLoaded", () => {
 function cadastro(e){ 
 e.preventDefault();
 
-const nomeCadastro = document.getElementById("nomeCadastro").value;
-const senhaCadastro = document.getElementById("senhaCadastro").value;
-const cpfCadastro = document.getElementById("cpfCadastro").value;
-const emailCadastro = document.getElementById("emailCadastro").value;
+const nomeCadastro = document.getElementById("nomeCadastro").value.trim();
+const senhaCadastro = document.getElementById("senhaCadastro").value.trim();
+const cpfCadastro = document.getElementById("cpfCadastro").value.trim();
+const emailCadastro = document.getElementById("emailCadastro").value.trim();
 
-if(localStorage.hasOwnProperty("cadastrados")){
-  cadastrados = JSON.parse(localStorage.getItem("cadastrados"))
+let users = getUsers()
+
+if(users.find(users => users.nomeCadastro === nomeCadastro)){ 
+  alert("usuario ja existe");
+  return;
+
 }
-cadastrados.push({nomeCadastro, senhaCadastro, cpfCadastro, emailCadastro});
 
-localStorage.setItem("cadastrados", JSON.stringify(cadastrados));
+// if(localStorage.hasOwnProperty("cadastrados")){
+//   cadastrados = JSON.parse(localStorage.getItem("cadastrados"))
+// }
+// cadastrados.push({nomeCadastro, senhaCadastro, cpfCadastro, emailCadastro});
 
-console.log(cadastrados)
+// localStorage.setItem("cadastrados", JSON.stringify(cadastrados));
+
+// console.log(cadastrados)
+
+users.push({nomeCadastro, senhaCadastro, cpfCadastro,emailCadastro})
+saveUsers(users)
+alert("Cadastro realizado")
+
 
 mostrarLogin()
 
@@ -44,29 +67,45 @@ e.preventDefault();
   const nomeLogin = document.getElementById("nomeLogin").value;
   const senhaLogin = document.getElementById("senhaLogin").value;
   
+  let usersLogin = getUsers()
+  let user = usersLogin.find(user => user.nomeCadastro === nomeLogin && user.senhaCadastro === senhaLogin)
   
-  cadastrados = JSON.parse(localStorage.getItem("cadastrados")) || [];
   
-  const usuarioLogado = cadastrados.find(
-    (usuario) => usuario.nomeCadastro === nomeLogin && usuario.senhaCadastro === senhaLogin
-  )
-  
-  if(usuarioLogado){
-    localStorage.setItem("usuarioLogado", JSON.stringify(usuarioLogado))
+  if(user){
+    localStorage.setItem("loggedInUser", JSON.stringify(user))
     esconderButtonLogin() 
     mostrarHome()
     document.getElementById("dashboard").style.display = "inline-block"
     document.getElementById("configuracoes").style.display = "inline-block"
-
   }else{
-    message.style.color = "red"
-    message.textContent = "Usuário/Senha incorreto(s)"
+    messageLogin.style.color = "red"
+    messageLogin.textContent = "Usuário/Senha incorreto(s)"
   }
+  // cadastrados = JSON.parse(localStorage.getItem("cadastrados")) || [];
+  
+  // const usuarioLogado = cadastrados.find(
+  //   (usuario) => usuario.nomeCadastro === nomeLogin && usuario.senhaCadastro === senhaLogin
+  // )
+  
+  // if(usuarioLogado){
+  //   localStorage.setItem("usuarioLogado", JSON.stringify(usuarioLogado))
+  //   esconderButtonLogin() 
+  //   mostrarHome()
+  //   document.getElementById("dashboard").style.display = "inline-block"
+  //   document.getElementById("configuracoes").style.display = "inline-block"
+
+  // }else{
+  //   message.style.color = "red"
+  //   message.textContent = "Usuário/Senha incorreto(s)"
+  // }
 }
 
 
 
 
+
+
+//let cadastrados = [];
 
 
 
@@ -105,7 +144,7 @@ const closeBtnCadastro = document.getElementsByClassName("closeCadastro")[0];
     }
   }
 
-const message = document.getElementById("messageLogin", "messageCadastro")
+const message = document.getElementById("messageLogin")
 
 //Dados do perfil
 
@@ -137,7 +176,8 @@ function mostrarHome(){
 function mostrarPerfil(){
   esconderTudo()
   document.getElementById("container-perfil").style.display = "flex"
-  const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"))
+  //const usuarioLogado = JSON.parse(localStorage.getItem("loggedInUser"))
+  const usuarioLogado = JSON.parse(localStorage.getItem("loggedInUser"))
   
   document.getElementById("nomePerfil").innerHTML = "Nome: " + usuarioLogado.nomeCadastro
   document.getElementById("emailPerfil").innerHTML =  "Email: " + usuarioLogado.emailCadastro
@@ -150,4 +190,30 @@ function esconderTudo(){
   document.getElementById("container-perfil").style.display = "none"
 }
 
+
+function deslogar(){
+  document.getElementById("container-home").style.display = "flex"
+  document.getElementById("open-login").style.display = "flex"
+  document.getElementById("dashboard").style.display = "none"
+  document.getElementById("configuracoes").style.display = "none"
+  document.getElementById("container-perfil").style.display = "none"
+
+  localStorage.removeItem("loggedInUser")
+}
+
+function excluirConta(){
+  let nome = localStorage.getItem("loggedInUser")
+  if(!nome) return
+
+  let users = getUsers()
+  users = users.filter(user => user.nomeCadastro !== nomeCadastro)
+  saveUsers(users)
+  localStorage.removeItem("loggedInUser")
+  
+  alert("conta excluida")
+
+  deslogar()
+  mostrarPerfil()
+
+}
 
