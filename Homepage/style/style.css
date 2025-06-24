@@ -328,7 +328,7 @@ header {
 /* sistema do perfil */
 
 #container-perfil{
-    animation: normal trocarAba 1.0s cubic-bezier(0.215, 0.610, 0.355, 1);
+    animation: normal fadeIn 1.0s cubic-bezier(0.215, 0.610, 0.355, 1);
     display: none;
     flex-direction: column;
     justify-content: center;
@@ -425,13 +425,81 @@ header {
     color: white;
 }
 
+/* parte de adicionar casa */
+
+#addCasaContainer {
+    animation: trocarAba 1s ease;
+    display: none;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+#addCasaSpan {
+    color: white;
+    text-shadow: 0 0 10px white;
+    margin-top: 20px;
+    font-size: 25px;
+    height: fit-content;
+}
+
+#addCasaBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 70%;
+    height: 100vb;
+    background-color: rgb(59, 59, 59);
+    border: none;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+#boxInputs {
+    display: flex;
+    background: rgb(70, 70, 70);
+    border: none;
+    border-radius: 30px;
+    width: 70%;
+    height: 70%;
+    padding: 25px;
+    justify-content: center;
+    align-items: center;
+}
+
+#addCasaInputs {
+    color: white;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#addCasaInputs input{
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+/* botao de voltar para tras */
+
+#menuCasaVoltar{
+    display: flex;
+    background-color: rgb(70, 70, 70);
+    border: none;
+    border-radius: 25px;
+    padding: 3px 7px;
+}
+
 
 
 /* Animação (Gustavo - Mudei a animação e tentei deixar ela mais leve) */
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: scale(0.90) translateY(-60px);
+    transform: scale(0.90) translateY(-40px);
   }
   to {
     opacity: 1;
@@ -442,7 +510,7 @@ header {
 @keyframes trocarAba {
     from {
         opacity: 0;
-        transform: scaleX(0.8);
+        transform: scaleX(0.8) translateX(-120px);
     }
     to {
         opacity: 1;
