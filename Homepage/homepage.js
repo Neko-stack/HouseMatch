@@ -205,8 +205,10 @@ function excluirConta(){
   let nome = localStorage.getItem("loggedInUser")
   if(!nome) return
 
+  let nome2 = JSON.parse(nome)
+
   let users = getUsers()
-  users = users.filter(user => user.nomeCadastro !== nomeCadastro)
+  users = users.filter(user => user.nomeCadastro !== nome2.nomeCadastro)
   saveUsers(users)
   localStorage.removeItem("loggedInUser")
   
