@@ -44,9 +44,6 @@ alert("Cadastro realizado")
 
 mostrarLogin()
 
-
-
-
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -183,6 +180,13 @@ function mostrarPerfil(){
 function esconderTudo(){
   document.getElementById("container-home").style.display = "none"
   document.getElementById("container-perfil").style.display = "none"
+  document.getElementById("addCasaContainer").style.display = "none"
 }
+
+function mostrarAbaAdicionarCasa() {
+  esconderTudo()
+  document.getElementById("addCasaContainer").style.display = "flex"
+}
+
 
 

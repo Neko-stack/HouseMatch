@@ -439,6 +439,7 @@ header {
     color: white;
     text-shadow: 0 0 10px white;
     margin-top: 20px;
+    margin-bottom: 20px;
     font-size: 25px;
     height: fit-content;
 }
@@ -486,6 +487,7 @@ header {
 /* botao de voltar para tras */
 
 #menuCasaVoltar{
+    transition: scale 0.5s ease, filter 0.5s ease;
     display: flex;
     background-color: rgb(70, 70, 70);
     border: none;
@@ -493,6 +495,11 @@ header {
     padding: 3px 7px;
 }
 
+#menuCasaVoltar:hover{
+    transition: scale 0.5s ease, filter 0.5s ease;
+    scale: 0.9;
+    filter: brightness(140%);
+}
 
 
 /* Animação (Gustavo - Mudei a animação e tentei deixar ela mais leve) */
@@ -510,13 +517,12 @@ header {
 @keyframes trocarAba {
     from {
         opacity: 0;
-        transform: scaleX(0.8) translateX(-120px);
+        transform: scaleX(0.8) translateY(-30px);
     }
     to {
         opacity: 1;
         transform: scaleX(1);
     }
-
 }
 
 /* Responsividade em diferentes resoluções */
