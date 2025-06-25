@@ -23,7 +23,7 @@
                 </nav>
     
                 <!-- Gabriel mexeu daqui -->
-                <button id="open-login" class="loginButton">Login</button></a>
+                <button id="open-login" class="loginButton">Login</button>
                 </div>
         </section>
     
@@ -33,8 +33,8 @@
                 <span class="close">&times;</span> <!-- tentei consertar com o id -->
                 <h2 id="titleForm">LOGIN</h2>
                 <form id="login-form">
-                    <input type="text" id="nomeLogin" placeholder="Usuario" required>
-                    <input type="password" id="senhaLogin" placeholder="Senha" required>
+                    <input type="text" id="nomeSalvo" placeholder="Usuario" required>
+                    <input type="password" id="senhaSalvo" placeholder="Senha" required>
                     <!-- mexi aqui e criei uma div - Gustavo -->
                     <div class="entrarButton">
                         <button type="submit" class="login-teste">Entrar</button>
@@ -52,10 +52,10 @@
                 <span class="closeCadastro">&times;</span> <!-- tentei consertar com o id -->
                 <h2 id="titleForm">CADASTRO</h2>
                 <form id="cadastro-form">
-                    <input type="text" id="nomeCadastro" placeholder="Usuario" required>
-                    <input type="password" id="senhaCadastro" placeholder="Senha" required>
-                    <input type="number" id="cpfCadastro" placeholder="CPF" required>
-                    <input type="email" id="emailCadastro" placeholder="Email" required>
+                    <input type="text" id="nome" placeholder="Usuario" required>
+                    <input type="password" id="senha" placeholder="Senha" required>
+                    <input type="number" id="cpf" placeholder="CPF" required>
+                    <input type="email" id="email" placeholder="Email" required>
                     <div class="entrarButton">
                         <button type="submit" class="cadastro-teste">Cadastrar</button>
                     </div>
@@ -167,7 +167,7 @@
                     
                 <ul class="button-perfil">
                     <hr>
-                    <span><a href="" onclick="excluirConta()">excluir conta</a></span>
+                    <span><a onclick="excluirConta()">excluir conta</a></span>
                     <hr>
                 </ul>      
             </div>
@@ -205,7 +205,7 @@
 
     </main>
 
-    <script src="perfil.js"></script>
+    
     <script src="homepage.js"></script> 
 </body>
 </html>
