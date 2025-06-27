@@ -100,6 +100,7 @@ header {
     margin-top: 20px;
  }
 .modal-login, .modal-cadastro {
+    animation: normal backdropAnim 2s cubic-bezier(0.215, 0.610, 0.355, 1);
     display: none;
     position: fixed;
     z-index: 100;
@@ -325,6 +326,7 @@ header {
 }
 
 #modal-card{
+    animation: normal fadeIn 0.8s cubic-bezier(0.215, 0.610, 0.355, 1);
     padding: 0;
     min-width: 600px;
     height: 500px;
@@ -333,8 +335,19 @@ header {
 }
 
 #modal-card::backdrop{
+    animation: normal backdropAnim 2s cubic-bezier(0.215, 0.610, 0.355, 1);
     background-color: rgba(0,0,0,0.5);
     backdrop-filter: blur(5px);
+}
+@keyframes backdropAnim {
+    from {
+        background-color: none;
+        backdrop-filter: blur(0px);
+    }
+    to{
+        background-color: rgba(0,0,0,0.5);
+        backdrop-filter: blur(5px);
+    }
 }
 
 #box-modal-card {
@@ -374,11 +387,12 @@ header {
     align-items: center;
     justify-content: flex-start;
     flex-direction: row;
-    min-width: 500px;
+    width: 80%;
     background-color: rgb(59, 59, 59);
     min-height: 300px;  
     border: none;
     border-radius: 30px;
+    overflow: hidden;
 }
 
 #perfil-dados{
@@ -520,20 +534,6 @@ header {
     transition: scale 0.5s ease, filter 0.5s ease;
     scale: 0.9;
     filter: brightness(140%);
-}
-
-#seletor{
-    border: none;
-    border-radius: 25px;
-    width: 120px;
-    height: 50px;
-    text-align: center;
-}
-
-option {
-    border: none;
-    border-radius: 30px;
-    color: blue;
 }
 
 
