@@ -235,7 +235,7 @@ header {
     justify-content: center;
 }
 
-.pagina-centro{
+#pagina-centro{
     width: 80%;
     height: fit-content;
     background-color: rgb(214, 175, 103);
@@ -323,6 +323,27 @@ header {
     height: 140px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.644);
 }
+
+#modal-card{
+    padding: 0;
+    min-width: 600px;
+    height: 500px;
+    border: none;
+    border-radius: 12px;
+}
+
+#modal-card::backdrop{
+    background-color: rgba(0,0,0,0.5);
+    backdrop-filter: blur(5px);
+}
+
+#box-modal-card {
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    height: 100%;
+    width: 100%;
+}
+
 /* sistema de home e cards */
 
 /* sistema do perfil */
@@ -353,7 +374,7 @@ header {
     align-items: center;
     justify-content: flex-start;
     flex-direction: row;
-    width: 80%;
+    min-width: 500px;
     background-color: rgb(59, 59, 59);
     min-height: 300px;  
     border: none;
@@ -462,7 +483,7 @@ header {
     background: rgb(70, 70, 70);
     border: none;
     border-radius: 30px;
-    width: 70%;
+    min-width: 500px;
     height: 70%;
     padding: 25px;
     justify-content: center;
@@ -500,6 +521,22 @@ header {
     scale: 0.9;
     filter: brightness(140%);
 }
+
+#seletor{
+    border: none;
+    border-radius: 25px;
+    width: 120px;
+    height: 50px;
+    text-align: center;
+}
+
+option {
+    border: none;
+    border-radius: 30px;
+    color: blue;
+}
+
+
 
 
 /* Animação (Gustavo - Mudei a animação e tentei deixar ela mais leve) */
