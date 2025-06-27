@@ -78,9 +78,7 @@ e.preventDefault();
  function deslogar(){
   document.getElementById("container-home").style.display = "flex"
   document.getElementById("open-login").style.display = "flex"
-  document.getElementById("dashboard").style.display = "none"
-  document.getElementById("configuracoes").style.display = "none"
-  document.getElementById("container-perfil").style.display = "none"
+  esconderTudo()
 
   localStorage.removeItem("usuariosLogados")
 }
@@ -137,6 +135,13 @@ const closeBtnCadastro = document.getElementsByClassName("closeCadastro")[0];
   }
 
 const message = document.getElementById("messageLogin")
+
+// Modal de ver detalhes
+
+function cardClose(){
+  document.getElementById("modal-card").close()
+}
+
 
 //Dados do perfil
 // const cards = [
@@ -235,8 +240,6 @@ function testear(){
 }
 
 testear()
-
-
 
 
 
