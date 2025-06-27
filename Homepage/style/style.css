@@ -490,7 +490,7 @@ header {
     align-items: center;
 }
 
-#addCasaInputs {
+.addCasaInputs {
     color: white;
     gap: 10px;
     display: flex;
@@ -499,7 +499,7 @@ header {
     align-items: center;
 }
 
-#addCasaInputs input{
+.addCasaInputs input{
     border: none;
     border-radius: 20px;
     padding: 10px;
