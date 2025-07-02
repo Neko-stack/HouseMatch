@@ -74,13 +74,12 @@ e.preventDefault();
  }
 
  //PERFIL
-
+// Gustavo corrige um bug em que o usuario deslogava e não aparecia mais nenhum card
  function deslogar(){
-  document.getElementById("container-home").style.display = "flex"
-  document.getElementById("open-login").style.display = "flex"
-  esconderTudo()
+   localStorage.removeItem("usuariosLogados")
 
-  localStorage.removeItem("usuariosLogados")
+   esconderTudo()
+   mostrarHome()
 }
 
 function excluirConta(){
@@ -136,7 +135,7 @@ const closeBtnCadastro = document.getElementsByClassName("closeCadastro")[0];
 
 const message = document.getElementById("messageLogin")
 
-// Modal de ver detalhes
+// Modal de ver detalhes da casa
 
 function cardClose(){
   document.getElementById("modal-card").close()
@@ -196,6 +195,8 @@ function cardClose(){
 //     detalhes:  "Ver detalhes"
 //   }]
 
+// Sistema de criação de cards ---------
+
 const imoveis = JSON.parse(localStorage.getItem("imoveis")) || []
 console.log(imoveis)
 
@@ -207,9 +208,9 @@ function cadastrarImovel(){
   }
   imoveis.push(imovel)
   localStorage.setItem("imoveis", JSON.stringify(imoveis))
-  testear()
+  geradorDeCards()
+  mostrarHome()
 }
-
 let imovel = null
 
 function verMais(id){
@@ -217,13 +218,14 @@ function verMais(id){
   document.getElementById("modal-card").showModal()
 }
 
-function testear(){
-  document.getElementById("pagina-centro").innerHTML = ""
-  for(i = 0; i < imoveis.length; i++){
+function geradorDeCards(){
+    document.getElementById("pagina-centro").innerHTML = ""
+    for(i = 0; i < imoveis.length; i++){
     let descricao
     if(imoveis[i].descricao.length > 60){
       descricao = imoveis[i].descricao.slice(0,60) + "(...)"
     }else descricao = imoveis[i].descricao
+    
     document.getElementById("pagina-centro").innerHTML += 
     `<div class="card">
     <div class="conteudo-card">
@@ -234,13 +236,14 @@ function testear(){
     <button onclick="verMais(${imoveis[i].id})">Ver detalhes</button>
     </div>
     </div>`
+    }
 
     // document.getElementById("box-modal-card").innerHTML +=
-  }
 }
+geradorDeCards()
 
-testear()
 
+//Sistema de card acaba aqui ---------
 
 
 
