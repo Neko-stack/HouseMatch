@@ -149,7 +149,7 @@ header {
     margin-top: 0;
     }
 
-    .modal-content-login input{
+    .modal-content-login input,.modal-content-cadastro input{
     width: 80%;
     padding: 10px;
     margin: 10px 0;
@@ -158,20 +158,10 @@ header {
     font-size: 18px;
     box-shadow: 0px 0 10px rgba(0, 0, 0, 0.377);
     }
-
-    .modal-content-cadastro input  {
-        width:80%;
-        padding: 10px;
-        margin: 10px 0;
-        border: 2px solid #ccc;
-        border-radius: 10px;
-        font-size: 18px;
-        box-shadow: 0px 0 10px rgba(0, 0, 0, 0.377);
-        }
-
-        #cadastro-link {
-            cursor: pointer;
-        }
+    
+    #cadastro-link {
+    cursor: pointer;
+    }
 
     .entrarButton button{
     transition: transform 0.3s ease-out;
@@ -284,8 +274,9 @@ header {
 }
 
 .card:hover{
+    animation: forwards inputActive 0.5s ease;
     transition: transform 0.3s cubic-bezier(0.215, 0.610, 0.355, 1), box-shadow 0.3s cubic-bezier(0.215, 0.610, 0.355, 1);
-    transform: scale(1.02);
+    transform: scale(1.03);
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.712);
 }
 
@@ -559,6 +550,13 @@ header {
         opacity: 1;
         transform: scaleX(1);
     }
+}
+@keyframes inputActive {
+    0% {transform: rotateZ(0deg) scale(1);}
+    25% {transform: rotateZ(0.5deg) scale(1);}
+    50% {transform: rotateZ(-0.5deg) scale(1);}
+    75% {transform: rotateZ(0deg) scale(0.99);}
+    100% {transform: rotateZ(0deg) scale(1);}
 }
 
 /* Responsividade em diferentes resoluções */
