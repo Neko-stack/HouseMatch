@@ -218,6 +218,26 @@ function verMais(id){
   document.getElementById("modal-card").showModal()
 }
 
+//barra do ze pesquisa pinto
+function pesquisaDeCards(){
+  const pesquisabarra = document.getElementById('pesquisabarra')
+  const cards = document.querySelectorAll('.card'); 
+  pesquisabarra.addEventListener('input', ()=> {
+    const query = pesquisabarra.value.toLowerCase();
+
+    cards.forEach(card => {
+      const pcard = Array.from(card.querySelectorAll('p'))
+      .map(p => p.textContent.toLowerCase())
+      .join('');
+      if (pcard.includes(query)){
+        card.style.display = 'block';
+      }else{
+        card.style.display = 'none';
+      }
+    })
+  })
+}
+
 function geradorDeCards(){
     document.getElementById("pagina-centro").innerHTML = ""
     for(i = 0; i < imoveis.length; i++){
@@ -241,6 +261,7 @@ function geradorDeCards(){
     // document.getElementById("box-modal-card").innerHTML +=
 }
 geradorDeCards()
+pesquisaDeCards()
 
 
 //Sistema de card acaba aqui ---------
@@ -298,21 +319,7 @@ function mostrarAbaAdicionarCasa() {
   esconderTudo()
   document.getElementById("addCasaContainer").style.display = "flex"
 }
-//barra do ze pesquisa pinto
-const pesquisabarra = document.getElementById('pesquisabarra')
-const cards = document.querySelectorAll('.conteudo-card'); 
-pesquisabarra.addEventListener('input', ()=> {
-  const query = pesquisabarra.value.toLowerCase();
 
-  cards.forEach(card => {
-    const pcard = Array.from(card.querySelectorAll('p'))
-    .map(p => p.textContent.toLowerCase())
-    .join('');
-    if (pcard.includes(query)){
-      card.style.display = 'block';
-    }else{
-      card.style.display = 'none';
-    }
-  })
-})
+
+
 
