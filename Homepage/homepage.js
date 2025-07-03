@@ -298,6 +298,21 @@ function mostrarAbaAdicionarCasa() {
   esconderTudo()
   document.getElementById("addCasaContainer").style.display = "flex"
 }
+//barra do ze pesquisa pinto
+const pesquisabarra = document.getElementById('pesquisabarra')
+const cards = document.querySelectorAll('.conteudo-card'); 
+pesquisabarra.addEventListener('input', ()=> {
+  const query = pesquisabarra.value.toLowerCase();
 
-
+  cards.forEach(card => {
+    const pcard = Array.from(card.querySelectorAll('p'))
+    .map(p => p.textContent.toLowerCase())
+    .join('');
+    if (pcard.includes(query)){
+      card.style.display = 'block';
+    }else{
+      card.style.display = 'none';
+    }
+  })
+})
 
