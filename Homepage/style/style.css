@@ -23,9 +23,8 @@ li, a, button {
     display: none;
 }
 
-header {
+header{
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: 20px 15px;
     background-color: rgb(22, 22, 22);
@@ -39,24 +38,35 @@ header {
     text-shadow: 0 0 20px rgba(245, 245, 245, 0.799);
 }
 
-.fa-home{ /* Icone Casa*/
-    font-size: 42px;
+#logo {
+    width: 40%;
+}
+
+#logo .fa-home{ /* Icone Casa*/
+    font-size: 105%;
 
 }
 /* todos os links da navbar*/
 .nav-links {
     list-style: none;
     padding: 0;
+    justify-content: space-between;
+}
+
+#resto-nav{
+    display: inline-flex;
+    width: 60%;
+    justify-content: space-between;
 }
 
 .nav-links li{
     transition: ease-in 0.4s;
     display: inline-block;
-    padding: 0px 50px;
+    padding: 0 65px;
 }
 
 .nav-links li a{
-    display: inline-block;
+    display: inline-flex;
     transition: letter-spacing 0.3s ease, color 0.6s ease, scale 0.3s ease;
 }
 
@@ -246,6 +256,7 @@ header {
     height: 70px;
     background-color: rgb(214, 175, 103);
     align-items: center;
+    justify-content: center;
     display: flex;
     margin: 30px auto;
     margin-top: 0px;
@@ -253,6 +264,16 @@ header {
     box-shadow: 0 0 10px #aaa;
 }
 
+.pagina-filtro input{
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.541);
+    width: 40%;
+    height: 50px;
+    text-align: center;
+    background-color: rgb(41, 41, 41);
+    color: white;
+}
 .card{
     transition: transform 0.3s cubic-bezier(0.215, 0.610, 0.355, 1), box-shadow 0.3s cubic-bezier(0.215, 0.610, 0.355, 1) ;
     display: flex;
@@ -565,9 +586,6 @@ header {
     .nav-links li{
         padding: 0px 30px;
     }
-    li, a, button, .entrarButton button{ 
-        font-size: 16px;
-    }
     .logotipo {
         font-size: 28px;
     }
@@ -581,16 +599,13 @@ header {
         font-size: 22px;
     }
     li, a, button{ 
-        font-size: 11px;
+        font-size: 13px;
     }
     .cadastro { 
         font-size: 15px;
     }
     .cadastro a{ 
         font-size: 14px;
-    }
-    .nav-links li{
-        padding: 0px 15px;
     }
     .loginButton {
         padding: 20px 30px;
@@ -607,14 +622,8 @@ header {
     .logotipo {
         font-size: 18px;
     }
-    *{
-        font-size: 12px;
-    }
     li, a, button{ 
-    font-size: 8px;
-    }
-    .nav-links li{
-    padding: 0px 10px;
+        font-size: 6px;
     }
     .loginButton {
     padding: 20px 25px;

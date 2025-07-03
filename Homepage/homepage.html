@@ -12,17 +12,20 @@
         <section>
             <!-- Header com o navbar e logotipo -->
             <header>
-                <span class="logotipo">House<i class="fa fa-home" aria-hidden="true"></i></i>Match</i></span>
-                <nav>
-                    <ul class="nav-links">
-                        <!-- colocar links de cada pagina quando feito -->
-                        <li><a href="#Página Inicial" onclick="mostrarHome()">Página Inicial</a></li>
-                        <li id="configuracoes"><a href="#Configurações" onclick="mostrarPerfil()">Configurações</a></li>
-                    </ul>
-                </nav>
-    
-                <!-- Gabriel mexeu daqui -->
-                <button id="open-login" class="loginButton">Login</button>
+                <div id="logo">
+                    <span class="logotipo">House<i class="fa fa-home" aria-hidden="true"></i></i>Match</i></span>
+                </div>
+                <div id="resto-nav">
+                    <nav>
+                        <ul class="nav-links">
+                            <!-- colocar links de cada pagina quando feito -->
+                            <li><a href="#Página Inicial" onclick="mostrarHome()">Página Inicial</a></li>
+                            <li id="configuracoes"><a href="#Configurações" onclick="mostrarPerfil()">Configurações</a></li>
+                        </ul>
+                    </nav>
+                    
+                    <!-- Gabriel mexeu daqui -->
+                    <button id="open-login" class="loginButton">Login</button>
                 </div>
         </section>
     
@@ -74,7 +77,7 @@
         <section class="container-home" id="container-home">
         
             <div class="pagina-filtro">
-                <input type="text"id="pesquisabarra" placeholder="pesquisa ai neguinho">
+                <input type="text"id="pesquisabarra" placeholder="Pesquisar">
             </div>
             <section id="pagina-centro">
 
@@ -83,9 +86,10 @@
             <!-- modal dos cards -->
             <dialog id="modal-card">
                 <section id="box-modal-card">
-                    <div class="">
-                        <span class="close" onclick="cardClose()">&times;</span>
-                        <p></p>
+                    <span class="close" onclick="cardClose()">&times;</span>
+                    <p></p>
+                    <div id="conteudo-modal-card">
+                        
                     </div>
                 </section>
             </dialog>
@@ -95,7 +99,7 @@
             <div id="perfil">   
                     <h2 class="titlePerfil">PERFIL</h2>
                     <div id="perfil-box">
-                        <img src="Imagem/perfil.png" width="40%" height="55%" style="border: none; border-radius: 50px; align-self: center; margin-left: 50px;" alt="">
+                        <img src="Imagem/perfil.png" width="40%" height="50%" style="border: none; border-radius: 50px; align-self: center; margin-left: 50px;" alt="">
                         <div id="perfil-dados">
                             <ul>
                                 <li id="nomePerfil"></li>

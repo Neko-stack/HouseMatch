@@ -76,10 +76,11 @@ e.preventDefault();
  //PERFIL
 // Gustavo corrige um bug em que o usuario deslogava e não aparecia mais nenhum card
  function deslogar(){
-   localStorage.removeItem("usuariosLogados")
-
-   esconderTudo()
-   mostrarHome()
+    localStorage.removeItem("usuariosLogados")
+    document.getElementById("configuracoes").style.display = "none"
+    document.getElementById("open-login").style.display = "inline-block"
+    esconderTudo()
+    mostrarHome()
 }
 
 function excluirConta(){
@@ -210,6 +211,8 @@ function cadastrarImovel(){
   localStorage.setItem("imoveis", JSON.stringify(imoveis))
   geradorDeCards()
   mostrarHome()
+  pesquisaDeCards()
+
 }
 let imovel = null
 
@@ -230,7 +233,7 @@ function pesquisaDeCards(){
       .map(p => p.textContent.toLowerCase())
       .join('');
       if (pcard.includes(query)){
-        card.style.display = 'block';
+        card.style.display = 'flex';
       }else{
         card.style.display = 'none';
       }
@@ -256,13 +259,15 @@ function geradorDeCards(){
     <button onclick="verMais(${imoveis[i].id})">Ver detalhes</button>
     </div>
     </div>`
+
+    document.getElementById("conteudo-modal-card")
     }
 
     // document.getElementById("box-modal-card").innerHTML +=
 }
+
 geradorDeCards()
 pesquisaDeCards()
-
 
 //Sistema de card acaba aqui ---------
 
