@@ -62,7 +62,7 @@ header{
 .nav-links li{
     transition: ease-in 0.4s;
     display: inline-block;
-    padding: 0 65px;
+    padding: 0 50px;
 }
 
 .nav-links li a{
@@ -71,15 +71,15 @@ header{
 }
 
 .nav-links li a:hover {
-    transition: ease 0.3s;
+    transition: ease 0.2s;
     color: rgb(255, 231, 200);
     letter-spacing: 1.5px;
-    scale: 1.1;
+    scale: 1.05;
 }
 
 /* botoes, talvez depois adicionar uma classe apenas para o login */
 .loginButton {
-    transition: color ease-in 0.6s, background-color ease 1.2s, scale ease-in 0.25s, padding ease-in 0.25s, text-shadow ease-in 0.2s, box-shadow ease-in 0.3s;
+    transition: color ease-in 0.3s, background-color ease 0.6s, scale ease-in 0.25s, padding ease-in 0.25s, text-shadow ease-in 0.2s, box-shadow ease-in 0.3s;
     padding: 15px 40px;
     border: none;
     border-radius: 25px;
@@ -92,12 +92,12 @@ header{
 
 /* animação de passada de mouse no botao e login */
 .loginButton:hover {
-    transition: color ease 0.6s, background-color ease 0.6s, scale ease-in-out 0.2s, text-shadow ease-in 0.3s, box-shadow ease-in 0.3s;
+    transition: color ease 0.3s, background-color ease 0.3s, scale ease-in-out 0.2s, text-shadow ease-in 0.3s, box-shadow ease-in 0.3s;
     color: whitesmoke;
     text-shadow: 0px 0px 10px whitesmoke;
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.301);
     background-color: rgb(84, 153, 199);
-    scale: 1.1;
+    scale: 1.05;
 }
 
 /* GABRIEL MEXEU AQUI */
@@ -132,7 +132,7 @@ header{
     text-align: center;
     min-width: 300px;
     will-change: opacity, transform;
-    animation: fadeIn 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    animation: fadeIn 0.6s cubic-bezier(0.23, 1, 0.32, 1);
     
     }
 
@@ -146,7 +146,7 @@ header{
         text-align: center;
         min-width: 300px;
         will-change: opacity, transform;
-        animation: fadeIn 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        animation: fadeIn 0.6s cubic-bezier(0.23, 1, 0.32, 1);
         width: 500px;
         }
 
@@ -387,7 +387,7 @@ header{
     align-items: center;
     padding: 20px;
     width: 80%;
-    height: 100vb;
+    height: 100%;
     background-color: rgb(70, 70, 70);
     border: none;
     border-radius: 20px;
@@ -429,10 +429,23 @@ header{
     align-items: center;
     align-items: center;
     margin-top: 35px;
+    flex-direction: column;
 }
 #perfil-botoes2 button{
     transition: background-color 0.3s ease, scale 0.3s ease;
+    padding: 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.botaoAddCasa{
     background-color: rgb(214, 175, 103);
+}
+
+ .excluirConta{
+    transition: background-color 0.3s ease, scale 0.3s ease;
+    background-color: rgb(210, 9, 9);
     padding: 20px;
     border: none;
     border-radius: 25px;
@@ -440,9 +453,9 @@ header{
 }
 
 #perfil-botoes2 button:hover{
-    transition: background-color 0.3s ease, scale 0.3s ease;
-    background-color: rgb(231, 191, 105);
-    scale: 1.03;
+    transition: filter 0.3s ease, scale 0.3s ease;
+    filter: brightness(110%);
+    scale: 1.01;
 }
 
 #perfil-botoes button{
@@ -533,7 +546,7 @@ header{
 /* botao de voltar para tras */
 
 #menuCasaVoltar{
-    transition: scale 0.5s ease, filter 0.5s ease;
+    transition: transform 0.4s ease, filter 0.4s ease;
     display: flex;
     background-color: rgb(70, 70, 70);
     border: none;
@@ -542,8 +555,8 @@ header{
 }
 
 #menuCasaVoltar:hover{
-    transition: scale 0.5s ease, filter 0.5s ease;
-    scale: 0.9;
+    transition: transform 0.4s ease, filter 0.4s ease;
+    transform: scale(0.98);
     filter: brightness(140%);
 }
 
@@ -618,7 +631,7 @@ header{
 }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
     .logotipo {
         font-size: 18px;
     }

@@ -199,7 +199,6 @@ function cardClose(){
 // Sistema de criação de cards ---------
 
 const imoveis = JSON.parse(localStorage.getItem("imoveis")) || []
-console.log(imoveis)
 
 function cadastrarImovel(){
   const imovel = {
@@ -212,12 +211,15 @@ function cadastrarImovel(){
   geradorDeCards()
   mostrarHome()
   pesquisaDeCards()
+  document.getElementById("casaLocal").value = ""
+  document.getElementById("casaDescricao").value = ""
 
 }
 let imovel = null
 
 function verMais(id){
   imovel = imoveis.find(imovel => imovel.id == id)
+  console.log(imovel)
   document.getElementById("modal-card").showModal()
 }
 
@@ -260,7 +262,8 @@ function geradorDeCards(){
     </div>
     </div>`
 
-    document.getElementById("conteudo-modal-card")
+
+
     }
 
     // document.getElementById("box-modal-card").innerHTML +=
