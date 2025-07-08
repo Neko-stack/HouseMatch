@@ -39,7 +39,7 @@ header{
 }
 
 #logo {
-    width: 41%;
+    width: 46%;
 }
 
 #logo .fa-home{ /* Icone Casa*/
@@ -55,7 +55,7 @@ header{
 
 #resto-nav{
     display: inline-flex;
-    width: 59%;
+    width: 60%;
     justify-content: space-between;
 }
 
@@ -355,14 +355,23 @@ header{
 
 #box-modal-card {
     display: flex;
-    background-color: rgb(41, 41, 41);
+    flex-direction: column;
     height: 100%;
     width: 100%;
+}
+
+#modal-card-cima {
+    display: flex;
+    flex-direction: row;
+    height: 50%;
+    width: 100%;
+    margin-bottom: 60px;
 }
 
 #modal-imagem-card{
     display: flex;
     flex-direction: column;
+    height: 100%;
 }
 #modal-imagem-card span{
     text-align: center;
@@ -374,14 +383,14 @@ header{
 
 #modal-imagem-card img{
     width: 400px;
-    height: 50%;
+    height: 100%;
     border-radius: 20px 20px 0 0;
     margin: 1px;
 }
 
 #modal-titulo-card{
     width: 100%;
-    height: 50%;
+    height: 100%;
     justify-content: center;
     text-align: center;
     color: white;
@@ -405,8 +414,18 @@ header{
 }
 
 #modal-descricao-card{
+    justify-content: flex-start;
+    align-items: flex-end;
+    text-align: start;
+    height: 50%;
     width: 100%;
-    height: 30%;
+    background-color: #2e2e2e;
+    border-radius: 10px 10px 20px 20px;
+}
+#modal-descricao-card p {
+    color: white;
+    font-size: 20px;
+    margin-left: 20px;
 }
 
 
