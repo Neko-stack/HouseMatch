@@ -81,6 +81,7 @@ e.preventDefault();
     document.getElementById("open-login").style.display = "inline-block"
     esconderTudo()
     mostrarHome()
+    geradorDeCards()
 }
 
 function excluirConta(){
@@ -97,7 +98,7 @@ function excluirConta(){
   alert("conta excluida")
 
   deslogar()
-  
+  geradorDeCards()
 
 }
 
@@ -198,7 +199,6 @@ function cardClose(){
 
 // Sistema de criação de cards ---------
 
-const imoveis = JSON.parse(localStorage.getItem("imoveis")) || []
 
 function cadastrarImovel(){
   const imovel = {
@@ -206,11 +206,31 @@ function cadastrarImovel(){
     local: document.getElementById("casaLocal").value,
     descricao: document.getElementById("casaDescricao").value,
   }
-  imoveis.push(imovel)
-  localStorage.setItem("imoveis", JSON.stringify(imoveis))
+
+  let userLogado =JSON.parse(localStorage.getItem("usuariosLogados"))
+
+  let users = getUsers()  
+
+  const index = users.findIndex(user => user.cpf === userLogado.cpf)
+  if(index === -1) return
+
+  if (!users[index].imoveis){
+    users[index].imoveis = [];
+  }
+
+  users[index].imoveis.push(imovel)
+
+  saveUsers(users)
+
+  localStorage.setItem("usuariosLogados", JSON.stringify(users[index]))
+
+  // imoveis.push(imovel)
+  // localStorage.setItem("imoveis", JSON.stringify(imoveis))
+
   geradorDeCards()
   mostrarHome()
   pesquisaDeCards()
+
   document.getElementById("casaLocal").value = ""
   document.getElementById("casaDescricao").value = ""
 
@@ -218,7 +238,15 @@ function cadastrarImovel(){
 let imovel = null
 
 function verMais(id){
-  imovel = imoveis.find(imovel => imovel.id == id)
+  const allUsers = getUsers()
+  for(let user of allUsers){
+    const encontrado = user.imoveis?.find(imovel => imovel.id === id)
+    if(encontrado){
+      imovel = encontrado
+      break
+    }
+  }
+
   console.log(imovel)
   document.getElementById("modal-card").showModal()
 }
@@ -244,21 +272,35 @@ function pesquisaDeCards(){
 }
 
 function geradorDeCards(){
+
+
+
     document.getElementById("pagina-centro").innerHTML = ""
-    for(i = 0; i < imoveis.length; i++){
+    const allUsers = getUsers()
+    let userImovel = []
+
+    allUsers.forEach( user => {
+      if (user.imoveis && Array.isArray(user.imoveis)){
+        user.imoveis.forEach(imovel => {
+          userImovel.push(imovel)
+        })
+      }
+    })
+
+    for(i = 0; i < userImovel.length; i++){
     let descricao
-    if(imoveis[i].descricao.length > 60){
-      descricao = imoveis[i].descricao.slice(0,60) + "(...)"
-    }else descricao = imoveis[i].descricao
+    if(userImovel[i].descricao.length > 60){
+      descricao = userImovel[i].descricao.slice(0,60) + "(...)"
+    }else descricao = userImovel[i].descricao
     
     document.getElementById("pagina-centro").innerHTML += 
     `<div class="card">
     <div class="conteudo-card">
     <img src="https://i0.wp.com/espaferro.com.br/wp-content/uploads/2024/06/placeholder.png?ssl=1"
     alt="PLACEHOLDER">
-    <p>${imoveis[i].local}</p>
+    <p>${userImovel[i].local}</p>
     <p>${descricao}</p>
-    <button onclick="verMais(${imoveis[i].id})">Ver detalhes</button>
+    <button onclick="verMais(${userImovel[i].id})">Ver detalhes</button>
     </div>
     </div>`
 
