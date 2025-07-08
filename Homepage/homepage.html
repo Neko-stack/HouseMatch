@@ -126,9 +126,22 @@
                     </div>
                     <div id="perfil-botoes2">
                         <button class="botaoAddCasa" onclick="mostrarAbaAdicionarCasa()">Adicionar Imóvel</button>
-                        <button onclick="excluirConta()" class="excluirConta">excluir conta</button>
+                        <button onclick="modalExcluir()" class="excluirConta" id="excluirConta">excluir conta</button>
+                            <div id="modalExcluirConta" class="modalExcluirConta">
+                                 <span class="closeModalExcluir">&times;</span>
+                                <div class="modalContentExcluir">
+                                  <h4>Tem certeza ow owowow?</h4>
+                                 <p class="alerExcluir">Essa opção é permanente!</p>
+                                <div class="modalButtons">
+                        <button id="cancelarExcluir" class="canceleButtonExcluir">cancele isso</button>
+                        <button id="confirmaExcluir" class="confirmaButtonExcluir">Confirmar Exclusão</button>
                     </div>
+
+                </div>
+
             </div>
+        </div>
+    
         </section>
 
         <section id="addCasaContainer">

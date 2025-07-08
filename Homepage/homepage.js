@@ -81,22 +81,50 @@ e.preventDefault();
     document.getElementById("open-login").style.display = "inline-block"
     esconderTudo()
     mostrarHome()
-    geradorDeCards()
 }
 
-function excluirConta(){
+document.addEventListener("DOMContentLoaded", () => {
+const btnexcluirConta = document.querySelector(".excluirConta")
+ const modalExcluirConta = document.querySelector("#modalExcluirConta")
+ const cancelarExcluir = document.querySelector("#cancelarExcluir")
+ const closebtnExcluir =  document.getElementsByClassName("closeModalExcluir")[0];
+
+
+ if (btnexcluirConta) { 
+ btnexcluirConta.addEventListener("click", ()=>{
+   modalExcluirConta.style.display = 'flex'
+ })
+ }
+cancelarExcluir.addEventListener("click", ()=>{
+  modalExcluirConta.style.display = 'none'
+ })
+
+closebtnExcluir.addEventListener("click", () => {
+  modalExcluirConta.style.display = 'none'
+  })
+
+ const confirmaExcluir = document.getElementById("confirmaExcluir")
+ confirmaExcluir.addEventListener("click", excluirConta)
+});
+
+function excluirConta(e){
+  if (e) e.preventDefault();
   let userLogado = localStorage.getItem("usuariosLogados")
   if(!userLogado) return
 
   let userString = JSON.parse(userLogado)
 
+ //
+
+
+  //
   let users = getUsers()  
   users = users.filter(user => user.nome !== userString.nome)
   saveUsers(users)
   localStorage.removeItem("usuariosLogados")
   
   alert("conta excluida")
-
+  //modalExcluirConta.style.display = "none"
   deslogar()
   geradorDeCards()
 
@@ -199,6 +227,7 @@ function cardClose(){
 
 // Sistema de criação de cards ---------
 
+//const imoveis = JSON.parse(localStorage.getItem("imoveis")) || []
 
 function cadastrarImovel(){
   const imovel = {
@@ -246,6 +275,16 @@ function verMais(id){
       break
     }
   }
+
+   document.getElementById("box-modal-card").innerHTML = 
+  `<div class="card">
+    <div class="conteudo-card">
+    <img src="https://i0.wp.com/espaferro.com.br/wp-content/uploads/2024/06/placeholder.png?ssl=1"
+    alt="PLACEHOLDER">
+    <p>${imovel.local}</p>
+    <p>${imovel.descricao}</p>
+    </div>
+    </div>`
 
   console.log(imovel)
   document.getElementById("modal-card").showModal()
