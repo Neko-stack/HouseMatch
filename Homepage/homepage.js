@@ -174,7 +174,27 @@ function cardClose(){
 
 //const imoveis = JSON.parse(localStorage.getItem("imoveis")) || []
 
-function cadastrarImovel(){
+document.addEventListener("DOMContentLoaded", () => {
+  const formImovel = document.getElementById("formCadastroCasa");
+
+  formImovel.addEventListener("submit", cadastrarImovel); 
+
+  document.getElementById("casaLocal").focus()
+
+
+});
+
+
+function cadastrarImovel(c){
+  c.preventDefault()
+// const casaLocal = document.getElementById("casaLocal").value.trim();
+// const casaTipo = document.getElementById("casaTipo").value.trim();
+// const casaPreco = document.getElementById("casaPreco").value.trim();
+// const casaDescricao = document.getElementById("casaDescricao").value.trim();
+// const casaCaracteristicas = document.getElementById("casaCaracteristicas").value.trim();
+
+
+  
   const imagemCasas = [
     "https://tuacasa.uol.com.br/wp-content/uploads/2024/06/casa-simples-0.png",
     "https://i.pinimg.com/736x/c9/a0/ab/c9a0ab36aac8f8600db50c7d2be5a45e.jpg",

@@ -130,10 +130,10 @@
                             <div id="modalExcluirConta" class="modalExcluirConta">
                                  <span class="closeModalExcluir">&times;</span>
                                 <div class="modalContentExcluir">
-                                  <h4>Tem certeza ow owowow?</h4>
+                                  <h4>Tem certeza que deseja excluir sua conta?</h4>
                                  <p class="alerExcluir">Essa opção é permanente!</p>
                                 <div class="modalButtons">
-                        <button id="cancelarExcluir" class="canceleButtonExcluir">cancele isso</button>
+                        <button id="cancelarExcluir" class="canceleButtonExcluir">Cancelar</button>
                         <button id="confirmaExcluir" class="confirmaButtonExcluir">Confirmar Exclusão</button>
                     </div>
 
@@ -153,38 +153,40 @@
                 </div>
                 <span id="addCasaSpan">Complete os seguintes campos para adicionar a casa:</span>
                 <div id="boxInputs">
+                    <form id="formCadastroCasa">
                     <div class="addCasaInputs">
-                        <div class="addCasaInputs">
-                            <label for="casaLocal">Local:</label>
-                            <input type="text" id="casaLocal">
+                            <div class="addCasaInputs">
+                                <label for="casaLocal">Local:</label>
+                                <input type="text" id="casaLocal" required>
+                            </div>
+                            <div class="addCasaInputs">
+                                <label for="casaTipo">Tipo:</label>
+                                <input type="text" id="casaTipo" required>
+                            </div>
+                            <div class="addCasaInputs">
+                                <label for="casaPreco">Preço:</label>
+                                <input type="number" id="casaPreco" required>
+                            </div>
+                            
+                            <div class="addCasaInputs-desc">
+                                <label for="casaDescricao">Descrição:</label>
+                                <textarea name="" id="casaDescricao" required></textarea>
+                            </div>
+                            <div class="addCasaInputs-desc">
+                                <label for="casaCaracteristicas">Características:</label>
+                                <textarea name="" id="casaCaracteristicas" required></textarea>
+                            </div>
+                            <div id="perfil-botoes2">
+                                <button  type="submit" class="botaoAddCasa">Cadastrar Imóvel</button>
+                            </div>  
                         </div>
-                        <div class="addCasaInputs">
-                            <label for="casaTipo">Tipo:</label>
-                            <input type="text" id="casaTipo">
-                        </div>
-                        <div class="addCasaInputs">
-                            <label for="casaPreco">Preço:</label>
-                            <input type="number" id="casaPreco">
-                        </div>
-
-                        <div class="addCasaInputs-desc">
-                            <label for="casaDescricao">Descrição:</label>
-                            <textarea name="" id="casaDescricao"></textarea>
-                        </div>
-                        <div class="addCasaInputs-desc">
-                            <label for="casaCaracteristicas">Características:</label>
-                            <textarea name="" id="casaCaracteristicas"></textarea>
-                        </div>
-                        <div id="perfil-botoes2">
-                            <button class="botaoAddCasa" onclick="cadastrarImovel()">Cadastrar Imóvel</button>
-                        </div>  
-                    </div>
+                    </form>
+                  </div>
                 </div>
-            </div>
-        </section>
-    </main>
-
-    
-    <script src="homepage.js"></script> 
-</body>
+            </section>
+        </main>
+        
+        
+        <script src="homepage.js"></script> 
+    </body>
 </html>
