@@ -175,26 +175,19 @@ function cardClose(){
 //const imoveis = JSON.parse(localStorage.getItem("imoveis")) || []
 
 function cadastrarImovel(){
-  let imagemCasa = NumeroRandom(1, 5)
-  let urlImagem = ""
+  const imagemCasas = [
+    "https://tuacasa.uol.com.br/wp-content/uploads/2024/06/casa-simples-0.png",
+    "https://i.pinimg.com/736x/c9/a0/ab/c9a0ab36aac8f8600db50c7d2be5a45e.jpg",
+    "https://www.plantapronta.com.br/projetos/185/01.jpg",
+    "https://www.iprojetei.com.br/upload/1390/823x463-miniatura.jpg",
+    "https://todadecorada.com.br/wp-content/uploads/2015/05/casas-com-alpendre01.jpg",
+    "https://www.fashionbubbles.com/wp-content/uploads/2024/01/fachadas-de-casas-modernas-luxuosas-destaque.jpg",
+    "https://projetopronto.com/imagens/CT85/01.jpg",
+    "https://admin.archshop.com.br/uploads/001_d03cf96dde.jpg",
+    "https://www.dlegend.com.br/blog/wp-content/uploads/2018/10/DLegend_Blog_CharmeCasasComerciais_02.png"
 
-    switch (imagemCasa) {
-      case 1: 
-      urlImagem = "https://tuacasa.uol.com.br/wp-content/uploads/2024/06/casa-simples-0.png"
-      break
-      case 2: 
-      urlImagem = "https://i.pinimg.com/736x/c9/a0/ab/c9a0ab36aac8f8600db50c7d2be5a45e.jpg"
-      break
-      case 3: 
-      urlImagem = "https://www.plantapronta.com.br/projetos/185/01.jpg"
-      break
-      case 4: 
-      urlImagem = "https://www.iprojetei.com.br/upload/1390/823x463-miniatura.jpg"
-      break
-      case 5: 
-      urlImagem = "https://todadecorada.com.br/wp-content/uploads/2015/05/casas-com-alpendre01.jpg"
-      break
-    }
+  ]
+  let urlImagem = imagemCasas[NumeroRandom(0, imagemCasas.length - 1)]
 
   const imovel = {
     id: Date.now(),
