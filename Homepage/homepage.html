@@ -88,17 +88,17 @@
                     <span class="close" onclick="cardClose()">&times;</span>
                     <div id="modal-card-cima">
                         <div id="modal-imagem-card">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZb1S7EwPGk8SgPN98d79uNX88EcoxLGE3Cg&s"
+                            <img src="https://tuacasa.uol.com.br/wp-content/uploads/2024/06/casa-simples-0.png"
                             alt="PLACEHOLDER">
                             <span>R$6000</span>
                         </div>
                         <div id="modal-titulo-card">
                             <h1>Teste</h1>
-                            <p>Generos: teste, teste, teste, teste</p>
-                                <div id="modal-titulo-informacoes">
-                                    <p>Nome: Jaracir</p> 
-                                    <p>Telefone: 48 9999-9999</p>
-                                </div>
+                            <p>Características: permite animais, permite crianças, possui garagem, terreno baldio, possui piscina, possui vigilancia eletronica</p>
+                        </div>
+                        <div id="modal-titulo-informacoes">
+                            <p>Nome: Jaracir</p> 
+                            <p>Telefone: 48 9999-9999</p>
                         </div>
                     </div>
                     <div id="modal-descricao-card">
@@ -155,16 +155,25 @@
                 <div id="boxInputs">
                     <div class="addCasaInputs">
                         <div class="addCasaInputs">
-                            <label for="casaLocal">Tipo/Local:</label>
+                            <label for="casaLocal">Local:</label>
                             <input type="text" id="casaLocal">
                         </div>
                         <div class="addCasaInputs">
-                            <label for="casaDescricao">Descrição:</label>
-                            <input type="text" id="casaDescricao">
+                            <label for="casaTipo">Tipo:</label>
+                            <input type="text" id="casaTipo">
                         </div>
                         <div class="addCasaInputs">
-                            <label for="casaDetalhes">Preço:</label>
-                            <input type="number" id="casaDetalhes">
+                            <label for="casaPreco">Preço:</label>
+                            <input type="number" id="casaPreco">
+                        </div>
+
+                        <div class="addCasaInputs-desc">
+                            <label for="casaDescricao">Descrição:</label>
+                            <textarea name="" id="casaDescricao"></textarea>
+                        </div>
+                        <div class="addCasaInputs-desc">
+                            <label for="casaCaracteristicas">Características:</label>
+                            <textarea name="" id="casaCaracteristicas"></textarea>
                         </div>
                         <div id="perfil-botoes2">
                             <button class="botaoAddCasa" onclick="cadastrarImovel()">Cadastrar Imóvel</button>

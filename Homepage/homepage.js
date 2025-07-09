@@ -124,10 +124,9 @@ function excluirConta(e){
   localStorage.removeItem("usuariosLogados")
   
   alert("conta excluida")
-  //modalExcluirConta.style.display = "none"
+  document.getElementById("modalExcluirConta").style.display = "none"
   deslogar()
   geradorDeCards()
-
 }
 
 
@@ -171,69 +170,40 @@ function cardClose(){
   document.getElementById("modal-card").close()
 }
 
-
-//Dados do perfil
-// const cards = [
-//   {
-//     tipoeLocal: 'Apartamento em Xique Xique',
-//     descricao: 'Casa com 4 quartos taran taran raaaaaa raaaaaa raaaaaa raaaaa raaaaaaa raaaaaaaaa raaaaaa',
-//     detalhes: "Ver detalhes"
-//   },
-//   {
-//     tipoeLocal: 'Casa no Rio Vermelho',
-//     descricao: 'Imóvel com 3 quartos e piscina',
-//     detalhes: "Ver detalhes"
-//   },
-//   {
-//     tipoeLocal: 'Cobertura no Centro',
-//     descricao: 'Cobertura de luxo com vista panorâmica',
-//     detalhes: "Ver detalhes"
-//   },
-//   {
-//     tipoeLocal: 'Apartamento no Barra',
-//     descricao: 'Apartamento moderno com 2 quartos e varanda gourmet',
-//     detalhes: "Ver detalhes"
-//   },
-//   {
-//     tipoeLocal: 'Casa no Itapuã',
-//     descricao: 'Casa com 5 quartos e jardim amplo',
-//     detalhes: "Ver detalhes"
-//   },
-//   {
-//     tipoeLocal: 'Apartamento no Pituba',
-//     descricao: 'Apartamento com 3 quartos e sala ampla',
-//     detalhes: "Ver detalhes"
-//   },
-//   {
-//     tipoeLocal: 'Studio no Rio Vermelho',
-//     descricao: 'Studio compacto e funcional',
-//     detalhes: "Ver detalhes"
-//   },
-//   {
-//     tipoeLocal: 'Sobrado em Stella Maris',
-//     descricao: 'Sobrado com 4 quartos e área de lazer',
-//     detalhes: "Ver detalhes"
-//   },
-//   {
-//     tipoeLocal: 'Casa em Lauro de Freitas',
-//     descricao: 'Casa com 6 quartos e piscina',
-//     detalhes: "Ver detalhes"
-//   },
-//   {
-//     tipoeLocal: 'Apartamento em Ondina',
-//     descricao: 'Apartamento de frente para o mar com 3 quartos',
-//     detalhes:  "Ver detalhes"
-//   }]
-
 // Sistema de criação de cards ---------
 
 //const imoveis = JSON.parse(localStorage.getItem("imoveis")) || []
 
 function cadastrarImovel(){
+  let imagemCasa = NumeroRandom(1, 5)
+  let urlImagem = ""
+
+    switch (imagemCasa) {
+      case 1: 
+      urlImagem = "https://tuacasa.uol.com.br/wp-content/uploads/2024/06/casa-simples-0.png"
+      break
+      case 2: 
+      urlImagem = "https://i.pinimg.com/736x/c9/a0/ab/c9a0ab36aac8f8600db50c7d2be5a45e.jpg"
+      break
+      case 3: 
+      urlImagem = "https://www.plantapronta.com.br/projetos/185/01.jpg"
+      break
+      case 4: 
+      urlImagem = "https://www.iprojetei.com.br/upload/1390/823x463-miniatura.jpg"
+      break
+      case 5: 
+      urlImagem = "https://todadecorada.com.br/wp-content/uploads/2015/05/casas-com-alpendre01.jpg"
+      break
+    }
+
   const imovel = {
     id: Date.now(),
     local: document.getElementById("casaLocal").value,
+    preco: document.getElementById("casaPreco").value,
+    tipo: document.getElementById("casaTipo").value,
     descricao: document.getElementById("casaDescricao").value,
+    caracteristica: document.getElementById("casaCaracteristicas").value,
+    imagem: urlImagem
   }
 
   let userLogado =JSON.parse(localStorage.getItem("usuariosLogados"))
@@ -262,7 +232,9 @@ function cadastrarImovel(){
 
   document.getElementById("casaLocal").value = ""
   document.getElementById("casaDescricao").value = ""
-
+  document.getElementById("casaPreco").value = "" 
+  document.getElementById("casaTipo").value = ""
+  document.getElementById("casaCaracteristicas").value = ""
 }
 let imovel = null
 
@@ -277,14 +249,26 @@ function verMais(id){
   }
 
    document.getElementById("box-modal-card").innerHTML = 
-  `<div class="card">
-    <div class="conteudo-card">
-    <img src="https://i0.wp.com/espaferro.com.br/wp-content/uploads/2024/06/placeholder.png?ssl=1"
-    alt="PLACEHOLDER">
-    <p>${imovel.local}</p>
-    <p>${imovel.descricao}</p>
-    </div>
-    </div>`
+  `<section id="box-modal-card">
+                    <span class="close" onclick="cardClose()">&times;</span>
+                    <div id="modal-card-cima">
+                        <div id="modal-imagem-card">
+                            <img src="${imovel.imagem}"
+                            alt="PLACEHOLDER">
+                            <span>R$ ${imovel.preco}</span>
+                        </div>
+                        <div id="modal-titulo-card">
+                            <h1>${imovel.tipo} em ${imovel.local}</h1>
+                            <p>Características: ${imovel.caracteristica}</p>
+                            <div id="modal-informacoes-card">
+                            <p>Nome: Nao sei como Telefone: fazer </p> 
+                            </div>
+                        </div>
+                    </div>
+                    <div id="modal-descricao-card">
+                        <p>${imovel.descricao}</p>
+                    </div>
+                </section>`
 
   console.log(imovel)
   document.getElementById("modal-card").showModal()
@@ -311,9 +295,6 @@ function pesquisaDeCards(){
 }
 
 function geradorDeCards(){
-
-
-
     document.getElementById("pagina-centro").innerHTML = ""
     const allUsers = getUsers()
     let userImovel = []
@@ -335,8 +316,9 @@ function geradorDeCards(){
     document.getElementById("pagina-centro").innerHTML += 
     `<div class="card">
     <div class="conteudo-card">
-    <img src="https://i0.wp.com/espaferro.com.br/wp-content/uploads/2024/06/placeholder.png?ssl=1"
+    <img src=${userImovel[i].imagem}
     alt="PLACEHOLDER">
+    <span>${userImovel[i].tipo}</span>
     <p>${userImovel[i].local}</p>
     <p>${descricao}</p>
     <button onclick="verMais(${userImovel[i].id})">Ver detalhes</button>
@@ -407,6 +389,10 @@ function esconderTudo(){
 function mostrarAbaAdicionarCasa() {
   esconderTudo()
   document.getElementById("addCasaContainer").style.display = "flex"
+}
+
+function NumeroRandom(min, max) {
+  return Math.floor(Math.random() * (max - min) + min);
 }
 
 
