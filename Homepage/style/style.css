@@ -39,7 +39,7 @@ header{
 }
 
 #logo {
-    width: 46%;
+    width: 30%;
 }
 
 #logo .fa-home{ /* Icone Casa*/
@@ -55,14 +55,14 @@ header{
 
 #resto-nav{
     display: inline-flex;
-    width: 60%;
-    justify-content: space-between;
+    width: 40%;
+    justify-content: center;
 }
 
 .nav-links li{
     transition: ease-in 0.4s;
     display: inline-block;
-    padding: 0 50px;
+    padding: 0 20px;
 }
 
 .nav-links li a{
@@ -76,6 +76,15 @@ header{
     letter-spacing: 1.5px;
     scale: 1.05;
 }
+
+#botaoDoLogin {
+    display: flex;
+    width: 30%;
+    justify-content: flex-end;
+
+}
+
+
 
 /* botoes, talvez depois adicionar uma classe apenas para o login */
 .loginButton {

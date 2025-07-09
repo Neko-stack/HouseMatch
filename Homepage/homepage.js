@@ -41,6 +41,11 @@ users.push({nome, senha, cpf,email})
 saveUsers(users)
 alert("Cadastro realizado")
 
+//clear nos inputs
+document.getElementById("nome").value = ""
+document.getElementById("senha").value = ""
+document.getElementById("cpf").value = ""
+document.getElementById("email").value = ""
 
 mostrarLogin()
 
@@ -66,12 +71,26 @@ e.preventDefault();
     localStorage.setItem("usuariosLogados", JSON.stringify(user))
     esconderButtonLogin() 
     mostrarHome()
-    document.getElementById("configuracoes").style.display = "inline-block"
+    document.getElementById("configuracoes").style.display = "inline-flex"
+
+    // clear nos inputs
+    document.getElementById("nomeSalvo").value = "" 
+    document.getElementById("senhaSalvo").value = "" 
   }else{
     messageLogin.style.color = "red"
     messageLogin.textContent = "Usuário/Senha incorreto(s)"
   }
  }
+
+ function usuarioLogado(){
+  const usuarioLogado = JSON.parse(localStorage.getItem("usuariosLogados")) 
+  if(usuarioLogado){
+    esconderButtonLogin() 
+    mostrarHome()
+    document.getElementById("configuracoes").style.display = "inline-block"
+  }
+ }
+ 
 
  //PERFIL
 // Gustavo corrige um bug em que o usuario deslogava e não aparecia mais nenhum card
@@ -347,6 +366,7 @@ function geradorDeCards(){
 
 geradorDeCards()
 pesquisaDeCards()
+usuarioLogado()
 
 //Sistema de card acaba aqui ---------
 
@@ -369,12 +389,22 @@ function mostrarCadastro(){
   document.getElementById("login-modal").style.display = "none"
   document.getElementById("cadastro-modal").style.display = "flex"
   document.getElementById("nome").focus()
+
+  // clear dos inputs
+  document.getElementById("nomeSalvo").value = "" 
+  document.getElementById("senhaSalvo").value = "" 
 }
 
 function mostrarLogin(){
   document.getElementById("cadastro-modal").style.display = "none"
   document.getElementById("login-modal").style.display = "flex"
   document.getElementById("nomeSalvo").focus()
+
+  // clear dos inputs
+  document.getElementById("nome").value = ""
+  document.getElementById("senha").value = ""
+  document.getElementById("cpf").value = ""
+  document.getElementById("email").value = ""
 }
 
 function mostrarHome(){
