@@ -133,7 +133,7 @@ header{
     }
 
     .modal-content-login {
-    background-color:white;
+    background-color: rgb(59, 59, 59);
     position: relative;
     padding: 30px;
     border-radius: 12px;
@@ -147,7 +147,7 @@ header{
 
 
     .modal-content-cadastro {
-        background-color:white;
+        background-color: rgb(59, 59, 59);
         position: center;
         padding: 30px;
         border-radius: 12px;
@@ -166,6 +166,7 @@ header{
     .modal-content-cadastro h2, .modal-content-login h2 {
     font-size: 32px;
     margin-top: 0;
+    color: white;
     }
 
     .modal-content-login input,.modal-content-cadastro input{
@@ -173,11 +174,16 @@ header{
     padding: 10px;
     margin: 10px 0;
     border: 2px solid #ccc;
+    background-color: #d9d9d9;
     border-radius: 10px;
     font-size: 18px;
     box-shadow: 0px 0 10px rgba(0, 0, 0, 0.377);
     }
-    
+
+    .cadastro {
+        color: white;
+    }
+
     #cadastro-link {
     cursor: pointer;
     }
@@ -561,6 +567,10 @@ header{
     cursor: pointer;
 }
 
+.modalContentExcluir {
+    background-color: rgb(59, 59, 59);
+}
+
 #perfil-botoes2 button:hover{
     transition: filter 0.3s ease, scale 0.3s ease;
     filter: brightness(110%);
@@ -785,10 +795,11 @@ header{
 /* PS: Gustavo aqui, eu organizei o css de novo, mudei algumas coisas que estavam fazendo com que quebrasse o visual do site e o X não aparecer :) */
 
 .modalContentExcluir {
-    background-color:white;
+    background-color: rgb(59, 59, 59);
+    color: white;
     position: center;
-    padding: 30px;
-    border-radius: 12px;
+    padding: 40px;
+    border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     text-align: center;
     min-width: 300px;
@@ -813,16 +824,17 @@ header{
     align-items: center;
     }
 
+
 .canceleButtonExcluir {
     transition: color ease-in 0.3s, background-color ease 0.6s, scale ease-in 0.25s, padding ease-in 0.25s, text-shadow ease-in 0.2s, box-shadow ease-in 0.3s;
     padding: 15px 40px;
     border: none;
     border-radius: 25px;
-    background-color: cyan;
+    background-color: rgb(246, 255, 127);
     color: black;
     cursor: pointer;
     font-family: "Poppins";
-    box-shadow: 0px 0px 5px rgb(255, 255, 255);
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.361);
  }
 
  .confirmaButtonExcluir {
@@ -830,9 +842,9 @@ header{
     padding: 15px 40px;
     border: none;
     border-radius: 25px;
-    background-color: red;
+    background-color: rgb(255, 41, 41);
     color: black;
     cursor: pointer;
     font-family: "Poppins";
-    box-shadow: 0px 0px 5px rgb(255, 255, 255);
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.361);
  }
