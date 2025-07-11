@@ -14,7 +14,7 @@ body, main{
 }
 
 li, a, button {
-    font-size: 20px;
+    font-size: 18px;
     color: white;
     text-decoration: none;
 }
@@ -26,14 +26,14 @@ li, a, button {
 header{
     display: flex;
     align-items: center;
-    padding: 20px 15px;
+    padding: 10px 15px;
     background-color: rgb(22, 22, 22);
 }
 
 .logotipo {
     transition: font-size 0.3s ease;
     color: white;
-    font-size: 40px;
+    font-size: 38px;
     font-weight: bold;;
     text-shadow: 0 0 20px rgba(245, 245, 245, 0.799);
 }
@@ -55,7 +55,7 @@ header{
 
 #resto-nav{
     display: inline-flex;
-    width: 40%;
+    width: 50%;
     justify-content: center;
 }
 
@@ -207,11 +207,11 @@ header{
     }
 
 /* Agora essa bosta vai ficar no lugar certo, perdi 30 minutos arrumando - Gustavo */
-.close, .closeCadastro{
+.close, .closeCadastro, .closeModalExcluir{
     position: absolute;
     top: 22px;
     right: 22px;
-    color: #aaa;
+    color: #c2c2c2;
     font-size: 32px;
     cursor: pointer;
     width: 32px;
@@ -220,8 +220,8 @@ header{
     line-height: 28px;
 }
 
-.close:hover, .closeCadastro:hover {
-    color: black;
+.close:hover, .closeCadastro:hover, .closeModalExcluir:hover{
+    color: rgb(255, 255, 255);
 }
 
 /* Gustavo aqui, o nome do cadastro estava errado no css e não tava aplicando o estilo, link ficava invisivel */
@@ -251,7 +251,7 @@ header{
 }
 
 #pagina-centro{
-    width: 80%;
+    width: 90%;
     height: fit-content;
     background-color: rgb(214, 175, 103);
     justify-content: center;
@@ -263,11 +263,11 @@ header{
     border-radius: 10px;
     box-shadow: 0 0 10px #aaa;
     padding: 15px;
-    gap: 40px;
+    gap: 15px;
 }
 
 .pagina-filtro{
-    width: 90%;
+    width: 95%;
     height: 70px;
     background-color: rgb(214, 175, 103);
     align-items: center;
@@ -284,11 +284,15 @@ header{
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.541);
     width: 40%;
-    height: 50px;
+    height: 45px;
     text-align: center;
     background-color: rgb(41, 41, 41);
     color: white;
 }
+.pagina-filtro input::placeholder{
+    font-size: 16px;
+}
+
 .card{
     transition: transform 0.3s cubic-bezier(0.215, 0.610, 0.355, 1), box-shadow 0.3s cubic-bezier(0.215, 0.610, 0.355, 1) ;
     display: flex;
@@ -305,14 +309,17 @@ header{
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.87);
     font-family: "Poppins";
     padding: 10px 10px;
-    margin: 10px;
+    margin: 0;
     text-overflow: ellipsis;
+}
+.card img{
+    border-radius: 5px;
+    border: none;
 }
 
 .card:hover{
     transition: transform 0.3s cubic-bezier(0.215, 0.610, 0.355, 1), box-shadow 0.3s cubic-bezier(0.215, 0.610, 0.355, 1);
-    transform: scale(1.03);
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.712);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.105);
 }
 
 .conteudo-card {
@@ -323,18 +330,18 @@ header{
 
 }
 .conteudo-card span{
-    font-size: 18px;
-    margin-top: 10px;
-    margin-bottom: 2px;
+    font-size: 20px;
+    margin-top: 15px;
 }
 
 .conteudo-card p{
+    font-size: 15px;
     margin: 0;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .conteudo-card button{
-    transition: box-shadow 0.7s cubic-bezier(0.215, 0.610, 0.355, 1), background-color 0.7s cubic-bezier(0.215, 0.610, 0.355, 1), color 0.7s cubic-bezier(0.215, 0.610, 0.355, 1);
+    transition: transform 0.2s cubic-bezier(0.215, 0.610, 0.355, 1), box-shadow 0.7s cubic-bezier(0.215, 0.610, 0.355, 1), background-color 0.7s cubic-bezier(0.215, 0.610, 0.355, 1), color 0.7s cubic-bezier(0.215, 0.610, 0.355, 1);
     border: none; 
     border-radius: 15px;
     margin: 20px;
@@ -349,10 +356,11 @@ header{
 }
 
 .conteudo-card button:hover {
-    transition: box-shadow 0.3s cubic-bezier(0.215, 0.610, 0.355, 1), background-color 0.3s cubic-bezier(0.215, 0.610, 0.355, 1), color 0.3s cubic-bezier(0.215, 0.610, 0.355, 1);
+    transition: transform 0.2s cubic-bezier(0.215, 0.610, 0.355, 1), box-shadow 0.3s cubic-bezier(0.215, 0.610, 0.355, 1), background-color 0.3s cubic-bezier(0.215, 0.610, 0.355, 1), color 0.3s cubic-bezier(0.215, 0.610, 0.355, 1);
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.664);
     background-color: rgb(231, 191, 105);
     color: white;
+    transform: scale(1.02);
 }
 
 .conteudo-card img{
@@ -366,8 +374,7 @@ header{
 #modal-card{
     animation: normal fadeIn 0.8s cubic-bezier(0.215, 0.610, 0.355, 1);
     padding: 40px;
-    width: 60%;
-    height: 550px;
+    width: 65%;
     border: none;
     border-radius: 20px;
     background-color: rgb(41, 41, 41);
@@ -389,7 +396,7 @@ header{
 #modal-card-cima {
     display: flex;
     flex-direction: row;
-    height: auto;
+    height: 50%;
     width: 100%;
     margin-bottom: 60px;
     margin-top: 10px;
@@ -424,28 +431,28 @@ header{
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: flex-start;
     text-align: center;
     color: white;
 }
 
 #modal-titulo-card h1{
-    font-size: 32px;
-    margin: 0;
-    margin-top: 15px;
+    font-size: 20px;
+    line-height: 35px;
 }
 #modal-titulo-card p{
     padding-left: 30px;
-    font-size: 20px;
+    font-size: 18px;
     margin-top: 0;
     text-align: start;
 }
 
 #modal-informacoes-card p{
     margin: 0;
-    font-size: 18px;
+    font-size: 14px;
     text-align: start;
-    margin-top: auto;
+    text-justify: end;
+    margin-top: 0;
     opacity: 0.85;
 }
 
@@ -461,7 +468,7 @@ header{
 }
 #modal-descricao-card p {
     color: white;
-    font-size: 18px;
+    font-size: 20px;
     margin-left: 20px;
 }
 
@@ -743,7 +750,7 @@ header{
 
 @media (max-width: 1200px) {
     .nav-links li{
-        padding: 0px 30px;
+        padding: 0px 10px;
     }
     .logotipo {
         font-size: 28px;
@@ -755,10 +762,10 @@ header{
 
 @media (max-width: 940px) {
     .logotipo {
-        font-size: 22px;
+        font-size: 23px;
     }
     li, a, button{ 
-        font-size: 13px;
+        font-size: 18px;
     }
     .cadastro { 
         font-size: 15px;
@@ -779,10 +786,10 @@ header{
 
 @media (max-width: 600px) {
     .logotipo {
-        font-size: 18px;
+        font-size: 12px;
     }
     li, a, button{ 
-        font-size: 6px;
+        font-size: 8px;
     }
     .loginButton {
     padding: 20px 25px;
