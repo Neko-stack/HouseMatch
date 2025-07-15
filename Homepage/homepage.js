@@ -45,7 +45,7 @@ popUp.showModal()
 
 setTimeout(() => {
   popUp.close()
-}, 2000);
+}, 1800);
 
 //clear nos inputs
 document.getElementById("nome").value = ""

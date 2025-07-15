@@ -26,7 +26,7 @@ li, a, button {
 header{
     display: flex;
     align-items: center;
-    padding: 10px 15px;
+    padding: 15px 15px;
     background-color: rgb(22, 22, 22);
 }
 
@@ -276,7 +276,7 @@ header{
     margin: 30px auto;
     margin-top: 0px;
     border-radius: 10px;
-    box-shadow: 0 0 10px #aaa;
+    box-shadow: 0 2px 15px #ffffff67;
 }
 
 .pagina-filtro input{
@@ -865,7 +865,7 @@ header{
  /* popup cadastro */
 
 #popupCadastro {
-    animation: forwards popUp 0.8s cubic-bezier(0.39, 0.575, 0.565, 1);
+    animation: forwards popUp 2.5s ease;
     user-select: none;
     top: 0;
     width: 180px;
@@ -881,28 +881,40 @@ header{
 }
 
 #popupCadastro::backdrop {
-    animation: forwards fadeBlur 1s ease;
+    animation: forwards fadeBlur 2.0s ease;
 }
 
 @keyframes popUp {
     0% {
-        transform: translateY(-400px);
+        transform: translateY(-100vb);
     }
-    40%{
-        color: rgb(120, 255, 120);
+    20%{
+        color: rgb(166, 255, 143);
+        box-shadow: 0 0 50px rgb(162, 255, 133);
+        
     } 
-    100%{ 
-        transform: translateY(-190px);
-        color: rgb(246, 255, 127);
+    30%{
+        transform: translateY(-40vb);
+    }
+    50%{ 
+        transform: translateY(-40vb);
+        box-shadow: 0 0 20px rgba(255, 245, 186, 0.507);
+        color: rgb(255, 233, 108);
         text-shadow: 0 0 10px white;
+    }
+    100%{
+        transform: translateY(-100vb);
     }
 }
 
 @keyframes fadeBlur {
-    from {
+    0% {
         backdrop-filter: blur(0);
     }
-    to {
+    70%{ 
         backdrop-filter: blur(2px);
+    }
+    100%{
+        backdrop-filter: blur(0);
     }
 }
