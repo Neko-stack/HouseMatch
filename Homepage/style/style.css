@@ -409,20 +409,24 @@ header{
     display: flex;
     flex-direction: column;
     height: 100%;
+    max-width: 400px;
 }
+
 #modal-imagem-card span{
     text-align: center;
     align-self: center;
     font-weight: bold;
-    width: 99.4%;
+    width: 100%;
+    overflow: hidden;
+    word-wrap: break-word;
     font-size: 26px;
     border-radius: 0 0 30px 30px;
     background-color: rgb(214, 175, 103);
 }
 
 #modal-imagem-card img{
-    width: 400px;
-    height: 100%;
+    min-width: 400px;
+    height: 266px;
     border-radius: 20px 20px 0 0;
     margin: 1px;
 }
