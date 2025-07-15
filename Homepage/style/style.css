@@ -437,19 +437,25 @@ header{
 }
 
 #modal-titulo-card h1{
-    font-size: 20px;
-    line-height: 35px;
+    font-size: 22px;
+    line-height: 20px;
 }
 #modal-titulo-card p{
     padding-left: 30px;
-    font-size: 18px;
+    font-size: 19px;
     margin-top: 0;
     text-align: start;
+}
+#modal-informacoes-card {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    gap: 10px;
 }
 
 #modal-informacoes-card p{
     margin: 0;
-    font-size: 14px;
+    font-size: 16px;
     text-align: start;
     text-justify: end;
     margin-top: 0;
@@ -508,8 +514,8 @@ header{
     justify-content: flex-start;
     align-items: center;
     padding: 20px;
-    width: 80%;
-    height: 100%;
+    width: 85%;
+    height: fit-content;
     background-color: rgb(70, 70, 70);
     border: none;
     border-radius: 20px;
@@ -520,9 +526,9 @@ header{
     align-items: center;
     justify-content: flex-start;
     flex-direction: row;
-    width: 80%;
+    width: 90%;
     background-color: rgb(59, 59, 59);
-    min-height: 300px;  
+    min-height: 380px; 
     border: none;
     border-radius: 30px;
     overflow: hidden;

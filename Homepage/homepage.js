@@ -270,12 +270,15 @@ function cadastrarImovel(c){
   document.getElementById("casaCaracteristicas").value = ""
 }
 let imovel = null
-
+let usuarioCard = null
 function verMais(id){
   const allUsers = getUsers()
   for(let user of allUsers){
     const encontrado = user.imoveis?.find(imovel => imovel.id === id)
+    
     if(encontrado){
+      usuarioCard = user 
+
       imovel = encontrado
       break
     }
@@ -294,7 +297,8 @@ function verMais(id){
                             <h1>${imovel.tipo} em ${imovel.local}</h1>
                             <p>Características: ${imovel.caracteristica}</p>
                             <div id="modal-informacoes-card">
-                            <p>Nome: nao sei Telefone: fazer </p> 
+                            <p>Nome: ${usuarioCard.nome}</p> 
+                            <p>Email: ${usuarioCard.email}</p>  
                             </div>
                         </div>
                     </div>
@@ -315,7 +319,7 @@ function pesquisaDeCards(){
     const query = pesquisabarra.value.toLowerCase();
 
     cards.forEach(card => {
-      const pcard = Array.from(card.querySelectorAll(('p','span')))
+      const pcard = Array.from(card.querySelectorAll(('p', 'span')))
       .map(p => p.textContent.toLowerCase())
       .join('');
       if (pcard.includes(query)){
@@ -358,9 +362,6 @@ function geradorDeCards(){
     <button onclick="verMais(${userImovel[i].id})">Ver detalhes</button>
     </div>
     </div>`
-
-
-
     }
 
     // document.getElementById("box-modal-card").innerHTML +=
