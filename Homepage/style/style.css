@@ -866,6 +866,7 @@ header{
 
 #popupCadastro {
     animation: forwards popUp 0.8s cubic-bezier(0.39, 0.575, 0.565, 1);
+    user-select: none;
     top: 0;
     width: 180px;
     font-size: 17px;
@@ -873,7 +874,7 @@ header{
     text-align: center;
     text-justify: center;
     border-radius: 10px;
-    background-color: rgb(54, 54, 54);
+    background-color: rgb(72, 72, 72);
     transform: translateY(-200px);
     color: rgb(246, 255, 127);
     text-shadow: 0 0 10px white;
