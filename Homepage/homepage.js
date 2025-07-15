@@ -29,6 +29,8 @@ const senha = document.getElementById("senha").value.trim();
 const cpf = document.getElementById("cpf").value.trim();
 const email = document.getElementById("email").value.trim();
 
+const popUp = document.getElementById("popupCadastro")
+
 let users = getUsers()
 
 if(users.find(users => users.cpf === cpf)){ 
@@ -39,7 +41,11 @@ if(users.find(users => users.cpf === cpf)){
 
 users.push({nome, senha, cpf,email})
 saveUsers(users)
-alert("Cadastro realizado")
+popUp.showModal()
+
+setTimeout(() => {
+  popUp.close()
+}, 2000);
 
 //clear nos inputs
 document.getElementById("nome").value = ""
