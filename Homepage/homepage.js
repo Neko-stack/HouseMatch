@@ -379,10 +379,39 @@ usuarioLogado()
 
 //Sistema de card acaba aqui ---------
 
+function geradorDeCardsPerfil(){
+    let container = document.getElementById("cards-perfil")
+    container.innerHTML = ""
+      const user = JSON.parse(localStorage.getItem("usuariosLogados"))
 
+    
 
+     
+    if(!user || !user.imoveis || user.imoveis.length === 0){ 
+    container.innerHTML = "<p> NÃO POSSUI NADA </p>"
+    return
+    }
 
+    for(i = 0; i < user.imoveis.length; i++){
+    let descricao
+    if(user.imoveis[i].descricao.length > 60){
+      descricao = user.imoveis[i].descricao.slice(0,60) + "(...)"
+    }else descricao = user.imoveis[i].descricao
+    
+    document.getElementById("cards-perfil").innerHTML += 
+    `<div class="card">
+    <div class="conteudo-card">
+    <img src=${user.imoveis[i].imagem}
+    alt="PLACEHOLDER">
+    <span>${user.imoveis[i].tipo}</span>
+    <p>${user.imoveis[i].local}</p>
+    <p>${descricao}</p>
+    <button onclick="verMais(${user.imoveis[i].id})">Ver detalhes</button>
+    </div>
+    </div>`
+    }
 
+}
 
 
 
@@ -429,6 +458,8 @@ function mostrarPerfil(){
   document.getElementById("nomePerfil").innerHTML = "Nome: " + usuarioLogado.nome
   document.getElementById("emailPerfil").innerHTML =  "Email: " + usuarioLogado.email
   document.getElementById("cpfPerfil").innerHTML = "CPF: " + usuarioLogado.cpf
+
+  geradorDeCardsPerfil()
  
 }
 

@@ -569,6 +569,7 @@ header{
 
 .botaoAddCasa{
     background-color: rgb(214, 175, 103);
+    margin-top: 10px;
 }
 
  .excluirConta{
@@ -578,6 +579,7 @@ header{
     border: none;
     border-radius: 25px;
     cursor: pointer;
+    margin-top: 15px;
 }
 
 .modalContentExcluir {
@@ -917,4 +919,23 @@ header{
     100%{
         backdrop-filter: blur(0);
     }
+}
+
+
+/*MEXI AQUI BAA */
+
+#cards-perfil{
+    width: 90%;
+    height: fit-content;
+    background-color: rgb(185, 183, 180);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #aaa;
+    padding: 15px;
+    gap: 15px;
 }
