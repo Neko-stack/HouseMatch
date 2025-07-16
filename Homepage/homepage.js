@@ -383,6 +383,7 @@ function geradorDeCardsPerfil(){
     let container = document.getElementById("cards-perfil")
     container.innerHTML = ""
       const user = JSON.parse(localStorage.getItem("usuariosLogados"))
+      
 
     
 
@@ -410,8 +411,90 @@ function geradorDeCardsPerfil(){
     </div>
     </div>`
     }
-
 }
+
+
+
+
+
+// //cu do modal gonorreia
+// document.getElementById("botaoEditarConta").addEventListener("click", () => {
+//   const usuarioLogado = JSON.parse(localStorage.getItem("usuariosLogados")); 
+//   const cpfLogado = usuarioLogado.cpf
+//   if (!usuarioLogado) {
+//     alert("Usuário não está logado.");
+//     return;
+//   }
+  
+//   preencherCamposEdicao(usuarioLogado.cpf);
+//   document.getElementById("usuarioedicaomodal").style.display = "block";
+// });
+// //merdas estou testando ainda se o gustavo pedir pra dar gut puash eu dou assim smm q se foda  dps eu euarrumo
+//   function editamentoDeConta(e) {
+//       e.preventDefault();
+
+//   const nome = document.getElementById("editar-nome").value.trim();
+//   const senha = document.getElementById("editar-senha").value.trim();
+//   const cpf = document.getElementById("editar-cpf").value.trim();
+//   const email = document.getElementById("editar-email").value.trim();
+
+//   const popUp = document.getElementById("popupEditar"); 
+
+//   let users = getUsers();
+
+  
+//   const index = users.findIndex(user => user.cpf === cpf);
+
+//   if (index === -1) {
+//     alert("Usuário não encontrado para esse CPF.");
+//     return;
+//   }
+
+  
+//   users[index] = { nome, senha, cpf, email };
+//   saveUsers(users);
+
+//   popUp.showModal();
+
+//   setTimeout(() => {
+//     popUp.close();
+//   }, 1800);
+
+  
+//   document.getElementById("editar-nome").value = "";
+//   document.getElementById("editar-senha").value = "";
+//   document.getElementById("editar-cpf").value = "";
+//   document.getElementById("editar-email").value = "";
+
+  
+//   document.getElementById("editar-modal").style.display = "none";
+
+  
+// }
+// document.getElementById("editar-form").addEventListener("submit", editamentoDeConta);
+// //mexer depois pq o readonly tem q mexer nas merdas NAO TESTEI
+// function preencherCamposEdicao() {
+//   const users = getUsers();
+//   const user = users.find(u => u.cpf === usuarioLogado.cpf);
+
+//   if (!user) {
+//     alert("Usuário não encontrado.");
+//     return;
+//   }
+
+//   document.getElementById("editar-nome").value = user.nome;
+//   document.getElementById("editar-senha").value = user.senha;
+//   document.getElementById("editar-cpf").value = user.cpf; 
+//   document.getElementById("editar-email").value = user.email;
+// }
+
+// //faltou puxar o treco do localstorage e mxer no botao html
+// //acho que o localstorage ta funcionando
+// //faltou html botao
+
+// //atualizacao 16:47 esqueci de fazer o botao de fechar
+
+
 
 
 
