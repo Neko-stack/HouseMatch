@@ -92,25 +92,7 @@
             <!-- modal dos cards -->
             <dialog id="modal-card">
                 <section id="box-modal-card">
-                    <span class="close" onclick="cardClose()">&times;</span>
-                    <div id="modal-card-cima">
-                        <div id="modal-imagem-card">
-                            <img src="https://tuacasa.uol.com.br/wp-content/uploads/2024/06/casa-simples-0.png"
-                            alt="PLACEHOLDER">
-                            <span>R$6000</span>
-                        </div>
-                        <div id="modal-titulo-card">
-                            <h1>Teste</h1>
-                            <p>Características: permite animais, permite crianças, possui garagem, terreno baldio, possui piscina, possui vigilancia eletronica</p>
-                        </div>
-                        <div id="modal-titulo-informacoes">
-                            <p>Nome: Jaracir</p> 
-                            <p>Telefone: 48 9999-9999</p>
-                        </div>
-                    </div>
-                    <div id="modal-descricao-card">
-                        <p>Casa com 90 quartos 100 piscinas e só progresso rapaziada</p>
-                    </div>
+                    
                 </section>
             </dialog>
         </section>
@@ -119,7 +101,7 @@
             <div id="perfil">
                 <h2 class="titlePerfil">PERFIL</h2>
                 <div id="perfil-box">
-                    <img src="Imagem/perfil.png" width="30%" height="240px"
+                    <img src="Imagem/perfil.png" width="30%" height="25%"
                         style="border: none; border-radius: 50px; align-self: center; margin-left: 50px;" alt="">
                     <div id="perfil-dados">
                         <ul>
@@ -152,7 +134,11 @@
              <h3 style="margin-top: 20px;">SUAS CASAS NE</h3>
              <div id="cards-perfil" class="cards-perfil"></div>
 
-
+             <dialog id="cards-perfil-modal"> 
+                <section id="box-modal-card">
+                    
+                </section>
+             </dialog>
         </section>
 
         <!-- Edição de conta 
@@ -216,6 +202,38 @@
                   </div>
                 </div>
             </section>
+            
+            <dialog id="modalEdicaoCasa">
+                <div id="editorCasaContainer">
+                    <div>
+                        <span class="close" onclick="cardClose()">&times;</span>
+                        <h1></h1>
+                    </div>
+                    <form id="editarCasaForm">
+                        <div class="addCasaInputs">
+                            <label for="editarLocal">Local:</label>
+                            <input type="text" id="editarLocal" required>
+                        </div>
+                        <div class="addCasaInputs">
+                            <label for="editarTipo">Tipo:</label>
+                            <input type="text" id="editarTipo" required>
+                        </div>
+                        <div class="addCasaInputs">
+                            <label for="editarPreco">Preço:</label>
+                            <input type="number" id="editarPreco" required>
+                        </div>
+                        
+                        <div class="addCasaInputs-desc">
+                            <label for="editarDescricao">Descrição:</label>
+                            <textarea name="" id="editarDescricao" required></textarea>
+                        </div>
+                        <div class="addCasaInputs-desc">
+                            <label for="editarCaracteristicas">Características:</label>
+                            <textarea name="" id="editarCaracteristicas" required></textarea>
+                        </div>
+                    </form>
+                </div>
+            </dialog>
         </main>
         
         

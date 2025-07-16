@@ -193,6 +193,7 @@ const message = document.getElementById("messageLogin")
 
 function cardClose(){
   document.getElementById("modal-card").close()
+  document.getElementById("modalEdicaoCasa").close()
 }
 
 // Sistema de criação de cards ---------
@@ -286,7 +287,6 @@ function verMais(id){
       usuarioCard = user 
 
       imovel = encontrado
-      break
     }
   }
 
@@ -315,6 +315,45 @@ function verMais(id){
 
   console.log(imovel)
   document.getElementById("modal-card").showModal()
+}
+
+function verMaisEdicao(id){
+  const allUsers = getUsers()
+  for(let user of allUsers){
+    const encontrado = user.imoveis?.find(imovel => imovel.id === id)
+    
+    if(encontrado){
+      usuarioCard = user 
+
+      imovel = encontrado
+    }
+  }
+
+   document.getElementById("box-modal-card").innerHTML = 
+  `<section id="box-modal-card">
+                    <span class="close" onclick="cardClose()">&times;</span>
+                    <div id="modal-card-cima">
+                        <div id="modal-imagem-card">
+                            <img src="${imovel.imagem}"
+                            alt="PLACEHOLDER">
+                            <span>R$ ${imovel.preco}</span>
+                        </div>
+                        <div id="modal-titulo-card">
+                            <h1>${imovel.tipo} em ${imovel.local}</h1>
+                            <p>Características: ${imovel.caracteristica}</p>
+                            <div id="modal-informacoes-card">
+                            <p>Nome: ${usuarioCard.nome}</p> 
+                            <p>Email: ${usuarioCard.email}</p>  
+                            </div>
+                        </div>
+                    </div>
+                    <div id="modal-descricao-card">
+                        <p>${imovel.descricao}</p>
+                    </div>
+                </section>`
+
+  console.log(imovel)
+  document.getElementById("cards-perfil-modal").showModal()
 }
 
 //barra do ze pesquisa pinto
@@ -384,10 +423,6 @@ function geradorDeCardsPerfil(){
     container.innerHTML = ""
       const user = JSON.parse(localStorage.getItem("usuariosLogados"))
       
-
-    
-
-     
     if(!user || !user.imoveis || user.imoveis.length === 0){ 
     container.innerHTML = "<p> NÃO POSSUI NADA </p>"
     return
@@ -398,6 +433,7 @@ function geradorDeCardsPerfil(){
     if(user.imoveis[i].descricao.length > 60){
       descricao = user.imoveis[i].descricao.slice(0,60) + "(...)"
     }else descricao = user.imoveis[i].descricao
+    console.log(user.imoveis[i].id)
     
     document.getElementById("cards-perfil").innerHTML += 
     `<div class="card">

@@ -380,7 +380,7 @@ header{
     background-color: rgb(41, 41, 41);
 }
 
-#modal-card::backdrop{
+#modal-card::backdrop, #modalEdicaoCasa::backdrop{
     animation: normal backdropAnim 2s cubic-bezier(0.215, 0.610, 0.355, 1);
     background-color: rgba(0,0,0,0.5);
     backdrop-filter: blur(5px);
@@ -486,6 +486,26 @@ header{
 
 
 /* modal dos cards */
+
+#modalEdicaoCasa {
+    animation: normal fadeIn 0.8s cubic-bezier(0.215, 0.610, 0.355, 1);
+    padding: 20px;
+    width: 55%;
+    border: none;
+    border-radius: 20px;
+    background-color: rgb(41, 41, 41);
+}
+
+#editorCasaContainer {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+}
+
+#editarCasaForm {
+    
+}
 
 
 @keyframes backdropAnim {
@@ -623,8 +643,11 @@ header{
 }
 
 /* parte de adicionar casa */
+#editarCasaContainer {
+    display: flex;
+}
 
-#addCasaContainer {
+#addCasaContainer{
     animation: trocarAba 1s ease;
     display: none;
     align-items: center;
@@ -641,7 +664,7 @@ header{
     height: fit-content;
 }
 
-#addCasaBox {
+#addCasaBox{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -707,6 +730,9 @@ header{
     border-radius: 20px;
     padding: 10px;
 }
+
+/* edicao da casa */
+
 
 /* botao de voltar para tras */
 
