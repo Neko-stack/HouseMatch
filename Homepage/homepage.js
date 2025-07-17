@@ -34,7 +34,12 @@ const popUp = document.getElementById("popupCadastro")
 let users = getUsers()
 
 if(users.find(users => users.cpf === cpf)){ 
-  alert("usuario ja existe");
+  alert("Este CPF ja está registrado");
+  return;
+
+}
+if(users.find(users => users.email === email)){ 
+  alert("Este e-mail ja existe");
   return;
 
 }
@@ -66,11 +71,11 @@ document.addEventListener("DOMContentLoaded", () => {
 function login(e){
 e.preventDefault();
   
-  const nomeSalvo = document.getElementById("nomeSalvo").value;
+  const emailSalvo = document.getElementById("emailSalvo").value;
   const senhaSalvo = document.getElementById("senhaSalvo").value;
   
   let usersLogin = getUsers()
-  let user = usersLogin.find(user => user.nome === nomeSalvo && user.senha === senhaSalvo)
+  let user = usersLogin.find(user => user.email === emailSalvo && user.senha === senhaSalvo)
   
   
   if(user){
@@ -80,7 +85,7 @@ e.preventDefault();
     document.getElementById("configuracoes").style.display = "inline-flex"
 
     // clear nos inputs
-    document.getElementById("nomeSalvo").value = "" 
+    document.getElementById("emailSalvo").value = "" 
     document.getElementById("senhaSalvo").value = "" 
   }else{
     messageLogin.style.color = "red"
@@ -165,7 +170,7 @@ const closeBtn = document.getElementsByClassName("close")[0];
 
 btn.onclick = function() {
     modal.style.display = "flex";
-    document.getElementById("nomeSalvo").focus()
+    document.getElementById("emailSalvo").focus()
   }
   
   closeBtn.onclick = function(event) {
@@ -561,22 +566,28 @@ function editarPerfilUsuario(){
   const novoLogado = { nome, senha, email, cpf };
   localStorage.setItem("usuariosLogados", JSON.stringify(novoLogado));
 
-  if (popUp && typeof popUp.showModal === "function") {
-    const aviso = document.getElementById("popupEdicaoPerfil")
-    aviso.showModal()
-    setTimeout(() => {
-      popUp.close()
-      mostrarHome()
-      aviso.close()
+  if(users.find(users => users.nome === novoLogado.nome)){
+    alert("Este e-mail já existe")
+  }else{
 
-      // Limpar campos
-      document.getElementById("editar-nome").value = "";
-      document.getElementById("editar-senha").value = "";
-      document.getElementById("editar-email").value = "";
-      document.getElementById("editar-cpf").value = "";
-    }, 1200);
+    
+    if (popUp && typeof popUp.showModal === "function") {
+      const aviso = document.getElementById("popupEdicaoPerfil")
+      aviso.showModal()
+      setTimeout(() => {
+        popUp.close()
+        mostrarHome()
+        aviso.close()
+        
+        // Limpar campos
+        document.getElementById("editar-nome").value = "";
+        document.getElementById("editar-senha").value = "";
+        document.getElementById("editar-email").value = "";
+        document.getElementById("editar-cpf").value = "";
+      }, 1200);
+    }
   }
-  }
+}
   document.getElementById("editar-form").addEventListener("submit", editamentoDeConta);
 
 }  
@@ -595,14 +606,14 @@ function mostrarCadastro(){
   document.getElementById("nome").focus()
 
   // clear dos inputs
-  document.getElementById("nomeSalvo").value = "" 
+  document.getElementById("emailSalvo").value = "" 
   document.getElementById("senhaSalvo").value = "" 
 }
 
 function mostrarLogin(){
   document.getElementById("cadastro-modal").style.display = "none"
   document.getElementById("login-modal").style.display = "flex"
-  document.getElementById("nomeSalvo").focus()
+  document.getElementById("emailSalvo").focus()
 
   // clear dos inputs
   document.getElementById("nome").value = ""
