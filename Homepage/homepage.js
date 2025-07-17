@@ -396,7 +396,7 @@ function editarCard(){
                     </div>
                     <div id="modal-descricao-card">
                     <div class="addCasaInputs-desc">
-                    <p>${imovel.descricao}</p>
+                    <textarea>${imovel.descricao}</textarea>
                     </div>
                     </div>
                 </section>`
