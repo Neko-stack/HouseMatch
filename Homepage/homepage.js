@@ -631,11 +631,22 @@ function esconderTudo(){
   document.getElementById("container-home").style.display = "none"
   document.getElementById("container-perfil").style.display = "none"
   document.getElementById("addCasaContainer").style.display = "none"
+  document.getElementById("usuarioedicaomodal").style.display = "none"
+
 }
+
+function edicaoDeConta(){
+    esconderTudo()
+    document.getElementById("usuarioedicaomodal").style.display = "flex"
+
+}
+
+
 
 function mostrarAbaAdicionarCasa() {
   esconderTudo()
   document.getElementById("addCasaContainer").style.display = "flex"
+  saveUsers()
 }
 
 function NumeroRandom(min, max) {

@@ -111,12 +111,13 @@
                         </ul>
                     </div>
                     <div id="perfil-botoes">
+                        <button class="botaoEditar" onclick="edicaoDeConta()">Editar Conta</button>
                         <button class="botaoSair" onclick="deslogar()">Sair</button>
                     </div>
                 </div>
                 <div id="perfil-botoes2">
                     <button class="botaoAddCasa" onclick="mostrarAbaAdicionarCasa()">Adicionar Imóvel</button>
-                    <button onclick="modalExcluir()" class="excluirConta" id="excluirConta">excluir conta</button>
+                    <button onclick="modalExcluir()" class="excluirConta" id="excluirConta">Excluir Conta</button>
                     <div id="modalExcluirConta" class="modalExcluirConta">
                         <div class="modalContentExcluir">
                             <span class="closeModalExcluir">&times;</span>
@@ -131,9 +132,11 @@
                 </div>
             </div>
             <div style="margin-top: 22px; color: white;">
-                <h3>SUAS CASAS NE</h3>
+                <h3>Casas Cadastradas</h3>
             </div>
-             <div id="cards-perfil" class="cards-perfil"></div>
+             <div id="cards-perfil" class="cards-perfil">
+            
+             </div>
 
              <dialog id="cards-perfil-modal"> 
                 <section id="box-modal-perfil">
@@ -144,15 +147,14 @@
 
         <!-- Edição de conta  -->
          <!-- depois tenho que esconder isso e fazer aparecer dnv tmj eh os d -->
-        <section class='modal-edicao' id='usuarioedicaomodal'>
-            <div class="modal-content-editar">
+        <section class='modal-edicao' id='usuarioedicaomodal' style="display: none;">
+            <div class="modal-content-editar" >
                 <span class="closeEditar">&times;</span>
                     <h2 id="titleForm">EDITAR CONTA</h2>
                     <form id="editar-form">
-                        <input type="text" id="editar-nome" placeholder="Novo Nome" required>
-                        <input type="password" id="editar-senha" placeholder="Nova Senha" required>
-                        <input type="number" id="editar-cpf" readonly >
-                        <input type="email" id="editar-email" placeholder="Novo Email" required>
+                        <input type="text" id="editar-nome" placeholder="Novo Nome">
+                        <input type="password" id="editar-senha" placeholder="Nova Senha">
+                        <input type="email" id="editar-email" placeholder="Novo Email">
                         <button id="botaoEditarConta">Editar Conta</button>
                         <div class="entrarButton">
             <button type="submit" class="editar-teste">Salvar Alterações</button>
@@ -175,7 +177,7 @@
                     <div class="addCasaInputs">
                             <div class="addCasaInputs">
                                 <label for="casaLocal">Local:</label>
-                                <input type="text" id="casaLocal" required>
+                                <input type="text" id="casaLocal" required maxlength="10">
                             </div>
                             <div class="addCasaInputs">
                                 <label for="casaTipo">Tipo:</label>
@@ -188,7 +190,7 @@
                             
                             <div class="addCasaInputs-desc">
                                 <label for="casaDescricao">Descrição:</label>
-                                <textarea name="" id="casaDescricao" required></textarea>
+                                <textarea name="" id="casaDescricao" required maxlength="10"></textarea>
                             </div>
                             <div class="addCasaInputs-desc">
                                 <label for="casaCaracteristicas">Características:</label>

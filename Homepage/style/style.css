@@ -575,22 +575,35 @@ header{
 #perfil-botoes2 {
     display: flex;
     align-items: center;
-    align-items: center;
-    margin-top: 35px;
+    margin-top: 30px;
     flex-direction: column;
+    width: fixed;
+    height: fixed;
 }
 #perfil-botoes2 button{
     transition: background-color 0.3s ease, scale 0.3s ease;
     padding: 20px;
     border: none;
-    border-radius: 25px;
+    border-radius: 20px;
     cursor: pointer;
+
 }
 
 .botaoAddCasa{
     background-color: rgb(214, 175, 103);
     margin-top: 10px;
 }
+
+.botaoEditar{
+    background-color: rgb(235, 12, 179);
+    margin-top: 10px;
+    width: 160px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    
+}
+
+
 
  .excluirConta{
     transition: background-color 0.3s ease, scale 0.3s ease;
@@ -620,7 +633,7 @@ header{
     border: none;
     border-radius: 10px;
     padding: 15px 30px;
-    font-size: 25px;
+    font-size: 16px;
 }
 #perfil-botoes button:hover{
     transition: filter 0.3s ease;
@@ -629,6 +642,7 @@ header{
 }
 .botaoSair {
     background: rgb(255, 71, 71);
+
 }
 
 .titlePerfil{
