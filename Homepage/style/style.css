@@ -1059,6 +1059,12 @@ input:read-only{
     cursor: not-allowed;
 }
 
+/* corrige a borda branca "selecionada dos modals" */
+
+dialog:focus{
+    outline: none;
+}
+
 
 /*MEXI AQUI BAA */
 
@@ -1077,3 +1083,4 @@ input:read-only{
     padding: 15px;
     gap: 15px;
 }
+
