@@ -79,6 +79,11 @@
                 <p>Cadastro efetuado!</p>
             </div>
         </dialog>
+        <dialog id="popupEdicaoPerfil">
+            <div>
+                <p>Edição Concluída!</p>
+            </div>
+        </dialog>
         
         <section class="container-home" id="container-home">
         
@@ -101,7 +106,7 @@
             <div id="perfil">
                 <h2 class="titlePerfil">PERFIL</h2>
                 <div id="perfil-box">
-                    <img src="Imagem/perfil.png" width="30%" height="25%"
+                    <img src="Imagem/perfil.png" width="400px" height="300vh"
                         style="border: none; border-radius: 50px; align-self: center; margin-left: 50px;" alt="">
                     <div id="perfil-dados">
                         <ul>
@@ -111,7 +116,7 @@
                         </ul>
                     </div>
                     <div id="perfil-botoes">
-                        <button class="botaoEditar" onclick="edicaoDeConta()">Editar Conta</button>
+                        <button class="botaoEditar" id="botaoEditarConta">Editar Conta</button>
                         <button class="botaoSair" onclick="deslogar()">Sair</button>
                     </div>
                 </div>
@@ -147,23 +152,37 @@
 
         <!-- Edição de conta  -->
          <!-- depois tenho que esconder isso e fazer aparecer dnv tmj eh os d -->
-        <section class='modal-edicao' id='usuarioedicaomodal' style="display: none;">
-            <div class="modal-content-editar" >
-                <span class="closeEditar">&times;</span>
+        <dialog id="popupEditar">
+            <section class='modal-edicao' id='usuarioedicaomodal'>
+                <div class="modal-content-editar" >
+                    <span class="closeModalExcluir" onclick="cardClose()">&times;</span>
                     <h2 id="titleForm">EDITAR CONTA</h2>
                     <form id="editar-form">
-                        <input type="text" id="editar-nome" placeholder="Novo Nome">
-                        <input type="password" id="editar-senha" placeholder="Nova Senha">
-                        <input type="email" id="editar-email" placeholder="Novo Email">
-                        <button id="botaoEditarConta">Editar Conta</button>
-                        <div class="entrarButton">
-            <button type="submit" class="editar-teste">Salvar Alterações</button>
-        </div>
-        <div id="messageEditar"></div>
-        </form>
-    </div>
-    </section>
-
+                        <div class="editarPerfilInputs">
+                            <label for="editar-nome">Nome</label>
+                            <input type="text" id="editar-nome" placeholder="Novo Nome" required>
+                        </div>
+                        <div class="editarPerfilInputs">
+                            <label for="editar-senha">Senha</label>
+                            <input type="password" id="editar-senha" placeholder="Nova Senha" required>
+                        </div>
+                        <div class="editarPerfilInputs">
+                            <label for="editar-cpf">CPF</label>
+                            <input type="number" id="editar-cpf" placeholder="" readonly required> 
+                        </div>
+                        <div class="editarPerfilInputs">
+                            <label for="editar-email">E-mail</label>
+                            <input type="email" id="editar-email" placeholder="Novo Email" required>
+                        </div>
+                        <div class="botaoEditarConta">
+                            <button id="botaoEditarConta" type="submit">Editar Conta</button>
+                        </div>
+                    <div id="messageEditar"></div>
+                </form>
+            </div>
+        </section>
+    </dialog>
+        
         <section id="addCasaContainer">
             <div id="addCasaBox">
                 <div id="menuBox">
@@ -204,38 +223,6 @@
                   </div>
                 </div>
             </section>
-            
-            <dialog id="modalEdicaoCasa">
-                <div id="editorCasaContainer">
-                    <div>
-                        <span class="close" onclick="cardClose()">&times;</span>
-                        <h1></h1>
-                    </div>
-                    <form id="editarCasaForm">
-                        <div class="addCasaInputs">
-                            <label for="editarLocal">Local:</label>
-                            <input type="text" id="editarLocal" required>
-                        </div>
-                        <div class="addCasaInputs">
-                            <label for="editarTipo">Tipo:</label>
-                            <input type="text" id="editarTipo" required>
-                        </div>
-                        <div class="addCasaInputs">
-                            <label for="editarPreco">Preço:</label>
-                            <input type="number" id="editarPreco" required>
-                        </div>
-                        
-                        <div class="addCasaInputs-desc">
-                            <label for="editarDescricao">Descrição:</label>
-                            <textarea name="" id="editarDescricao" required></textarea>
-                        </div>
-                        <div class="addCasaInputs-desc">
-                            <label for="editarCaracteristicas">Características:</label>
-                            <textarea name="" id="editarCaracteristicas" required></textarea>
-                        </div>
-                    </form>
-                </div>
-            </dialog>
         </main>
         
         

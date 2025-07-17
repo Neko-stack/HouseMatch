@@ -194,6 +194,7 @@ const message = document.getElementById("messageLogin")
 function cardClose(){
   document.getElementById("modal-card").close()
   document.getElementById("cards-perfil-modal").close()
+  document.getElementById("popupEditar").close()
 }
 
 // Sistema de criação de cards ---------
@@ -461,6 +462,8 @@ function geradorDeCards(){
 geradorDeCards()
 pesquisaDeCards()
 usuarioLogado()
+editarPerfilUsuario()
+
 
 //Sistema de card acaba aqui ---------
 
@@ -500,12 +503,11 @@ function geradorDeCardsPerfil(){
 
 
 // //edicaodecontaeditar
-//ultima coisa que mudei foi essa funcao com nome feio que só fiz pro gsutavo n reclamar da minha organizacao
-function edicaoUserPraDpsOGustavoNaoFalarQueTaMalOrganizado(){
+function editarPerfilUsuario(){
 
   document.addEventListener("DOMContentLoaded", () => {
+    const popUp = document.getElementById("popupEditar");
     const btnEditarConta = document.getElementById("botaoEditarConta");
-    const closeModalEditar = document.querySelector(".closeEditar");
   
     if (btnEditarConta) {
       btnEditarConta.addEventListener("click", () => {
@@ -514,14 +516,8 @@ function edicaoUserPraDpsOGustavoNaoFalarQueTaMalOrganizado(){
           alert("Usuário não está logado.");
           return;
         }
+        popUp.showModal()
         preencherCamposEdicao(usuarioLogado);
-        document.getElementById("usuarioedicaomodal").style.display = "block";
-      });
-    }
-  
-    if (closeModalEditar) {
-      closeModalEditar.addEventListener("click", () => {
-        document.getElementById("usuarioedicaomodal").style.display = "none";
       });
     }
   });
@@ -535,46 +531,52 @@ function edicaoUserPraDpsOGustavoNaoFalarQueTaMalOrganizado(){
   }
   
   function editamentoDeConta(e) {
-    e.preventDefault();
-  
-    const nome = document.getElementById("editar-nome").value.trim();
-    const senha = document.getElementById("editar-senha").value.trim();
-    const cpf = document.getElementById("editar-cpf").value.trim();
-    const email = document.getElementById("editar-email").value.trim();
-  
-    const popUp = document.getElementById("popupEditar"); // Adicione esse <dialog> no HTML se quiser
-  
-    let users = getUsers();
-    const userAntigo = JSON.parse(localStorage.getItem("usuariosLogados"));
-    const index = users.findIndex(user => user.cpf === userAntigo.cpf);
-  
-    if (index === -1) {
-      alert("Usuário não encontrado.");
-      return;
-    }
-  
-  
-    users[index] = { ...users[index], nome, senha, cpf, email };
-    saveUsers(users);
-  
-    
-    localStorage.setItem("usuariosLogados", JSON.stringify(users[index]));
-  
-    if (popUp && typeof popUp.showModal === "function") {
-      popUp.showModal();
-      setTimeout(() => popUp.close(), 1800);
-    }
-  
-  
-    document.getElementById("editar-nome").value = "";
-    document.getElementById("editar-senha").value = "";
-    document.getElementById("editar-cpf").value = "";
-    document.getElementById("editar-email").value = "";
-  
-   
-    document.getElementById("usuarioedicaomodal").style.display = "none";
+  e.preventDefault();
+
+  const nome = document.getElementById("editar-nome").value.trim();
+  const senha = document.getElementById("editar-senha").value.trim();
+  const email = document.getElementById("editar-email").value.trim();
+  const popUp = document.getElementById("popupEditar")
+
+  const userAntigo = JSON.parse(localStorage.getItem("usuariosLogados"));
+
+  if (!userAntigo || !userAntigo.cpf) {
+    alert("Erro ao localizar usuário logado.");
+    return;
   }
-  
+
+  const cpf = userAntigo.cpf;
+
+  let users = getUsers();
+  const index = users.findIndex(user => user.cpf === cpf);
+
+  if (index === -1) {
+    alert("Usuário não encontrado.");
+    return;
+  }
+
+  users[index] = { ...users[index], nome, senha, email, cpf };
+  saveUsers(users);
+
+  const novoLogado = { nome, senha, email, cpf };
+  localStorage.setItem("usuariosLogados", JSON.stringify(novoLogado));
+
+  if (popUp && typeof popUp.showModal === "function") {
+    const aviso = document.getElementById("popupEdicaoPerfil")
+    aviso.showModal()
+    setTimeout(() => {
+      popUp.close()
+      mostrarHome()
+      aviso.close()
+
+      // Limpar campos
+      document.getElementById("editar-nome").value = "";
+      document.getElementById("editar-senha").value = "";
+      document.getElementById("editar-email").value = "";
+      document.getElementById("editar-cpf").value = "";
+    }, 1200);
+  }
+  }
   document.getElementById("editar-form").addEventListener("submit", editamentoDeConta);
 
 }  
@@ -631,22 +633,11 @@ function esconderTudo(){
   document.getElementById("container-home").style.display = "none"
   document.getElementById("container-perfil").style.display = "none"
   document.getElementById("addCasaContainer").style.display = "none"
-  document.getElementById("usuarioedicaomodal").style.display = "none"
-
 }
-
-function edicaoDeConta(){
-    esconderTudo()
-    document.getElementById("usuarioedicaomodal").style.display = "flex"
-
-}
-
-
 
 function mostrarAbaAdicionarCasa() {
   esconderTudo()
   document.getElementById("addCasaContainer").style.display = "flex"
-  saveUsers()
 }
 
 function NumeroRandom(min, max) {
