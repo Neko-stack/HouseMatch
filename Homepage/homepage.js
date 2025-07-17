@@ -193,7 +193,7 @@ const message = document.getElementById("messageLogin")
 
 function cardClose(){
   document.getElementById("modal-card").close()
-  document.getElementById("modalEdicaoCasa").close()
+  document.getElementById("cards-perfil-modal").close()
 }
 
 // Sistema de criação de cards ---------
@@ -329,17 +329,20 @@ function verMaisEdicao(id){
     }
   }
 
-   document.getElementById("box-modal-card").innerHTML = 
-  `<section id="box-modal-card">
+   document.getElementById("box-modal-perfil").innerHTML = 
+  `<section id="box-modal-perfil">
                     <span class="close" onclick="cardClose()">&times;</span>
                     <div id="modal-card-cima">
                         <div id="modal-imagem-card">
                             <img src="${imovel.imagem}"
                             alt="PLACEHOLDER">
-                            <span>R$ ${imovel.preco}</span>
+                            <span>R$${imovel.preco}</span>
                         </div>
                         <div id="modal-titulo-card">
+                            <div class="titulo-chato">
                             <h1>${imovel.tipo} em ${imovel.local}</h1>
+                            <span class="mdi--pencil-box-outline" onclick="editarCard()"></span>
+                            </div>
                             <p>Características: ${imovel.caracteristica}</p>
                             <div id="modal-informacoes-card">
                             <p>Nome: ${usuarioCard.nome}</p> 
@@ -348,12 +351,55 @@ function verMaisEdicao(id){
                         </div>
                     </div>
                     <div id="modal-descricao-card">
+
                         <p>${imovel.descricao}</p>
                     </div>
                 </section>`
 
   console.log(imovel)
   document.getElementById("cards-perfil-modal").showModal()
+}
+
+
+
+
+
+
+
+
+
+
+
+function editarCard(){
+  document.getElementById("box-modal-perfil").innerHTML = 
+  `<section id="box-modal-perfil">
+                    <span class="close" onclick="cardClose()">&times;</span>
+                    <div id="modal-card-cima">
+                        <div id="modal-imagem-card">
+                            <img src="${imovel.imagem}"
+                            alt="PLACEHOLDER">
+                            <span>R$${imovel.preco}</span>
+                        </div>
+                        <div id="modal-titulo-card">
+                            <div class="titulo-chato">
+                            <h1>${imovel.tipo} em ${imovel.local}</h1>
+                            <span class="mdi--pencil-box-outline" onclick="editarCard()"></span>
+                            </div>
+                            <div class="addCasaInputs-desc">
+                            <p>Características: <textarea>${imovel.caracteristica}</textarea></p>
+                            </div>
+                            <div id="modal-informacoes-card">
+                            <p>Nome: ${usuarioCard.nome}</p> 
+                            <p>Email: ${usuarioCard.email}</p>  
+                            </div>
+                        </div>
+                    </div>
+                    <div id="modal-descricao-card">
+                    <div class="addCasaInputs-desc">
+                    <p>${imovel.descricao}</p>
+                    </div>
+                    </div>
+                </section>`
 }
 
 //barra do ze pesquisa pinto
@@ -443,7 +489,7 @@ function geradorDeCardsPerfil(){
     <span>${user.imoveis[i].tipo}</span>
     <p>${user.imoveis[i].local}</p>
     <p>${descricao}</p>
-    <button onclick="verMais(${user.imoveis[i].id})">Ver detalhes</button>
+    <button onclick="verMaisEdicao(${user.imoveis[i].id})">Ver detalhes</button>
     </div>
     </div>`
     }
