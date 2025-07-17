@@ -123,7 +123,6 @@
                 </div>
                 <div id="perfil-botoes2">
                     <button class="botaoAddCasa" onclick="mostrarAbaAdicionarCasa()">Adicionar Imóvel</button>
-                    <button onclick="modalExcluir()" class="excluirConta" id="excluirConta">Excluir Conta</button>
                     <div id="modalExcluirConta" class="modalExcluirConta">
                         <div class="modalContentExcluir">
                             <span class="closeModalExcluir">&times;</span>
@@ -178,8 +177,11 @@
                         <div class="botaoEditarConta">
                             <button id="botaoEditarConta" type="submit">Editar Conta</button>
                         </div>
-                    <div id="messageEditar"></div>
-                </form>
+                        <div id="messageEditar"></div>
+                    </form>
+                    <div class="modalButtons">
+                        <button onclick="modalExcluir()" class="excluirConta" id="excluirConta">Excluir Conta</button>
+                    </div>
             </div>
         </section>
     </dialog>
@@ -197,11 +199,11 @@
                     <div class="addCasaInputs">
                             <div class="addCasaInputs">
                                 <label for="casaLocal">Local:</label>
-                                <input type="text" id="casaLocal" required maxlength="10">
+                                <input type="text" id="casaLocal" required maxlength="30">
                             </div>
                             <div class="addCasaInputs">
                                 <label for="casaTipo">Tipo:</label>
-                                <input type="text" id="casaTipo" required>
+                                <input type="text" id="casaTipo" required maxlength="15">
                             </div>
                             <div class="addCasaInputs">
                                 <label for="casaPreco">Preço:</label>
@@ -210,11 +212,11 @@
                             
                             <div class="addCasaInputs-desc">
                                 <label for="casaDescricao">Descrição:</label>
-                                <textarea name="" id="casaDescricao" required maxlength="10"></textarea>
+                                <textarea name="" id="casaDescricao" required maxlength="150"></textarea>
                             </div>
                             <div class="addCasaInputs-desc">
                                 <label for="casaCaracteristicas">Características:</label>
-                                <textarea name="" id="casaCaracteristicas" required></textarea>
+                                <textarea name="" id="casaCaracteristicas" required maxlength="150"></textarea>
                             </div>
                             <div id="perfil-botoes2">
                                 <button  type="submit" class="botaoAddCasa">Cadastrar Imóvel</button>

@@ -337,7 +337,7 @@ header{
 
 .card:hover{
     transition: transform 0.3s cubic-bezier(0.215, 0.610, 0.355, 1), box-shadow 0.3s cubic-bezier(0.215, 0.610, 0.355, 1);
-    box-shadow: 0 0 30px rgba(255, 255, 255, 0.105);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.623);
 }
 
 .conteudo-card {
@@ -363,7 +363,7 @@ header{
     border: none; 
     border-radius: 15px;
     margin: 20px;
-    padding: 10px 20px;
+    padding: 15px 25px;
     background-color: rgb(214, 175, 103);
     color: black;
     box-shadow: 0 0 10px rgba(245, 222, 179, 0.384);
@@ -595,11 +595,12 @@ header{
 #popupEditar{
     animation: normal fadeIn 0.5s ease;
     width: 400px;
-    height: 550px;
+    min-height: 600px;
     background-color: rgb(70, 70, 70);
     color: white;
     border: none;
     border-radius: 15px;
+    gap: 20px;
     box-shadow: 0 5px 20px #00000081;
 }
 
@@ -692,8 +693,11 @@ header{
 #perfil-botoes2 {
     display: flex;
     align-items: center;
-    margin-top: 30px;
-    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+    padding: 10px;
+    margin-top: 20px;
+    flex-direction: row;
     width: fixed;
     height: fixed;
 }
@@ -734,7 +738,7 @@ header{
     background-color: rgb(59, 59, 59);
 }
 
-#perfil-botoes2 button:hover{
+#perfil-botoes2 button:hover, .modalButtons button:hover{
     transition: filter 0.3s ease, scale 0.3s ease;
     filter: brightness(110%);
     scale: 1.01;
@@ -1099,9 +1103,9 @@ dialog:focus{
 /*MEXI AQUI BAA */
 
 #cards-perfil{
-    width: 90%;
+    width: 85%;
     height: fit-content;
-    background-color: rgb(185, 183, 180);
+    background-color: rgb(221, 180, 119);
     justify-content: center;
     align-items: center;
     display: flex;
@@ -1110,7 +1114,12 @@ dialog:focus{
     margin: 0 auto;
     border-radius: 10px;
     box-shadow: 0 0 10px #aaa;
-    padding: 15px;
+    padding: 20px;
     gap: 15px;
+}
+
+#mensagemCardsPerfil {
+    color: rgba(252, 252, 252, 0.884);
+    text-shadow: 0 5px 10px rgba(0, 0, 0, 0.685);
 }
 

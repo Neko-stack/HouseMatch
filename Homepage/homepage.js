@@ -122,6 +122,7 @@ const btnexcluirConta = document.querySelector(".excluirConta")
 
  if (btnexcluirConta) { 
  btnexcluirConta.addEventListener("click", ()=>{
+  document.getElementById("popupEditar").close()
    modalExcluirConta.style.display = 'flex'
  })
  }
@@ -149,7 +150,7 @@ function excluirConta(e){
 
   //
   let users = getUsers()  
-  users = users.filter(user => user.nome !== userString.nome)
+  users = users.filter(user => user.cpf !== userString.cpf)
   saveUsers(users)
   localStorage.removeItem("usuariosLogados")
   
@@ -251,42 +252,46 @@ function cadastrarImovel(c){
     imagem: urlImagem
   }
 
-  let userLogado =JSON.parse(localStorage.getItem("usuariosLogados"))
-
-  let users = getUsers()  
-
-  const index = users.findIndex(user => user.cpf === userLogado.cpf)
-  if(index === -1) return
-
-  if (!users[index].imoveis){
-    users[index].imoveis = [];
+  if(imovel.preco.length > 10){
+    alert("O preço digitado é inválido.")
+  }else{
+    let userLogado = JSON.parse(localStorage.getItem("usuariosLogados"))
+    
+    let users = getUsers()  
+    
+    const index = users.findIndex(user => user.cpf === userLogado.cpf)
+    if(index === -1) return
+    
+    if (!users[index].imoveis){
+      users[index].imoveis = [];
+    }
+    
+    users[index].imoveis.push(imovel)
+    
+    saveUsers(users)
+    
+    localStorage.setItem("usuariosLogados", JSON.stringify(users[index]))
+    
+    // imoveis.push(imovel)
+    // localStorage.setItem("imoveis", JSON.stringify(imoveis))
+    
+    geradorDeCards()
+    mostrarHome()
+    pesquisaDeCards()
+    
+    //clear inputs
+    document.getElementById("casaLocal").value = ""
+    document.getElementById("casaDescricao").value = ""
+    document.getElementById("casaPreco").value = "" 
+    document.getElementById("casaTipo").value = ""
+    document.getElementById("casaCaracteristicas").value = ""
   }
-
-  users[index].imoveis.push(imovel)
-
-  saveUsers(users)
-
-  localStorage.setItem("usuariosLogados", JSON.stringify(users[index]))
-
-  // imoveis.push(imovel)
-  // localStorage.setItem("imoveis", JSON.stringify(imoveis))
-
-  geradorDeCards()
-  mostrarHome()
-  pesquisaDeCards()
-
-  //clear inputs
-  document.getElementById("casaLocal").value = ""
-  document.getElementById("casaDescricao").value = ""
-  document.getElementById("casaPreco").value = "" 
-  document.getElementById("casaTipo").value = ""
-  document.getElementById("casaCaracteristicas").value = ""
-}
-let imovel = null
-let usuarioCard = null
-function verMais(id){
-  const allUsers = getUsers()
-  for(let user of allUsers){
+  }
+  let imovel = null
+  let usuarioCard = null
+  function verMais(id){
+    const allUsers = getUsers()
+    for(let user of allUsers){
     const encontrado = user.imoveis?.find(imovel => imovel.id === id)
     
     if(encontrado){
@@ -478,7 +483,7 @@ function geradorDeCardsPerfil(){
       const user = JSON.parse(localStorage.getItem("usuariosLogados"))
       
     if(!user || !user.imoveis || user.imoveis.length === 0){ 
-    container.innerHTML = "<p> NÃO POSSUI NADA </p>"
+    container.innerHTML = "<h1 id='mensagemCardsPerfil'> USUÁRIO AINDA NÃO POSSUI CARDS </h1>"
     return
     }
 
@@ -558,18 +563,16 @@ function editarPerfilUsuario(){
   if (index === -1) {
     alert("Usuário não encontrado.");
     return;
-  }
-
-  users[index] = { ...users[index], nome, senha, email, cpf };
-  saveUsers(users);
-
-  const novoLogado = { nome, senha, email, cpf };
-  localStorage.setItem("usuariosLogados", JSON.stringify(novoLogado));
-
-  if(users.find(users => users.nome === novoLogado.nome)){
+  } 
+  
+  if(users.find((user => user.email === email && user.cpf !== cpf))){
     alert("Este e-mail já existe")
+    return
   }else{
-
+    const novoLogado = { nome, senha, email, cpf };
+    localStorage.setItem("usuariosLogados", JSON.stringify(novoLogado));
+    users[index] = { ...users[index], nome, senha, email, cpf };
+    saveUsers(users);
     
     if (popUp && typeof popUp.showModal === "function") {
       const aviso = document.getElementById("popupEdicaoPerfil")
