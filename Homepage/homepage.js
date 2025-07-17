@@ -499,88 +499,87 @@ function geradorDeCardsPerfil(){
 
 
 
-// //cu do modal gonorreia
-// document.getElementById("botaoEditarConta").addEventListener("click", () => {
-//   const usuarioLogado = JSON.parse(localStorage.getItem("usuariosLogados")); 
-//   const cpfLogado = usuarioLogado.cpf
-//   if (!usuarioLogado) {
-//     alert("Usuário não está logado.");
-//     return;
-//   }
+// //edicaodecontaeditar
+//ultima coisa que mudei foi essa funcao com nome feio que só fiz pro gsutavo n reclamar da minha organizacao
+function edicaoUserPraDpsOGustavoNaoFalarQueTaMalOrganizado(){
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const btnEditarConta = document.getElementById("botaoEditarConta");
+    const closeModalEditar = document.querySelector(".closeEditar");
   
-//   preencherCamposEdicao(usuarioLogado.cpf);
-//   document.getElementById("usuarioedicaomodal").style.display = "block";
-// });
-// //merdas estou testando ainda se o gustavo pedir pra dar gut puash eu dou assim smm q se foda  dps eu euarrumo
-//   function editamentoDeConta(e) {
-//       e.preventDefault();
-
-//   const nome = document.getElementById("editar-nome").value.trim();
-//   const senha = document.getElementById("editar-senha").value.trim();
-//   const cpf = document.getElementById("editar-cpf").value.trim();
-//   const email = document.getElementById("editar-email").value.trim();
-
-//   const popUp = document.getElementById("popupEditar"); 
-
-//   let users = getUsers();
-
+    if (btnEditarConta) {
+      btnEditarConta.addEventListener("click", () => {
+        const usuarioLogado = JSON.parse(localStorage.getItem("usuariosLogados"));
+        if (!usuarioLogado) {
+          alert("Usuário não está logado.");
+          return;
+        }
+        preencherCamposEdicao(usuarioLogado);
+        document.getElementById("usuarioedicaomodal").style.display = "block";
+      });
+    }
   
-//   const index = users.findIndex(user => user.cpf === cpf);
-
-//   if (index === -1) {
-//     alert("Usuário não encontrado para esse CPF.");
-//     return;
-//   }
-
+    if (closeModalEditar) {
+      closeModalEditar.addEventListener("click", () => {
+        document.getElementById("usuarioedicaomodal").style.display = "none";
+      });
+    }
+  });
   
-//   users[index] = { nome, senha, cpf, email };
-//   saveUsers(users);
-
-//   popUp.showModal();
-
-//   setTimeout(() => {
-//     popUp.close();
-//   }, 1800);
-
   
-//   document.getElementById("editar-nome").value = "";
-//   document.getElementById("editar-senha").value = "";
-//   document.getElementById("editar-cpf").value = "";
-//   document.getElementById("editar-email").value = "";
-
+  function preencherCamposEdicao(usuarioLogado) {
+    document.getElementById("editar-nome").value = usuarioLogado.nome;
+    document.getElementById("editar-senha").value = usuarioLogado.senha;
+    document.getElementById("editar-cpf").placeholder = usuarioLogado.cpf;
+    document.getElementById("editar-email").value = usuarioLogado.email;
+  }
   
-//   document.getElementById("editar-modal").style.display = "none";
-
+  function editamentoDeConta(e) {
+    e.preventDefault();
   
-// }
-// document.getElementById("editar-form").addEventListener("submit", editamentoDeConta);
-// //mexer depois pq o readonly tem q mexer nas merdas NAO TESTEI
-// function preencherCamposEdicao() {
-//   const users = getUsers();
-//   const user = users.find(u => u.cpf === usuarioLogado.cpf);
+    const nome = document.getElementById("editar-nome").value.trim();
+    const senha = document.getElementById("editar-senha").value.trim();
+    const cpf = document.getElementById("editar-cpf").value.trim();
+    const email = document.getElementById("editar-email").value.trim();
+  
+    const popUp = document.getElementById("popupEditar"); // Adicione esse <dialog> no HTML se quiser
+  
+    let users = getUsers();
+    const userAntigo = JSON.parse(localStorage.getItem("usuariosLogados"));
+    const index = users.findIndex(user => user.cpf === userAntigo.cpf);
+  
+    if (index === -1) {
+      alert("Usuário não encontrado.");
+      return;
+    }
+  
+  
+    users[index] = { ...users[index], nome, senha, cpf, email };
+    saveUsers(users);
+  
+    
+    localStorage.setItem("usuariosLogados", JSON.stringify(users[index]));
+  
+    if (popUp && typeof popUp.showModal === "function") {
+      popUp.showModal();
+      setTimeout(() => popUp.close(), 1800);
+    }
+  
+  
+    document.getElementById("editar-nome").value = "";
+    document.getElementById("editar-senha").value = "";
+    document.getElementById("editar-cpf").value = "";
+    document.getElementById("editar-email").value = "";
+  
+   
+    document.getElementById("usuarioedicaomodal").style.display = "none";
+  }
+  
+  document.getElementById("editar-form").addEventListener("submit", editamentoDeConta);
 
-//   if (!user) {
-//     alert("Usuário não encontrado.");
-//     return;
-//   }
+}  
 
-//   document.getElementById("editar-nome").value = user.nome;
-//   document.getElementById("editar-senha").value = user.senha;
-//   document.getElementById("editar-cpf").value = user.cpf; 
-//   document.getElementById("editar-email").value = user.email;
-// }
-
-// //faltou puxar o treco do localstorage e mxer no botao html
-// //acho que o localstorage ta funcionando
-// //faltou html botao
-
-// //atualizacao 16:47 esqueci de fazer o botao de fechar
-
-
-
-
-
-//esconder
+//esconder1
 
 function esconderButtonLogin(){
   //esconder o botao depois
