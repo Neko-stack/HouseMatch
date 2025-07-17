@@ -399,7 +399,7 @@ header{
     background-color: rgb(41, 41, 41);
 }
 
-#modal-card::backdrop, #modalEdicaoCasa::backdrop{
+#modal-card::backdrop, #cards-perfil-modal::backdrop{
     animation: normal backdropAnim 2s cubic-bezier(0.215, 0.610, 0.355, 1);
     background-color: rgba(0,0,0,0.5);
     backdrop-filter: blur(5px);
