@@ -252,7 +252,7 @@ function cadastrarImovel(c){
     imagem: urlImagem
   }
 
-  if(imovel.preco.length > 10){
+  if(imovel.preco.length > 10 || imovel.preco < 0){
     alert("O preço digitado é inválido.")
   }else{
     let userLogado = JSON.parse(localStorage.getItem("usuariosLogados"))
@@ -383,34 +383,38 @@ function verMaisEdicao(id){
 
 function editarCard(){
   document.getElementById("box-modal-perfil").innerHTML = 
-  `<section id="box-modal-perfil">
-                    <span class="close" onclick="cardClose()">&times;</span>
-                    <div id="modal-card-cima">
-                        <div id="modal-imagem-card">
-                            <img src="${imovel.imagem}"
-                            alt="PLACEHOLDER">
-                            <span>R$${imovel.preco}</span>
+  `<section id="box-modal-perfil" class="edicao-de-card">
+                        <span class="close" onclick="cardClose()">&times;</span>
+                        <div id="modal-card-cima">
+                            <div id="modal-imagem-card">
+                                <img src="${imovel.imagem}"
+                                alt="PLACEHOLDER">
+                                <input type="number" id="tipoPreco" required placeholder="PREÇO" value="${imovel.preco}">
+                            </div>
+                            <div id="divisorParteCima">
+                                <div class="titulo-chato">
+                                    <div>
+                                        <input type="text" id="tipoEdicao" required placeholder="TIPO" value="${imovel.tipo}">
+                                    </div>
+                                        <h1>em</h1>
+                                    <div>
+                                        <input type="text" id="localEdicao" required placeholder="LOCAL" value="${imovel.local}">
+                                    </div>
+                                </div>
+                                <div id="cardsEdicaoDivisao">
+                                    <p>Características:</p>
+                                    <textarea name="" id="caracteristicasEdicao" placeholder="CARACTERISTICAS" required>${imovel.caracteristica}</textarea>
+                                </div>
+                                <div id="modal-informacoes-card">
+                                <p>Nome: </p> 
+                                <p>Email: </p>  
+                                </div>
+                            </div>
                         </div>
-                        <div id="modal-titulo-card">
-                            <div class="titulo-chato">
-                            <h1>${imovel.tipo} em ${imovel.local}</h1>
-                            <span class="mdi--pencil-box-outline" onclick="editarCard()"></span>
-                            </div>
-                            <div class="addCasaInputs-desc">
-                            <p>Características: <textarea>${imovel.caracteristica}</textarea></p>
-                            </div>
-                            <div id="modal-informacoes-card">
-                            <p>Nome: ${usuarioCard.nome}</p> 
-                            <p>Email: ${usuarioCard.email}</p>  
-                            </div>
+                        <div id="modal-descricao-card" class="descricaoDaEdicao">
+                            <textarea name="" id="descricaoEdicao" placeholder="DESCRIÇÃO" required>${imovel.descricao}</textarea>
                         </div>
-                    </div>
-                    <div id="modal-descricao-card">
-                    <div class="addCasaInputs-desc">
-                    <textarea>${imovel.descricao}</textarea>
-                    </div>
-                    </div>
-                </section>`
+                    </section>`
 }
 
 //barra do ze pesquisa pinto

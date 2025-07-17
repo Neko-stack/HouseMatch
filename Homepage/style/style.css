@@ -392,7 +392,8 @@ header{
 #modal-card, #cards-perfil-modal{
     animation: normal fadeIn 0.8s cubic-bezier(0.215, 0.610, 0.355, 1);
     padding: 40px;
-    width: 65%;
+    width: 85%;
+    max-width: 1000px;
     border: none;
     border-radius: 20px;
     background-color: rgb(41, 41, 41);
@@ -430,7 +431,7 @@ header{
     max-width: 400px;
 }
 
-#modal-imagem-card span{
+#modal-imagem-card span, #tipoPreco{
     text-align: center;
     align-self: center;
     font-weight: bold;
@@ -510,6 +511,7 @@ header{
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 10px;
 }
 
@@ -1123,3 +1125,74 @@ dialog:focus{
     text-shadow: 0 5px 10px rgba(0, 0, 0, 0.685);
 }
 
+#cardsEdicaoDivisao {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    height: 50%; 
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+#cardsEdicaoDivisao textarea {
+    width: 200px;
+    height: 100px;
+    align-content: center;
+    resize: none;
+    border: none;
+    border-radius: 20px;
+    margin-left: 10px;
+    padding-left: 20px;
+    font-size: 16px;
+}
+
+#cardsEdicaoDivisao textarea:invalid, #localEdicao:invalid, #tipoEdicao:invalid, #tipoPreco:invalid, #descricaoEdicao:invalid{
+    box-shadow: 0 0 10px rgb(255, 0, 0);
+}
+#cardsEdicaoDivisao textarea:valid, #localEdicao:valid, #tipoEdicao:valid, #tipoPreco:valid, #descricaoEdicao:valid{
+    box-shadow: 0 0 10px rgb(173, 255, 106);
+}
+
+#localEdicao, #tipoEdicao {
+    border: none;
+    width: 100px;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+#divisorParteCima {
+    display: flex;
+    padding-left: 15px;
+    color: white;
+    flex-wrap: wrap;
+    padding-left: 40px;
+}
+
+.descricaoDaEdicao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+}
+
+#descricaoEdicao {
+    resize: none;
+    height: 150px; 
+    width: 95%;
+    align-content: center;
+    border: none;
+    border-radius: 20px;
+    padding-left: 10px;
+    font-size: 16px;
+}
+
+.edicao-de-card input, .edicao-de-card textarea {
+    background-color: #d3d3d3;
+}
+
+.edicao-de-card input::placeholder, .edicao-de-card textarea::placeholder {
+    color: rgba(0, 0, 0, 0.603);
+    font-weight: bold;
+}
