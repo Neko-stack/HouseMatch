@@ -431,7 +431,7 @@ header{
     max-width: 400px;
 }
 
-#modal-imagem-card span, #tipoPreco{
+#modal-imagem-card span, #edicaoPreco{
     text-align: center;
     align-self: center;
     font-weight: bold;
@@ -1147,10 +1147,10 @@ dialog:focus{
     font-size: 16px;
 }
 
-#cardsEdicaoDivisao textarea:invalid, #localEdicao:invalid, #tipoEdicao:invalid, #tipoPreco:invalid, #descricaoEdicao:invalid{
+#cardsEdicaoDivisao textarea:invalid, #localEdicao:invalid, #tipoEdicao:invalid, #edicaoPreco:invalid, #descricaoEdicao:invalid{
     box-shadow: 0 0 10px rgb(255, 0, 0);
 }
-#cardsEdicaoDivisao textarea:valid, #localEdicao:valid, #tipoEdicao:valid, #tipoPreco:valid, #descricaoEdicao:valid{
+#cardsEdicaoDivisao textarea:valid, #localEdicao:valid, #tipoEdicao:valid, #edicaoPreco:valid, #descricaoEdicao:valid{
     box-shadow: 0 0 10px rgb(173, 255, 106);
 }
 

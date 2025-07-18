@@ -389,7 +389,7 @@ function editarCard(){
                             <div id="modal-imagem-card">
                                 <img src="${imovel.imagem}"
                                 alt="PLACEHOLDER">
-                                <input type="number" id="tipoPreco" required placeholder="PREÇO" value="${imovel.preco}">
+                                <input type="number" id="edicaoPreco" required placeholder="PREÇO" value="${imovel.preco}">
                             </div>
                             <div id="divisorParteCima">
                                 <div class="titulo-chato">
@@ -414,8 +414,50 @@ function editarCard(){
                         <div id="modal-descricao-card" class="descricaoDaEdicao">
                             <textarea name="" id="descricaoEdicao" placeholder="DESCRIÇÃO" required>${imovel.descricao}</textarea>
                         </div>
+                        <div>
+                        <button onclick="salvarAlteracoesCard(${imovel.id})">Salvar alterações</button>
+                        </div>
                     </section>`
 }
+
+// não consegui fazer
+
+// function salvarAlteracoesCard(id){
+//   const local = document.getElementById("localEdicao").value
+//   const preco = document.getElementById("edicaoPreco").value
+//   const tipo = document.getElementById("tipoEdicao").value
+//   const caracteristica = document.getElementById("caracteristicasEdicao").value
+//   const descricao = document.getElementById("descricaoEdicao").value
+//   let usuarioCard
+//   let imovel
+
+//   const allUsers = getUsers()
+
+//   for(let user of allUsers){
+//     const encontrado = user.imoveis?.find(imovel => imovel.id === id)
+    
+//     if(encontrado){
+//       usuarioCard = user 
+
+//       imovel = encontrado
+//     }
+//   }
+//   let imagem = usuarioCard.imagem
+//   const index = usuarioCard.imoveis.findIndex(user => user === imovel)
+//   const indexImovel = allUsers.imoveis.findIndex(imoveis=> imoveis === imovel)
+
+//   const imovelAtualizado = {
+//     id: id,
+//     local: local,
+//     preco: preco,
+//     tipo: tipo,
+//     caracteristica: caracteristica,
+//     descricao: descricao,
+//     imagem: imagem
+//   }
+//   usuarioCard.imoveis[indexImovel] = imovelAtualizado
+//   localStorage.setItem("users", JSON.stringify(usuariosAtualizados))
+// }
 
 //barra do ze pesquisa pinto
 function pesquisaDeCards(){
