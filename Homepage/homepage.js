@@ -468,6 +468,7 @@ function salvarAlteracoesCard(id){
   saveUsers(allUsers)
   cardClose()
   mostrarPerfil()
+  geradorDeCards()
  }
 
 
