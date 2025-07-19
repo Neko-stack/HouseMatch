@@ -420,44 +420,56 @@ function editarCard(){
                     </section>`
 }
 
-// não consegui fazer
 
-// function salvarAlteracoesCard(id){
-//   const local = document.getElementById("localEdicao").value
-//   const preco = document.getElementById("edicaoPreco").value
-//   const tipo = document.getElementById("tipoEdicao").value
-//   const caracteristica = document.getElementById("caracteristicasEdicao").value
-//   const descricao = document.getElementById("descricaoEdicao").value
-//   let usuarioCard
-//   let imovel
 
-//   const allUsers = getUsers()
+function salvarAlteracoesCard(id){
+  const local = document.getElementById("localEdicao").value.trim()
+  const preco = document.getElementById("edicaoPreco").value.trim()
+  const tipo = document.getElementById("tipoEdicao").value.trim()
+  const caracteristica = document.getElementById("caracteristicasEdicao").value.trim()
+  const descricao = document.getElementById("descricaoEdicao").value.trim()
+  
 
-//   for(let user of allUsers){
-//     const encontrado = user.imoveis?.find(imovel => imovel.id === id)
-    
-//     if(encontrado){
-//       usuarioCard = user 
+  const allUsers = getUsers()
 
-//       imovel = encontrado
-//     }
-//   }
-//   let imagem = usuarioCard.imagem
-//   const index = usuarioCard.imoveis.findIndex(user => user === imovel)
-//   const indexImovel = allUsers.imoveis.findIndex(imoveis=> imoveis === imovel)
+  const userIndex = allUsers.findIndex(u => u.cpf === usuarioCard.cpf)
+  if (userIndex === -1) return;
 
-//   const imovelAtualizado = {
-//     id: id,
-//     local: local,
-//     preco: preco,
-//     tipo: tipo,
-//     caracteristica: caracteristica,
-//     descricao: descricao,
-//     imagem: imagem
-//   }
-//   usuarioCard.imoveis[indexImovel] = imovelAtualizado
-//   localStorage.setItem("users", JSON.stringify(usuariosAtualizados))
-// }
+  
+
+  
+  const indexImovel = allUsers[userIndex].imoveis.findIndex(imoveis=> imoveis.id === id)
+   if (indexImovel === -1) return;
+
+
+
+
+  allUsers[userIndex].imoveis[indexImovel] = {
+    ...allUsers[userIndex].imoveis[indexImovel],
+    local,
+    preco,
+    tipo,
+    caracteristica,
+    descricao
+    // id: id,
+    // local: local,
+    // preco: preco,
+    // tipo: tipo,
+    // caracteristica: caracteristica,
+    // descricao: descricao,
+    // imagem: imagem
+  }
+
+  const logado = JSON.parse(localStorage.getItem("usuariosLogados"))
+  
+  if(logado && logado.cpf === usuarioCard.cpf){
+    localStorage.setItem("usuariosLogados", JSON.stringify(allUsers[userIndex]))
+  }
+  saveUsers(allUsers)
+  cardClose()
+  mostrarPerfil()
+ }
+
 
 //barra do ze pesquisa pinto
 function pesquisaDeCards(){
@@ -615,11 +627,15 @@ function editarPerfilUsuario(){
     alert("Este e-mail já existe")
     return
   }else{
-    const novoLogado = { nome, senha, email, cpf };
-    localStorage.setItem("usuariosLogados", JSON.stringify(novoLogado));
-    users[index] = { ...users[index], nome, senha, email, cpf };
+   users[index] = {
+  ...users[index],
+  nome,
+  senha,
+  email
+};
+localStorage.setItem("usuariosLogados", JSON.stringify(users[index]));
     saveUsers(users);
-    
+
     if (popUp && typeof popUp.showModal === "function") {
       const aviso = document.getElementById("popupEdicaoPerfil")
       aviso.showModal()
