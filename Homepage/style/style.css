@@ -565,6 +565,7 @@ header{
     overflow-x: hidden;
     flex-wrap: wrap;
     gap: 20px;
+    padding: 10px;
 }
 
 #imagem-perfil {
@@ -581,6 +582,8 @@ header{
 }
 
 #perfil-dados{
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-self: center;
     align-content: flex-start;
@@ -657,6 +660,13 @@ header{
     box-shadow: 0 5px 10px #1b1b1b98;
 }
 
+#salvar-card-perfil {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
 .botaoEditarConta {
     display: flex;
     justify-content: center;
@@ -664,7 +674,7 @@ header{
     margin-top: 20px;
 }
 
-.botaoEditarConta button{
+.botaoEditarConta button, #salvar-card-perfil button{
     transition: transform 0.2s ease, background-color 0.2s ease;
     border: none;
     border-radius: 10px;
@@ -674,7 +684,7 @@ header{
     cursor: pointer;
     background-color: rgb(214, 175, 103);
 }
-.botaoEditarConta button:hover{
+.botaoEditarConta button:hover, #salvar-card-perfil button:hover {
     transition: transform 0.2s ease, background-color 0.2s ease;
     transform: scale(1.03);
     background-color: rgb(255, 208, 122);
@@ -1195,4 +1205,8 @@ dialog:focus{
 .edicao-de-card input::placeholder, .edicao-de-card textarea::placeholder {
     color: rgba(0, 0, 0, 0.603);
     font-weight: bold;
+}
+
+input::-webkit-inner-spin-button, input::-webkit-outer-spin-button{
+    -webkit-appearance: none;
 }

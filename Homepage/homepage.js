@@ -415,7 +415,7 @@ function editarCard(){
                             <textarea name="" id="descricaoEdicao" placeholder="DESCRIÇÃO" required>${imovel.descricao}</textarea>
                         </div>
                         <div>
-                        <button onclick="salvarAlteracoesCard(${imovel.id})">Salvar alterações</button>
+                        <button onclick="salvarAlteracoesCard(${imovel.id}) id="salvar-card-perfil"">Salvar alterações</button>
                         </div>
                     </section>`
 }
@@ -466,10 +466,15 @@ function salvarAlteracoesCard(id){
     localStorage.setItem("usuariosLogados", JSON.stringify(allUsers[userIndex]))
   }
   saveUsers(allUsers)
-  cardClose()
-  mostrarPerfil()
-  geradorDeCards()
- }
+      const avisoEdPerfil = document.getElementById("popupEdicaoPerfil")
+      avisoEdPerfil.showModal()
+      setTimeout(() => {
+        avisoEdPerfil.close()
+        mostrarPerfil()
+        cardClose()
+      }, 1200);
+      geradorDeCards()
+}
 
 
 //barra do ze pesquisa pinto
