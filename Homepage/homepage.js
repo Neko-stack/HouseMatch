@@ -405,10 +405,6 @@ function editarCard(){
                                     <p>Características:</p>
                                     <textarea name="" id="caracteristicasEdicao" placeholder="CARACTERISTICAS" required>${imovel.caracteristica}</textarea>
                                 </div>
-                                <div id="modal-informacoes-card">
-                                <p>Nome: </p> 
-                                <p>Email: </p>  
-                                </div>
                             </div>
                         </div>
                         <div id="modal-descricao-card" class="descricaoDaEdicao">
@@ -416,8 +412,11 @@ function editarCard(){
                         </div>
                         <div id="salvar-card-perfil">
                         <button onclick="salvarAlteracoesCard(${imovel.id})">Salvar alterações</button>
+                        <div id="deletar-card-perfil">
+                        <button onclick="deletarCard(${imovel.id})">Deletar</button>
                         </div>
-                    </section>`
+                        </div>
+                        </section>`
 }
 
 
@@ -467,6 +466,35 @@ function salvarAlteracoesCard(id){
   }
   saveUsers(allUsers)
       const avisoEdPerfil = document.getElementById("popupEdicaoPerfil")
+      avisoEdPerfil.showModal()
+      setTimeout(() => {
+        avisoEdPerfil.close()
+        mostrarPerfil()
+        cardClose()
+      }, 1200);
+      geradorDeCards()
+}
+
+function deletarCard(id){
+
+  const allUsers = getUsers()
+
+  const userIndex = allUsers.findIndex(u => u.cpf === usuarioCard.cpf)
+  if (userIndex === -1) return;
+
+  const indexImovel = allUsers[userIndex].imoveis.findIndex(imoveis=> imoveis.id === id)
+   if (indexImovel === -1) return;
+
+  allUsers[userIndex].imoveis.splice([indexImovel])
+
+  const logado = JSON.parse(localStorage.getItem("usuariosLogados"))
+  
+  if(logado && logado.cpf === usuarioCard.cpf){
+    localStorage.setItem("usuariosLogados", JSON.stringify(allUsers[userIndex]))
+  }
+  saveUsers(allUsers)
+      const avisoEdPerfil = document.getElementById("popupEdicaoPerfil")
+      avisoEdPerfil.innerText = "Exclusão concluída!"
       avisoEdPerfil.showModal()
       setTimeout(() => {
         avisoEdPerfil.close()

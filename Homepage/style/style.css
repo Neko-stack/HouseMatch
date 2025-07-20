@@ -665,6 +665,7 @@ header{
     justify-content: center;
     align-items: center;
     margin-top: 20px;
+    gap: 20px;
 }
 
 .botaoEditarConta {
@@ -689,6 +690,23 @@ header{
     transform: scale(1.03);
     background-color: rgb(255, 208, 122);
 }
+#deletar-card-perfil button{
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 22px;
+    color: white;
+    cursor: pointer;
+    background-color: rgb(255, 58, 58);
+}
+#deletar-card-perfil button:hover {
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    transform: scale(1.03);
+    background-color: rgb(255, 84, 84);
+}
+
+
 
 #perfil-botoes {
     display: flex;
@@ -1146,7 +1164,7 @@ dialog:focus{
 }
 
 #cardsEdicaoDivisao textarea {
-    width: 200px;
+    width: 80%;
     height: 100px;
     align-content: center;
     resize: none;
@@ -1167,7 +1185,9 @@ dialog:focus{
 #localEdicao, #tipoEdicao {
     border: none;
     width: 100px;
-    border-radius: 20px;
+    border-radius: 15px;
+    background-color: #707070;
+    color: white;
     padding: 10px;
 }
 
@@ -1190,7 +1210,7 @@ dialog:focus{
 #descricaoEdicao {
     resize: none;
     height: 150px; 
-    width: 95%;
+    width: 100%;
     align-content: center;
     border: none;
     border-radius: 20px;
@@ -1199,11 +1219,12 @@ dialog:focus{
 }
 
 .edicao-de-card input, .edicao-de-card textarea {
-    background-color: #d3d3d3;
+    background-color: #707070;
+    color: white;
 }
 
 .edicao-de-card input::placeholder, .edicao-de-card textarea::placeholder {
-    color: rgba(0, 0, 0, 0.603);
+    color: white;
     font-weight: bold;
 }
 
