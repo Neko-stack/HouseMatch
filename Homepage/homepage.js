@@ -414,8 +414,8 @@ function editarCard(){
                         <div id="modal-descricao-card" class="descricaoDaEdicao">
                             <textarea name="" id="descricaoEdicao" placeholder="DESCRIÇÃO" required>${imovel.descricao}</textarea>
                         </div>
-                        <div>
-                        <button onclick="salvarAlteracoesCard(${imovel.id}) id="salvar-card-perfil"">Salvar alterações</button>
+                        <div id="salvar-card-perfil">
+                        <button onclick="salvarAlteracoesCard(${imovel.id})">Salvar alterações</button>
                         </div>
                     </section>`
 }
