@@ -480,7 +480,7 @@ function pesquisaDeCards(){
     const query = pesquisabarra.value.toLowerCase();
 
     cards.forEach(card => {
-      const pcard = Array.from(card.querySelectorAll(('p', 'span')))
+      const pcard = Array.from(card.querySelectorAll(('p, span')))
       .map(p => p.textContent.toLowerCase())
       .join('');
       if (pcard.includes(query)){
