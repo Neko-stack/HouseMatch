@@ -725,7 +725,7 @@ header{
     align-items: center;
     justify-content: center;
     gap: 15px;
-    padding: 10px;
+    padding: 15px;
     margin-top: 20px;
     flex-direction: row;
     width: fixed;
@@ -859,35 +859,39 @@ header{
 
 .addCasaInputs-desc textarea{
     border-radius: 20px;
-    border: 2px solid white;
     width: 300px;
     height: 80px;
     font-size: 16px;
     padding: 15px;
     white-space: pre-wrap;
     overflow-wrap: break-word;
-    background-color: white;
+    background-color: rgb(138, 138, 138);
     resize: none;
     color: black;
+    box-shadow: 0 5px 10px #1b1b1b98;
+    color: white;
 }
 #casaCaracteristicas{
     border-radius: 20px;
-    border: 2px solid white;
     width: 300px;
     height: 60px;
     font-size: 16px;
     padding: 15px;
     white-space: pre-wrap;
     overflow-wrap: break-word;
-    background-color: white;
+    background-color: rgb(138, 138, 138);
     resize: none;
-    color: black;
+    box-shadow: 0 5px 10px #1b1b1b98;
+    color: white;
 }
 
 .addCasaInputs input{
     border: none;
-    border-radius: 20px;
-    padding: 10px;
+    border-radius: 15px;
+    background-color: rgb(138, 138, 138);
+    padding: 12px;
+    box-shadow: 0 5px 10px #1b1b1b98;
+    color: white;
 }
 
 /* edicao da casa */

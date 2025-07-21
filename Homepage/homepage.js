@@ -461,6 +461,10 @@ function salvarAlteracoesCard(id){
 
   const logado = JSON.parse(localStorage.getItem("usuariosLogados"))
   
+  if(local.length <= 0 || descricao.length <=0 || caracteristica.length <=0 || tipo.length <=0 || preco.length <=0){
+    alert("Não deixe nenhum campo vazio!")
+    return
+  }
   if(logado && logado.cpf === usuarioCard.cpf){
     localStorage.setItem("usuariosLogados", JSON.stringify(allUsers[userIndex]))
   }
