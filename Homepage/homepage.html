@@ -76,7 +76,7 @@
         </header>
         <dialog id="popupCadastro">
             <div>
-                <p>Cadastro efetuado!</p>
+                <p>Cadastro Efetuado!</p>
             </div>
         </dialog>
         <dialog id="popupEdicaoPerfil">
@@ -84,6 +84,12 @@
                 <p>Edição Concluída!</p>
             </div>
         </dialog>
+        <dialog id="popupExclusao">
+            <div>
+                <p>Conta Excluída!</p>
+            </div>
+        </dialog>
+
         
         <section class="container-home" id="container-home">
         
@@ -119,7 +125,7 @@
                         </ul>
                     </div>
                     <div id="perfil-botoes">
-                        <button class="botaoEditar" id="botaoEditarConta">Editar Conta</button>
+                        <button class="botaoEditar" id="botaoEditarContaModal">Editar Conta</button>
                         <button class="botaoSair" onclick="deslogar()">Sair</button>
                     </div>
                 </div>
@@ -128,7 +134,7 @@
            
                     <div id="modalExcluirConta" class="modalExcluirConta">
                         <div class="modalContentExcluir">
-                            <span class="closeModalExcluir">&times;</span>
+                            <span class="closeModalExcluir" id="closeModalExcluirConta">&times;</span>
                             <h4>Tem certeza que deseja excluir sua conta?</h4>
                             <p class="alerExcluir">Essa opção é permanente!</p>
                             <div class="modalButtons">

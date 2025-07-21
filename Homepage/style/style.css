@@ -991,6 +991,39 @@ header{
     }
 }
 
+@keyframes exclusao {
+    0% {
+        transform: translateY(-100vb);
+    }
+    20%{
+        color: rgb(255, 202, 89);
+        box-shadow: 0 5px 20px rgb(255, 181, 85);
+        
+    } 
+    30%{
+        transform: translateY(-40vb) rotateZ(0);
+    }
+    50%{ 
+        transform: translateY(-40vb);
+        box-shadow: 0 0 50px rgba(255, 51, 0, 0.507);
+        color: rgb(255, 73, 41);
+        text-shadow: 0 0 10px rgba(255, 81, 0, 0.76);
+    }
+    53%{
+        transform: translateY(-40vb) rotateZ(15deg);
+    }
+    63%{
+        transform: translateY(-40vb) rotateZ(-15deg);
+    }
+    68%{
+        transform: translateY(-40vb) rotateZ(0deg);
+        box-shadow: 0 0 20px rgba(255, 51, 0, 0.507);
+    }
+    100%{
+        transform: translateY(-100vb);
+    }
+}
+
 /* Responsividade em diferentes resoluções */
 
 @media (max-width: 1200px) {
@@ -1103,7 +1136,7 @@ header{
 
  /* popup cadastro */
 
-#popupCadastro, #popupEdicaoPerfil {
+#popupCadastro, #popupEdicaoPerfil{
     animation: forwards popUp 2.5s ease;
     user-select: none;
     top: 0;
@@ -1119,8 +1152,24 @@ header{
     text-shadow: 0 0 10px white;
 }
 
-#popupCadastro::backdrop, #opupEdicaoPerfil::backdrop {
+#popupCadastro::backdrop, #opupEdicaoPerfil::backdrop, #popupExclusao::backdrop {
     animation: forwards fadeBlur 2.0s ease;
+}
+
+#popupExclusao {
+    animation: forwards exclusao 2.5s ease;
+    user-select: none;
+    top: 0;
+    width: 180px;
+    font-size: 17px;
+    border: none;
+    text-align: center;
+    text-justify: center;
+    border-radius: 10px;
+    background-color: rgb(72, 72, 72);
+    transform: translateY(-200px);
+    color: red;
+    text-shadow: 0 0 10px rgb(255, 46, 46);
 }
 
 input:read-only{

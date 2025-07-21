@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
 const btnexcluirConta = document.querySelector(".excluirConta")
  const modalExcluirConta = document.querySelector("#modalExcluirConta")
  const cancelarExcluir = document.querySelector("#cancelarExcluir")
- const closebtnExcluir =  document.getElementsByClassName("closeModalExcluir")[0];
+const closebtnExcluir = document.getElementById("closeModalExcluirConta")
 
 
  if (btnexcluirConta) { 
@@ -150,14 +150,21 @@ function excluirConta(e){
 
   //
   let users = getUsers()  
+  const popup = document.getElementById("popupExclusao")
+  popup.innerText = "Exclusão Concluída!"
   users = users.filter(user => user.cpf !== userString.cpf)
   saveUsers(users)
   localStorage.removeItem("usuariosLogados")
   
-  alert("conta excluida")
   document.getElementById("modalExcluirConta").style.display = "none"
   deslogar()
-  geradorDeCards()
+  popup.showModal()
+      setTimeout(() => {
+        popup.close()
+        mostrarHome()
+        cardClose()
+      }, 2400);
+      geradorDeCards()
 }
 
 
@@ -201,6 +208,7 @@ function cardClose(){
   document.getElementById("modal-card").close()
   document.getElementById("cards-perfil-modal").close()
   document.getElementById("popupEditar").close()
+  document.getElementById("popupExclusao")
 }
 
 // Sistema de criação de cards ---------
@@ -470,12 +478,13 @@ function salvarAlteracoesCard(id){
   }
   saveUsers(allUsers)
       const avisoEdPerfil = document.getElementById("popupEdicaoPerfil")
+      avisoEdPerfil.innerHTML = "Edição Concluída!"
       avisoEdPerfil.showModal()
       setTimeout(() => {
         avisoEdPerfil.close()
         mostrarPerfil()
         cardClose()
-      }, 1200);
+      }, 1800);
       geradorDeCards()
 }
 
@@ -486,10 +495,10 @@ function deletarCard(id){
   const userIndex = allUsers.findIndex(u => u.cpf === usuarioCard.cpf)
   if (userIndex === -1) return;
 
-  const indexImovel = allUsers[userIndex].imoveis.findIndex(imoveis=> imoveis.id === id)
+  const indexImovel = allUsers[userIndex].imoveis.findIndex(imoveis => imoveis.id === id)
    if (indexImovel === -1) return;
 
-  allUsers[userIndex].imoveis.splice([indexImovel])
+  allUsers[userIndex].imoveis.splice([indexImovel], 1)
 
   const logado = JSON.parse(localStorage.getItem("usuariosLogados"))
   
@@ -497,14 +506,14 @@ function deletarCard(id){
     localStorage.setItem("usuariosLogados", JSON.stringify(allUsers[userIndex]))
   }
   saveUsers(allUsers)
-      const avisoEdPerfil = document.getElementById("popupEdicaoPerfil")
-      avisoEdPerfil.innerText = "Exclusão concluída!"
+      const avisoEdPerfil = document.getElementById("popupExclusao")
+      avisoEdPerfil.innerText = "Card deletado!"
       avisoEdPerfil.showModal()
       setTimeout(() => {
         avisoEdPerfil.close()
         mostrarPerfil()
         cardClose()
-      }, 1200);
+      }, 1800);
       geradorDeCards()
 }
 
@@ -613,7 +622,7 @@ function editarPerfilUsuario(){
 
   document.addEventListener("DOMContentLoaded", () => {
     const popUp = document.getElementById("popupEditar");
-    const btnEditarConta = document.getElementById("botaoEditarConta");
+    const btnEditarConta = document.getElementById("botaoEditarContaModal");
   
     if (btnEditarConta) {
       btnEditarConta.addEventListener("click", () => {
